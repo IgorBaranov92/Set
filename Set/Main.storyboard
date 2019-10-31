@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hhx-js-fYs">
-    <device id="retina6_5" orientation="portrait" appearance="light"/>
+    <device id="ipad12_9" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
@@ -13,18 +14,18 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="SetGameViewController" customModule="Set" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="qjS-x0-nP6">
-                                <rect key="frame" x="0.0" y="44" width="414" height="733"/>
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="1280"/>
                                 <color key="backgroundColor" red="0.30050372939999997" green="0.66024345340000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <stackView userInteractionEnabled="NO" contentMode="scaleAspectFit" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="uhK-ZK-AAl">
-                                <rect key="frame" x="20" y="777" width="308.66666666666669" height="36"/>
+                                <rect key="frame" x="20" y="1280" width="309" height="36"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scores: 0" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AlW-Kk-yGN">
-                                        <rect key="frame" x="0.0" y="0.0" width="144.33333333333334" height="36"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="144.5" height="36"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="36" id="ecO-6j-UTl"/>
                                         </constraints>
@@ -33,7 +34,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Matches: 0" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2r7-Rc-xd4">
-                                        <rect key="frame" x="164.33333333333331" y="0.0" width="144.33333333333331" height="36"/>
+                                        <rect key="frame" x="164.5" y="0.0" width="144.5" height="36"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="36" id="Fog-Uz-edy"/>
                                         </constraints>
@@ -76,14 +77,14 @@
             <objects>
                 <viewController id="hhx-js-fYs" customClass="ThemeChooserViewController" customModule="Set" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sq4-TN-hL6">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="dN3-4C-YPc">
-                                <rect key="frame" x="150.66666666666666" y="305" width="112.99999999999997" height="286"/>
+                                <rect key="frame" x="8" y="351" width="359" height="664"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o64-Hb-HCg">
-                                        <rect key="frame" x="0.0" y="0.0" width="113" height="41"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="359" height="104"/>
                                         <fontDescription key="fontDescription" name="Cochin" family="Cochin" pointSize="25"/>
                                         <state key="normal" title="Halloween"/>
                                         <variation key="heightClass=regular-widthClass=regular">
@@ -94,7 +95,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Ov-E1-gTR">
-                                        <rect key="frame" x="27" y="49" width="59" height="41"/>
+                                        <rect key="frame" x="86" y="112" width="187" height="104"/>
                                         <fontDescription key="fontDescription" name="Cochin" family="Cochin" pointSize="25"/>
                                         <state key="normal" title="Sport"/>
                                         <variation key="heightClass=regular-widthClass=regular">
@@ -105,7 +106,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y8G-We-JsK">
-                                        <rect key="frame" x="5" y="98" width="103" height="41"/>
+                                        <rect key="frame" x="15.5" y="224" width="328" height="104"/>
                                         <fontDescription key="fontDescription" name="Cochin" family="Cochin" pointSize="25"/>
                                         <state key="normal" title="Transport"/>
                                         <variation key="heightClass=regular-widthClass=regular">
@@ -116,7 +117,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a6o-xR-3DN">
-                                        <rect key="frame" x="19" y="147" width="75" height="41"/>
+                                        <rect key="frame" x="59.5" y="336" width="240" height="104"/>
                                         <fontDescription key="fontDescription" name="Cochin" family="Cochin" pointSize="25"/>
                                         <state key="normal" title="Animal"/>
                                         <variation key="heightClass=regular-widthClass=regular">
@@ -127,7 +128,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="23m-nS-9Tq">
-                                        <rect key="frame" x="29" y="196" width="55" height="41"/>
+                                        <rect key="frame" x="92.5" y="448" width="174" height="104"/>
                                         <fontDescription key="fontDescription" name="Cochin" family="Cochin" pointSize="25"/>
                                         <state key="normal" title="Food"/>
                                         <variation key="heightClass=regular-widthClass=regular">
@@ -138,7 +139,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GsC-cD-66J">
-                                        <rect key="frame" x="17" y="245" width="79" height="41"/>
+                                        <rect key="frame" x="53.5" y="560" width="252" height="104"/>
                                         <fontDescription key="fontDescription" name="Cochin" family="Cochin" pointSize="25"/>
                                         <state key="normal" title="Clothes"/>
                                         <variation key="heightClass=regular-widthClass=regular">
@@ -151,7 +152,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="0.87050551899999995" green="0.87050551899999995" blue="0.87050551899999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.86069032229999998" green="0.86069032229999998" blue="0.86069032229999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="dN3-4C-YPc" firstAttribute="centerY" secondItem="sq4-TN-hL6" secondAttribute="centerY" id="aay-fp-PaQ"/>
                             <constraint firstItem="dN3-4C-YPc" firstAttribute="centerX" secondItem="sq4-TN-hL6" secondAttribute="centerX" id="gP4-5i-6uI"/>
@@ -171,11 +172,11 @@
             <objects>
                 <viewController id="Aa1-LD-LyE" customClass="ConcentrationViewController" customModule="Set" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hgs-dV-64k">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flips" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="BHk-MK-xtS">
-                                <rect key="frame" x="8" y="44" width="83" height="46"/>
+                                <rect key="frame" x="8" y="0.0" width="114.5" height="63.5"/>
                                 <fontDescription key="fontDescription" name="Cochin" family="Cochin" pointSize="40"/>
                                 <color key="textColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -187,7 +188,7 @@
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scores" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="SSR-4E-IMq">
-                                <rect key="frame" x="295.33333333333331" y="44" width="110.66666666666669" height="46"/>
+                                <rect key="frame" x="864" y="0.0" width="152" height="63.5"/>
                                 <fontDescription key="fontDescription" name="Cochin" family="Cochin" pointSize="40"/>
                                 <color key="textColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -199,14 +200,13 @@
                                 </variation>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="say-bp-F3E">
-                                <rect key="frame" x="20" y="213.33333333333334" width="374" height="469.33333333333326"/>
+                                <rect key="frame" x="20" y="108.5" width="984" height="1149"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="LJc-sa-8ke">
-                                        <rect key="frame" x="0.0" y="0.0" width="728" height="115"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="984" height="157"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uR1-9b-e4L" customClass="GameButton" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="114.5" height="115"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="157.5" height="157"/>
                                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                                 <variation key="heightClass=regular-widthClass=compact">
@@ -220,7 +220,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="heS-te-cna" customClass="GameButton" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="122.5" y="0.0" width="115" height="115"/>
+                                                <rect key="frame" x="165.5" y="0.0" width="157" height="157"/>
                                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                                 <variation key="heightClass=regular-widthClass=compact">
@@ -234,7 +234,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xb8-eG-6ED" customClass="GameButton" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="245.5" y="0.0" width="114.5" height="115"/>
+                                                <rect key="frame" x="330.5" y="0.0" width="157.5" height="157"/>
                                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                                 <variation key="heightClass=regular-widthClass=compact">
@@ -248,7 +248,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bfA-iy-N40" customClass="GameButton" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="368" y="0.0" width="114.5" height="115"/>
+                                                <rect key="frame" x="496" y="0.0" width="157.5" height="157"/>
                                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                                 <variation key="heightClass=regular-widthClass=compact">
@@ -262,9 +262,11 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6uA-f2-qNh" customClass="GameButton" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="490.5" y="0.0" width="115" height="115"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <rect key="frame" x="661.5" y="0.0" width="157" height="157"/>
                                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="6uA-f2-qNh" secondAttribute="height" multiplier="1:1" id="ipm-1q-evF"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                                 <variation key="heightClass=regular-widthClass=compact">
                                                     <fontDescription key="fontDescription" type="system" pointSize="80"/>
@@ -277,9 +279,11 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eLM-a6-wRr" customClass="GameButton" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="613.5" y="0.0" width="114.5" height="115"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <rect key="frame" x="826.5" y="0.0" width="157.5" height="157"/>
                                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="eLM-a6-wRr" secondAttribute="height" multiplier="1:1" id="e7A-Br-v79"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                                 <variation key="heightClass=regular-widthClass=compact">
                                                     <fontDescription key="fontDescription" type="system" pointSize="80"/>
@@ -309,10 +313,10 @@
                                         </variation>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="wd1-1N-szW">
-                                        <rect key="frame" x="0.0" y="123" width="728" height="114.5"/>
+                                        <rect key="frame" x="0.0" y="165" width="984" height="157.5"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YMI-F9-YOC" customClass="GameButton" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="114.5" height="114.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="157.5" height="157.5"/>
                                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                                 <variation key="heightClass=regular-widthClass=compact">
@@ -326,7 +330,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A08-9n-Zhd" customClass="GameButton" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="122.5" y="0.0" width="115" height="114.5"/>
+                                                <rect key="frame" x="165.5" y="0.0" width="157" height="157.5"/>
                                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                                 <variation key="heightClass=regular-widthClass=compact">
@@ -340,7 +344,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5be-fk-eHN" customClass="GameButton" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="245.5" y="0.0" width="114.5" height="114.5"/>
+                                                <rect key="frame" x="330.5" y="0.0" width="157.5" height="157.5"/>
                                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                                 <variation key="heightClass=regular-widthClass=compact">
@@ -354,7 +358,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1AB-fM-OL0" customClass="GameButton" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="368" y="0.0" width="114.5" height="114.5"/>
+                                                <rect key="frame" x="496" y="0.0" width="157.5" height="157.5"/>
                                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                                 <variation key="heightClass=regular-widthClass=compact">
@@ -368,9 +372,11 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7x2-L7-Chj" customClass="GameButton" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="490.5" y="0.0" width="115" height="114.5"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <rect key="frame" x="661.5" y="0.0" width="157" height="157.5"/>
                                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="7x2-L7-Chj" secondAttribute="height" multiplier="1:1" id="7Ob-Ik-awI"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                                 <variation key="heightClass=regular-widthClass=compact">
                                                     <fontDescription key="fontDescription" type="system" pointSize="80"/>
@@ -383,9 +389,11 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GPL-aO-J53" customClass="GameButton" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="613.5" y="0.0" width="114.5" height="114.5"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <rect key="frame" x="826.5" y="0.0" width="157.5" height="157.5"/>
                                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="GPL-aO-J53" secondAttribute="height" multiplier="1:1" id="d7U-kN-bQI"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                                 <variation key="heightClass=regular-widthClass=compact">
                                                     <fontDescription key="fontDescription" type="system" pointSize="80"/>
@@ -413,10 +421,10 @@
                                         </variation>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="R5P-0G-z71">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="87.333333333333329"/>
+                                        <rect key="frame" x="0.0" y="330.5" width="984" height="157.5"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XBc-fC-oA2" customClass="GameButton" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="87.666666666666671" height="87.333333333333329"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="157.5" height="157.5"/>
                                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                                 <variation key="heightClass=regular-widthClass=compact">
@@ -430,7 +438,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OeN-Ok-lSl" customClass="GameButton" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="95.666666666666686" y="0.0" width="87.333333333333314" height="87.333333333333329"/>
+                                                <rect key="frame" x="165.5" y="0.0" width="157" height="157.5"/>
                                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                                 <variation key="heightClass=regular-widthClass=compact">
@@ -444,7 +452,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2uC-x2-dnN" customClass="GameButton" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="191" y="0.0" width="87.666666666666686" height="87.333333333333329"/>
+                                                <rect key="frame" x="330.5" y="0.0" width="157.5" height="157.5"/>
                                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                                 <variation key="heightClass=regular-widthClass=compact">
@@ -458,7 +466,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hfz-VC-LBk" customClass="GameButton" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="286.66666666666669" y="0.0" width="87.333333333333314" height="87.333333333333329"/>
+                                                <rect key="frame" x="496" y="0.0" width="157.5" height="157.5"/>
                                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                                 <variation key="heightClass=regular-widthClass=compact">
@@ -472,9 +480,11 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z7v-MT-4wi" customClass="GameButton" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="490.5" y="0.0" width="115" height="114.5"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <rect key="frame" x="661.5" y="0.0" width="157" height="157.5"/>
                                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="Z7v-MT-4wi" secondAttribute="height" multiplier="1:1" id="JVX-dn-KcV"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                                 <variation key="heightClass=regular-widthClass=compact">
                                                     <fontDescription key="fontDescription" type="system" pointSize="80"/>
@@ -487,9 +497,11 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Ns-md-DTI" customClass="GameButton" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="613.5" y="0.0" width="114.5" height="114.5"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <rect key="frame" x="826.5" y="0.0" width="157.5" height="157.5"/>
                                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="0Ns-md-DTI" secondAttribute="height" multiplier="1:1" id="ta2-SO-tbJ"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                                 <variation key="heightClass=regular-widthClass=compact">
                                                     <fontDescription key="fontDescription" type="system" pointSize="80"/>
@@ -517,10 +529,10 @@
                                         </variation>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ucj-My-yU1">
-                                        <rect key="frame" x="0.0" y="95.333333333333371" width="374" height="87.666666666666657"/>
+                                        <rect key="frame" x="0.0" y="496" width="984" height="157"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1rm-yw-mht" customClass="GameButton" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="87.666666666666671" height="87.666666666666671"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="157.5" height="157"/>
                                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                                 <variation key="heightClass=regular-widthClass=compact">
@@ -534,7 +546,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xnj-UR-N8a" customClass="GameButton" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="95.666666666666686" y="0.0" width="87.333333333333314" height="87.666666666666671"/>
+                                                <rect key="frame" x="165.5" y="0.0" width="157" height="157"/>
                                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="Xnj-UR-N8a" secondAttribute="height" multiplier="1:1" id="baa-jf-J1k"/>
@@ -551,7 +563,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IHT-4g-EzF" customClass="GameButton" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="191" y="0.0" width="87.666666666666686" height="87.666666666666671"/>
+                                                <rect key="frame" x="330.5" y="0.0" width="157.5" height="157"/>
                                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                                 <variation key="heightClass=regular-widthClass=compact">
@@ -565,7 +577,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uRM-bz-ZfA" customClass="GameButton" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="286.66666666666669" y="0.0" width="87.333333333333314" height="87.666666666666671"/>
+                                                <rect key="frame" x="496" y="0.0" width="157.5" height="157"/>
                                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                                 <variation key="heightClass=regular-widthClass=compact">
@@ -579,9 +591,11 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4xQ-rR-mB0" customClass="GameButton" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="490.5" y="0.0" width="115" height="115"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <rect key="frame" x="661.5" y="0.0" width="157" height="157"/>
                                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="4xQ-rR-mB0" secondAttribute="height" multiplier="1:1" id="n0d-d5-gNt"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                                 <variation key="heightClass=regular-widthClass=compact">
                                                     <fontDescription key="fontDescription" type="system" pointSize="80"/>
@@ -594,9 +608,11 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mcd-C7-O2E" customClass="GameButton" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="613.5" y="0.0" width="114.5" height="115"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <rect key="frame" x="826.5" y="0.0" width="157.5" height="157"/>
                                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="mcd-C7-O2E" secondAttribute="height" multiplier="1:1" id="309-4b-53u"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                                 <variation key="heightClass=regular-widthClass=compact">
                                                     <fontDescription key="fontDescription" type="system" pointSize="80"/>
@@ -624,10 +640,10 @@
                                         </variation>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="t40-k1-WAr">
-                                        <rect key="frame" x="0.0" y="191" width="374" height="87.333333333333343"/>
+                                        <rect key="frame" x="0.0" y="661" width="984" height="157.5"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iww-mM-eia" customClass="GameButton" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="87.666666666666671" height="87.333333333333329"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="157.5" height="157.5"/>
                                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                                 <variation key="heightClass=regular-widthClass=compact">
@@ -641,7 +657,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zwq-5J-nLt" customClass="GameButton" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="95.666666666666686" y="0.0" width="87.333333333333314" height="87.333333333333329"/>
+                                                <rect key="frame" x="165.5" y="0.0" width="157" height="157.5"/>
                                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                                 <variation key="heightClass=regular-widthClass=compact">
@@ -655,7 +671,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9rj-no-f8n" customClass="GameButton" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="191" y="0.0" width="87.666666666666686" height="87.333333333333329"/>
+                                                <rect key="frame" x="330.5" y="0.0" width="157.5" height="157.5"/>
                                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                                 <variation key="heightClass=regular-widthClass=compact">
@@ -669,7 +685,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LVa-nm-XcL" customClass="GameButton" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="286.66666666666669" y="0.0" width="87.333333333333314" height="87.333333333333329"/>
+                                                <rect key="frame" x="496" y="0.0" width="157.5" height="157.5"/>
                                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                                 <variation key="heightClass=regular-widthClass=compact">
@@ -683,9 +699,11 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ede-fh-4ZA" customClass="GameButton" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="490.5" y="0.0" width="115" height="114.5"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <rect key="frame" x="661.5" y="0.0" width="157" height="157.5"/>
                                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="ede-fh-4ZA" secondAttribute="height" multiplier="1:1" id="utC-Tf-1x1"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                                 <variation key="heightClass=regular-widthClass=compact">
                                                     <fontDescription key="fontDescription" type="system" pointSize="80"/>
@@ -698,9 +716,11 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Z8-5m-Bv2" customClass="GameButton" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="613.5" y="0.0" width="114.5" height="114.5"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <rect key="frame" x="826.5" y="0.0" width="157.5" height="157.5"/>
                                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="7Z8-5m-Bv2" secondAttribute="height" multiplier="1:1" id="a0E-si-sNa"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                                 <variation key="heightClass=regular-widthClass=compact">
                                                     <fontDescription key="fontDescription" type="system" pointSize="80"/>
@@ -728,10 +748,10 @@
                                         </variation>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="kWF-2B-krM">
-                                        <rect key="frame" x="0.0" y="286.33333333333337" width="374" height="87.666666666666686"/>
+                                        <rect key="frame" x="0.0" y="826.5" width="984" height="157.5"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GDh-XQ-XqJ" customClass="GameButton" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="87.666666666666671" height="87.666666666666671"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="157.5" height="157.5"/>
                                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                                 <variation key="heightClass=regular-widthClass=compact">
@@ -745,7 +765,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Jw-8I-DbS" customClass="GameButton" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="95.666666666666686" y="0.0" width="87.333333333333314" height="87.666666666666671"/>
+                                                <rect key="frame" x="165.5" y="0.0" width="157" height="157.5"/>
                                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                                 <variation key="heightClass=regular-widthClass=compact">
@@ -759,7 +779,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WkB-2w-hLz" customClass="GameButton" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="191" y="0.0" width="87.666666666666686" height="87.666666666666671"/>
+                                                <rect key="frame" x="330.5" y="0.0" width="157.5" height="157.5"/>
                                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                                 <variation key="heightClass=regular-widthClass=compact">
@@ -773,7 +793,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U1C-Y5-3Lh" customClass="GameButton" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="286.66666666666669" y="0.0" width="87.333333333333314" height="87.666666666666671"/>
+                                                <rect key="frame" x="496" y="0.0" width="157.5" height="157.5"/>
                                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                                 <variation key="heightClass=regular-widthClass=compact">
@@ -787,9 +807,11 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qeI-bk-uyT" customClass="GameButton" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="490.5" y="0.0" width="115" height="114.5"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <rect key="frame" x="661.5" y="0.0" width="157" height="157.5"/>
                                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="qeI-bk-uyT" secondAttribute="height" multiplier="1:1" id="JFa-je-6HY"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                                 <variation key="heightClass=regular-widthClass=compact">
                                                     <fontDescription key="fontDescription" type="system" pointSize="80"/>
@@ -802,9 +824,11 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IMm-Zc-xT3" customClass="GameButton" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="613.5" y="0.0" width="114.5" height="114.5"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <rect key="frame" x="826.5" y="0.0" width="157.5" height="157.5"/>
                                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="IMm-Zc-xT3" secondAttribute="height" multiplier="1:1" id="KVk-j6-pHN"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                                 <variation key="heightClass=regular-widthClass=compact">
                                                     <fontDescription key="fontDescription" type="system" pointSize="80"/>
@@ -832,10 +856,10 @@
                                         </variation>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="WDF-4g-me4">
-                                        <rect key="frame" x="0.0" y="382" width="374" height="87.333333333333314"/>
+                                        <rect key="frame" x="0.0" y="992" width="984" height="157"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2yU-Sz-UOn" customClass="GameButton" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="87.666666666666671" height="87.333333333333329"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="157.5" height="157"/>
                                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                                 <variation key="heightClass=regular-widthClass=compact">
@@ -849,7 +873,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W52-2r-bQY" customClass="GameButton" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="95.666666666666686" y="0.0" width="87.333333333333314" height="87.333333333333329"/>
+                                                <rect key="frame" x="165.5" y="0.0" width="157" height="157"/>
                                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                                 <variation key="heightClass=regular-widthClass=compact">
@@ -863,7 +887,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nwv-nB-1ws" customClass="GameButton" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="191" y="0.0" width="87.666666666666686" height="87.333333333333329"/>
+                                                <rect key="frame" x="330.5" y="0.0" width="157.5" height="157"/>
                                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                                 <variation key="heightClass=regular-widthClass=compact">
@@ -877,7 +901,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="laD-GS-PmO" customClass="GameButton" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="286.66666666666669" y="0.0" width="87.333333333333314" height="87.333333333333329"/>
+                                                <rect key="frame" x="496" y="0.0" width="157.5" height="157"/>
                                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                                 <variation key="heightClass=regular-widthClass=compact">
@@ -891,9 +915,11 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Dq-Az-4Ms" customClass="GameButton" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="490.5" y="0.0" width="115" height="115"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <rect key="frame" x="661.5" y="0.0" width="157" height="157"/>
                                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="9Dq-Az-4Ms" secondAttribute="height" multiplier="1:1" id="mSd-bx-O4g"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                                 <variation key="heightClass=regular-widthClass=compact">
                                                     <fontDescription key="fontDescription" type="system" pointSize="80"/>
@@ -906,9 +932,11 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UKt-u0-RJ6" customClass="GameButton" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="613.5" y="0.0" width="114.5" height="115"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <rect key="frame" x="826.5" y="0.0" width="157.5" height="157"/>
                                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="UKt-u0-RJ6" secondAttribute="height" multiplier="1:1" id="4o2-cY-k86"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                                 <variation key="heightClass=regular-widthClass=compact">
                                                     <fontDescription key="fontDescription" type="system" pointSize="80"/>
@@ -951,7 +979,7 @@
                                 </variation>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="uMx-JU-DWl">
-                                <rect key="frame" x="228" y="796" width="178" height="58"/>
+                                <rect key="frame" x="749" y="1277" width="267" height="81"/>
                                 <fontDescription key="fontDescription" name="Cochin" family="Cochin" pointSize="40"/>
                                 <state key="normal" title="New game">
                                     <color key="titleColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -967,7 +995,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KZR-pc-3Em">
-                                <rect key="frame" x="8" y="796" width="86" height="58"/>
+                                <rect key="frame" x="8" y="1277" width="128" height="81"/>
                                 <fontDescription key="fontDescription" name="Cochin" family="Cochin" pointSize="40"/>
                                 <state key="normal" title="Back">
                                     <color key="titleColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1129,6 +1157,6 @@
         <image name="setTabBarImage" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="uMn-xv-8R3"/>
+        <segue reference="Ko4-KB-uvz"/>
     </inferredMetricsTieBreakers>
 </document>
