@@ -24,17 +24,16 @@ class ConcentrationViewController: UIViewController, UISplitViewControllerDelega
                     if let subStackView = stackViewSubview as? UIStackView {
                         for button in subStackView.subviews {
                             if let gameButton = button as? GameButton {
-                                if !gameButton.isHidden {
-                                    buttons.append(gameButton)
-                                }
+                                buttons.append(gameButton)
                             }
                         }
                     }
                 }
             }
         }
-        return buttons
+        return buttons.filter { $0.isHidden == false }
     }()
+    
     private var currentEmoji = String()
     private var emoji = [ConcentrationCard:Character]()
     private var lastChosenIndexOfCard: Int?
@@ -49,7 +48,6 @@ class ConcentrationViewController: UIViewController, UISplitViewControllerDelega
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         createNewGame()
         navigationItem.title = themeName
         print("cardButtonsCount = \(cardButtons.count)")
@@ -61,10 +59,6 @@ class ConcentrationViewController: UIViewController, UISplitViewControllerDelega
         updateConstraints()
     }
 
-    private func updateStackView() {
-        
-    }
-    
     // MARK: - IBActions
 
 
@@ -73,7 +67,6 @@ class ConcentrationViewController: UIViewController, UISplitViewControllerDelega
             if !game.cards[cardIndex].isMatched && cardButtons[cardIndex].currentTitle == "" {
                 game.chooseCard(at: cardIndex)
                 if lastChosenIndexOfCard == nil { lastChosenIndexOfCard = cardIndex }
-                cardButtons[cardIndex].isUserInteractionEnabled = false
                 cardButtons[cardIndex].setTitle(String(emoji(for: game.cards[cardIndex])), for: .normal)
                 UIView.transition(with: self.cardButtons[cardIndex],
                                   duration: Constants.durationForFlippingCard,
@@ -82,7 +75,7 @@ class ConcentrationViewController: UIViewController, UISplitViewControllerDelega
                                     self.cardButtons[cardIndex].backgroundColor = .clear
                 }){ completed in
                     if self.game.lastChosenIndex == nil {
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + Constants.timeInterval) {
                             if self.lastChosenIndexOfCard != nil {
                                 [self.lastChosenIndexOfCard!,cardIndex].forEach { index in
                                     self.cardButtons[index].setTitle("", for: .normal)
@@ -95,7 +88,7 @@ class ConcentrationViewController: UIViewController, UISplitViewControllerDelega
                                         }) { completed in }
                                     } else {
                                         if self.game.gameCompleted {
-                                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
+                                            DispatchQueue.main.asyncAfter(deadline: .now() + Constants.timeInterval) {
                                                 self.createNewGame()
                                             }
                                         }
@@ -182,6 +175,6 @@ class ConcentrationViewController: UIViewController, UISplitViewControllerDelega
 fileprivate struct Constants {
     static let durationForFlippingCard = 0.4
     static let leadingConstraintInPortrait:CGFloat = 20.0
-
+    static let timeInterval =  0.15
 }
 
