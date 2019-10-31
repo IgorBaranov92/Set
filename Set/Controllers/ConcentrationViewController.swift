@@ -4,7 +4,19 @@ class ConcentrationViewController: UIViewController, UISplitViewControllerDelega
 
     // MARK: - Public API
 
-    lazy var cardButtons: [GameButton] = {
+    var theme: (emoji:String,backgroundColor:UIColor,cardColor:UIColor)!
+    var themeName = String()
+    @IBOutlet weak var flipCountLabel: UILabel!
+    @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var newGameButton: UIButton!
+    @IBOutlet weak var stackView: UIStackView!
+    
+    
+    // MARK: - Private API
+
+    private lazy var game = Concentration(numberOfPairsOfCards: cardButtons.count/2)
+    private lazy var cardButtons: [GameButton] = {
         var buttons = [GameButton]()
         for subview in view.subviews {
             if let stackView = subview as? UIStackView {
@@ -12,7 +24,9 @@ class ConcentrationViewController: UIViewController, UISplitViewControllerDelega
                     if let subStackView = stackViewSubview as? UIStackView {
                         for button in subStackView.subviews {
                             if let gameButton = button as? GameButton {
-                                buttons.append(gameButton)
+                                if !gameButton.isHidden {
+                                    buttons.append(gameButton)
+                                }
                             }
                         }
                     }
@@ -21,18 +35,6 @@ class ConcentrationViewController: UIViewController, UISplitViewControllerDelega
         }
         return buttons
     }()
-    
-    @IBOutlet weak var flipCountLabel: UILabel!
-    @IBOutlet weak var scoreLabel: UILabel!
-    @IBOutlet weak var backButton: UIButton!
-    @IBOutlet weak var newGameButton: UIButton!
-    @IBOutlet weak var stackView: UIStackView!
-    lazy var game = Concentration(numberOfPairsOfCards: cardButtons.count/2)
-    var theme: (emoji:String,backgroundColor:UIColor,cardColor:UIColor)!
-    var themeName = String()
-
-    // MARK: - Private API
-
     private var currentEmoji = String()
     private var emoji = [ConcentrationCard:Character]()
     private var lastChosenIndexOfCard: Int?
@@ -47,6 +49,7 @@ class ConcentrationViewController: UIViewController, UISplitViewControllerDelega
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         createNewGame()
         navigationItem.title = themeName
         print("cardButtonsCount = \(cardButtons.count)")
@@ -58,6 +61,10 @@ class ConcentrationViewController: UIViewController, UISplitViewControllerDelega
         updateConstraints()
     }
 
+    private func updateStackView() {
+        
+    }
+    
     // MARK: - IBActions
 
 
@@ -155,7 +162,7 @@ class ConcentrationViewController: UIViewController, UISplitViewControllerDelega
                 trailingConstraint.constant = leadingConstraint.constant
             }
             if isLandscapeOrientation {
-                leadingConstraint.constant = 210.0
+                leadingConstraint.constant = 190.0
                 trailingConstraint.constant = leadingConstraint.constant
             }
         }

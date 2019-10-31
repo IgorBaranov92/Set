@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		789FAEEE236AD8B3004B883E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78EA3486236ABE7600798B3B /* Main.storyboard */; };
 		78EA344A236AB87200798B3B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78EA3449236AB87200798B3B /* AppDelegate.swift */; };
 		78EA3453236AB87600798B3B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78EA3452236AB87600798B3B /* Assets.xcassets */; };
 		78EA3456236AB87600798B3B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78EA3454236AB87600798B3B /* LaunchScreen.storyboard */; };
@@ -24,7 +25,6 @@
 		78EA3481236AB91F00798B3B /* ConcentrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78EA347D236AB91F00798B3B /* ConcentrationViewController.swift */; };
 		78EA3482236AB91F00798B3B /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78EA347E236AB91F00798B3B /* TabBarController.swift */; };
 		78EA3485236AB94C00798B3B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78EA3484236AB94B00798B3B /* Extensions.swift */; };
-		78EA3487236ABE7600798B3B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78EA3486236ABE7600798B3B /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -201,7 +201,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				78EA3487236ABE7600798B3B /* Main.storyboard in Resources */,
+				789FAEEE236AD8B3004B883E /* Main.storyboard in Resources */,
 				78EA3456236AB87600798B3B /* LaunchScreen.storyboard in Resources */,
 				78EA3453236AB87600798B3B /* Assets.xcassets in Resources */,
 			);
