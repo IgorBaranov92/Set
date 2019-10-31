@@ -15,17 +15,6 @@ protocol GameDelegate: class {
     func gameFinished()
 }
 
-extension CGAffineTransform {
-    func scaledBy(_ dxy:CGFloat) -> CGAffineTransform {
-        return scaledBy(x: dxy, y: dxy)
-    }
-}
-
-extension UIView {
-    func scaleSizeBy(_ ratio: CGFloat) {
-        frame.size = CGSize(width: bounds.width*ratio, height: bounds.height*ratio)
-    }
-}
 
 extension CGRect {
     var center: CGPoint {
@@ -33,11 +22,6 @@ extension CGRect {
     }
 }
 
-extension CGPoint {
-    func moveToBy(_ dx:CGFloat,_ dy:CGFloat) -> CGPoint {
-        return CGPoint(x: x+dx, y: y+dy)
-    }
-}
 
 extension UIViewController {
     var content: UIViewController {

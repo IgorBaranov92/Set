@@ -6,8 +6,9 @@ struct ConcentrationCard {
     var isMatched = false
     var alreadySeen = false
     
-    private var identifier: Int
+    var numberOfMismatchedInvolded = 0
     
+    private(set) var identifier: Int
     static private var id = 1
     
     init() {

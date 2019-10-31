@@ -1,32 +1,47 @@
 import Foundation
 
 class Concentration {
-    
+    ///Shows total scores, not reset each time new game created
     static private(set) var scores = 0
 
     private(set) var cards = [ConcentrationCard]()
-    private(set) var lastChosenIndex: Int?
+    
     private(set) var flipCount = 0
+    ///Determine if two selected cards are equal
     private(set) var cardsAreMatched = false
+    private var firstDate = Date()
+    var lastChosenIndex: Int?
+    var gameCompleted: Bool { cards.filter { $0.isMatched }.count == cards.count }
     
     
     func chooseCard(at index: Int) {
         if !cards[index].isMatched {
             flipCount += 1
             if lastChosenIndex == nil {
+                firstDate = Date()
                 cardsAreMatched = false
                 lastChosenIndex = index
                 cards[index].isFaceUp = true
             } else if lastChosenIndex != nil, lastChosenIndex != index {
                 cards[index].isFaceUp = true
                 if cards[index] == cards[lastChosenIndex!] {
-                    Concentration.scores += 2
                     cards[index].isMatched = true
                     cards[lastChosenIndex!].isMatched = true
                     cardsAreMatched = true
+                    if (cards.filter{ !$0.isMatched}.count) >= 6 {
+                        Concentration.scores += calculateScoresBasedOnDifferenceBetween(firstDate,Date()).rawValue
+                    } else {
+                        Concentration.scores += 2
+                    }
                 } else {
-                    if cards[index].alreadySeen { Concentration.scores -= 1 }
-                    if cards[lastChosenIndex!].alreadySeen { Concentration.scores -= 1 }
+                    if cards[index].alreadySeen {
+                        cards[index].numberOfMismatchedInvolded += 1
+                        Concentration.scores -= cards[index].numberOfMismatchedInvolded
+                    }
+                    if cards[lastChosenIndex!].alreadySeen {
+                        cards[lastChosenIndex!].numberOfMismatchedInvolded += 1
+                        Concentration.scores -= cards[lastChosenIndex!].numberOfMismatchedInvolded
+                    }
                     cards[index].alreadySeen = true
                     cards[lastChosenIndex!].alreadySeen = true
                 }
@@ -37,16 +52,28 @@ class Concentration {
         }
     }
     
-    var gameCompleted: Bool {
-        return cards.filter { $0.isMatched }.count == cards.count
+    private enum Speed: Int {
+        case superfast = 6
+        case fast = 4
+        case regular = 2
     }
+    
+    private func calculateScoresBasedOnDifferenceBetween(_ firstDate:Date,_ secondDate:Date) -> Speed {
+        let difference = secondDate.timeIntervalSince(firstDate)
+        switch difference {
+        case 0...1: return .superfast
+        case 1.01...2: return .fast
+        default:return .regular
+        }
+    }
+    
     
     init(numberOfPairsOfCards: Int) {
         for _ in 1...numberOfPairsOfCards {
             let card = ConcentrationCard()
             cards += [card,card]
         }
-        cards = cards.shuffled()
+//        cards = cards.shuffled()
         flipCount = 0
         lastChosenIndex = nil
         cardsAreMatched = false

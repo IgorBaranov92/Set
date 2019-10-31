@@ -746,7 +746,7 @@
                                 <variation key="heightClass=compact" axis="horizontal"/>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="uMx-JU-DWl">
-                                <rect key="frame" x="228" y="747" width="178" height="58"/>
+                                <rect key="frame" x="118" y="747" width="178" height="58"/>
                                 <fontDescription key="fontDescription" name="Cochin" family="Cochin" pointSize="40"/>
                                 <state key="normal" title="New game">
                                     <color key="titleColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -765,7 +765,6 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="PEZ-jD-G6n" firstAttribute="bottom" secondItem="say-bp-F3E" secondAttribute="bottom" id="B2B-r5-263"/>
-                            <constraint firstItem="PEZ-jD-G6n" firstAttribute="trailing" secondItem="uMx-JU-DWl" secondAttribute="trailing" constant="8" id="CqH-y7-szv"/>
                             <constraint firstItem="PEZ-jD-G6n" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="BHk-MK-xtS" secondAttribute="trailing" priority="250" constant="147" id="Krw-0D-JFf"/>
                             <constraint firstItem="say-bp-F3E" firstAttribute="centerX" secondItem="hgs-dV-64k" secondAttribute="centerX" id="Lte-zx-gQT"/>
                             <constraint firstItem="BHk-MK-xtS" firstAttribute="leading" secondItem="say-bp-F3E" secondAttribute="trailing" constant="8" symbolic="YES" id="Mcm-Va-a5L"/>
@@ -778,6 +777,7 @@
                             <constraint firstItem="BHk-MK-xtS" firstAttribute="top" secondItem="PEZ-jD-G6n" secondAttribute="top" id="gVx-Hc-r3x"/>
                             <constraint firstItem="BHk-MK-xtS" firstAttribute="top" secondItem="PEZ-jD-G6n" secondAttribute="top" id="ibh-mt-G9M"/>
                             <constraint firstItem="PEZ-jD-G6n" firstAttribute="trailing" secondItem="BHk-MK-xtS" secondAttribute="trailing" id="ida-ms-Ynm"/>
+                            <constraint firstItem="uMx-JU-DWl" firstAttribute="centerX" secondItem="hgs-dV-64k" secondAttribute="centerX" id="lyD-Pj-61E"/>
                             <constraint firstItem="uMx-JU-DWl" firstAttribute="bottom" secondItem="PEZ-jD-G6n" secondAttribute="bottom" id="ngk-S2-uVI"/>
                             <constraint firstItem="say-bp-F3E" firstAttribute="leading" secondItem="PEZ-jD-G6n" secondAttribute="leading" constant="20" id="pbW-gj-MaY">
                                 <variation key="heightClass=regular-widthClass=compact" constant="10"/>
@@ -817,7 +817,6 @@
                         <variation key="heightClass=compact">
                             <mask key="constraints">
                                 <include reference="B2B-r5-263"/>
-                                <exclude reference="CqH-y7-szv"/>
                                 <exclude reference="Krw-0D-JFf"/>
                                 <include reference="ida-ms-Ynm"/>
                                 <exclude reference="uue-s5-4GY"/>
@@ -837,6 +836,7 @@
                                 <exclude reference="YWm-oN-ZTK"/>
                                 <exclude reference="wfV-k1-ENg"/>
                                 <include reference="Xpx-AX-rSi"/>
+                                <exclude reference="lyD-Pj-61E"/>
                                 <include reference="ngk-S2-uVI"/>
                             </mask>
                         </variation>
