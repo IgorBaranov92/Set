@@ -1,55 +1,26 @@
 import UIKit
 
-class ConcentrationViewController: UIViewController, UISplitViewControllerDelegate {
-
-    // MARK: - Public API
-
-    var theme: (emoji:String,backgroundColor:UIColor,cardColor:UIColor)!
-    var themeName = String()
-    @IBOutlet weak var flipCountLabel: UILabel!
-    @IBOutlet weak var scoreLabel: UILabel!
-    @IBOutlet weak var backButton: UIButton!
-    @IBOutlet weak var newGameButton: UIButton!
-    @IBOutlet weak var stackView: UIStackView!
+class ConcentrationViewController: UIViewController {
     
-    
-    // MARK: - Private API
-
+    private var theme: (emoji:String,backgroundColor:UIColor,cardColor:UIColor)!
+    private var themeName = String()
     private lazy var game = Concentration(numberOfPairsOfCards: cardButtons.count/2)
-    private lazy var cardButtons: [GameButton] = {
-        var buttons = [GameButton]()
-        for subview in view.subviews {
-            if let stackView = subview as? UIStackView {
-                for stackViewSubview in stackView.subviews {
-                    if let subStackView = stackViewSubview as? UIStackView {
-                        for button in subStackView.subviews {
-                            if let gameButton = button as? GameButton {
-                                buttons.append(gameButton)
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        return buttons.filter { $0.isHidden == false }
-    }()
-    
     private var currentEmoji = String()
     private var emoji = [ConcentrationCard:Character]()
     private var lastChosenIndexOfCard: Int?
+    
+    @IBOutlet weak var flipCountLabel: UILabel!
+    @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var newGameButton: UIButton!
     @IBOutlet private weak var leadingConstraint: NSLayoutConstraint!
     @IBOutlet private weak var trailingConstraint: NSLayoutConstraint!
+      
     
     // MARK: - ViewController lifecycle
-
-    override func awakeFromNib() {
-        splitViewController?.delegate = self
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         createNewGame()
-        navigationItem.title = themeName
         print("cardButtonsCount = \(cardButtons.count)")
     }
 
@@ -68,6 +39,7 @@ class ConcentrationViewController: UIViewController, UISplitViewControllerDelega
                 game.chooseCard(at: cardIndex)
                 if lastChosenIndexOfCard == nil { lastChosenIndexOfCard = cardIndex }
                 cardButtons[cardIndex].setTitle(String(emoji(for: game.cards[cardIndex])), for: .normal)
+                
                 UIView.transition(with: self.cardButtons[cardIndex],
                                   duration: Constants.durationForFlippingCard,
                                   options: .transitionFlipFromLeft,
@@ -102,23 +74,20 @@ class ConcentrationViewController: UIViewController, UISplitViewControllerDelega
                 }
                 updateLabelsAndButton()
             }
-
         }
     }
 
-    // MARK: - IBActions
+    // MARK: - IBAction
 
 
     @IBAction func newGame(_ sender: UIButton) {
         createNewGame()
     }
-    
-    @IBAction func back(_ sender: UIButton) {
-        dismiss(animated: true)
-    }
 
     private func createNewGame() {
         game = Concentration(numberOfPairsOfCards: cardButtons.count/2)
+        let randomIndex = Int.random(in: 0..<themes.count)
+        theme = Array(themes.values)[randomIndex]
         currentEmoji = theme.emoji
         cardButtons.forEach { $0.backgroundColor = theme.cardColor;$0.setTitle("", for: .normal);$0.isUserInteractionEnabled = true }
         view.backgroundColor = theme.backgroundColor
@@ -126,7 +95,6 @@ class ConcentrationViewController: UIViewController, UISplitViewControllerDelega
         scoreLabel.text = "Scores" + String(Concentration.scores)
         scoreLabel.textColor = theme.cardColor
         flipCountLabel.textColor = theme.cardColor
-        backButton.setTitleColor(theme.cardColor, for: .normal)
         newGameButton.setTitleColor(theme.cardColor, for: .normal)
     }
 
@@ -162,18 +130,43 @@ class ConcentrationViewController: UIViewController, UISplitViewControllerDelega
 
     }
 
-    // MARK: - UISplitViewController delegate
 
-    func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
-        return true
-    }
+    private let themes : [String:(emoji:String,cardColor:UIColor,backgroundColor:UIColor)] = [
+        "Halloween":
+         ("🤡😈👿👹👺💀☠️👻👽👾🤖🦇🦉🕷🕸🥀🍫🍬🍭🎃🔮🎭🕯🗡⛓⚰️⚱️",#colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 1),#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)),
+        "Sport" : ("⚽⚾🏀🏐🏈🏉⛹🤾🥎🏏🏑🏒🥅🥍🏓🎾🏸🥊🥋🤺🤼🏃🏇🏋🏹🤸🤹🛹🥏🎳🏊🏄🤽🎿⛸⛷🏂🛷🥌🏌⛳🧭⛺🎣🧗",#colorLiteral(red: 0.9568627477, green: 0.6588235497, blue: 0.5450980663, alpha: 1),#colorLiteral(red: 0.5725490451, green: 0, blue: 0.2313725501, alpha: 1)) ,
+        "Transport" :
+            ("✈️⛵🚤🚣🚀🚁🚂🚊🚅🚃🚎🚌🚍🚙🚘🚗🚕🚖🚛🚚🚓🚔🚒🚑🚐🚲🚡🚟🚠🚜", #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1),#colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)),
+        "Animal": ("🐶🐺🐱🐭🐹🐰🐸🐯🐨🐻🐷🐮🐗🐵🐒🐴🐑🐘🐼🐧🐦🐤🐥🐣🐔🐍🐢🐛🐝🐜🐞🐌🐙🐚🐠🐟🐬🐳🐋🐄🐏🐀🐃🐅🐇🐉🐎🐐🐓🐕🐖🐁🐂🐲🐡🐊🐫🐪🐆🐈🐩",#colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1),#colorLiteral(red: 0.8306297664, green: 1, blue: 0.7910112419, alpha: 1)) ,
+        "Food":("☕🍵🍶🍼🍺🍻🍸🍹🍷🍴🍕🍔🍟🍗🍖🍝🍛🍤🍱🍣🍥🍙🍘🍚🍜🍲🍢🍡🍳🍞🍩🍮🍦🍨🍧🎂🍰🍪🍫🍬🍭🍯",#colorLiteral(red: 0.9994240403, green: 0.9855536819, blue: 0, alpha: 1),#colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1) ),
+        "Clothes"
+            : ("🎩👑👒👟👞👡👠👢👕👔👚👗🎽👖👘👙💼👜👝👛👓🎀🌂💄",#colorLiteral(red: 0.5818830132, green: 0.2156915367, blue: 1, alpha: 1),#colorLiteral(red: 0.9098039269, green: 0.7650054947, blue: 0.8981300767, alpha: 1)),
+        "Objects"
+            : ("🔧⚒⛏🔩⚙🧲⚖💎💰📡⏰☎🔑🗝🧪🧬💊🧸📦✏🔗📐🔒📍✂",#colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1),#colorLiteral(red: 0.9678710938, green: 0.9678710938, blue: 0.9678710938, alpha: 1))
+    ]
     
-
+    private lazy var cardButtons: [GameButton] = {
+        var buttons = [GameButton]()
+        for subview in view.subviews {
+            if let stackView = subview as? UIStackView {
+                for stackViewSubview in stackView.subviews {
+                    if let subStackView = stackViewSubview as? UIStackView {
+                        for button in subStackView.subviews {
+                            if let gameButton = button as? GameButton {
+                                buttons.append(gameButton)
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return buttons.filter { $0.isHidden == false }
+    }()
 }
 
 
 fileprivate struct Constants {
-    static let durationForFlippingCard = 0.4
+    static let durationForFlippingCard = 2.4
     static let leadingConstraintInPortrait:CGFloat = 20.0
     static let timeInterval =  0.15
 }

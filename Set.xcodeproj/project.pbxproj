@@ -21,9 +21,7 @@
 		78EA3479236AB91500798B3B /* SetCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78EA3476236AB91500798B3B /* SetCardView.swift */; };
 		78EA347A236AB91500798B3B /* GameButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78EA3477236AB91500798B3B /* GameButton.swift */; };
 		78EA347F236AB91F00798B3B /* SetGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78EA347B236AB91F00798B3B /* SetGameViewController.swift */; };
-		78EA3480236AB91F00798B3B /* ThemeChooserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78EA347C236AB91F00798B3B /* ThemeChooserViewController.swift */; };
 		78EA3481236AB91F00798B3B /* ConcentrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78EA347D236AB91F00798B3B /* ConcentrationViewController.swift */; };
-		78EA3482236AB91F00798B3B /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78EA347E236AB91F00798B3B /* TabBarController.swift */; };
 		78EA3485236AB94C00798B3B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78EA3484236AB94B00798B3B /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
@@ -43,9 +41,7 @@
 		78EA3476236AB91500798B3B /* SetCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetCardView.swift; sourceTree = "<group>"; };
 		78EA3477236AB91500798B3B /* GameButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameButton.swift; sourceTree = "<group>"; };
 		78EA347B236AB91F00798B3B /* SetGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetGameViewController.swift; sourceTree = "<group>"; };
-		78EA347C236AB91F00798B3B /* ThemeChooserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeChooserViewController.swift; sourceTree = "<group>"; };
 		78EA347D236AB91F00798B3B /* ConcentrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConcentrationViewController.swift; sourceTree = "<group>"; };
-		78EA347E236AB91F00798B3B /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		78EA3484236AB94B00798B3B /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		78EA3486236ABE7600798B3B /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -125,8 +121,6 @@
 			children = (
 				78EA347D236AB91F00798B3B /* ConcentrationViewController.swift */,
 				78EA347B236AB91F00798B3B /* SetGameViewController.swift */,
-				78EA347E236AB91F00798B3B /* TabBarController.swift */,
-				78EA347C236AB91F00798B3B /* ThemeChooserViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -223,10 +217,8 @@
 				78EA3472236AB90D00798B3B /* SetGame.swift in Sources */,
 				78EA347F236AB91F00798B3B /* SetGameViewController.swift in Sources */,
 				78EA3473236AB90D00798B3B /* ConcentrationCard.swift in Sources */,
-				78EA3480236AB91F00798B3B /* ThemeChooserViewController.swift in Sources */,
 				78EA3485236AB94C00798B3B /* Extensions.swift in Sources */,
 				78EA3471236AB90D00798B3B /* SetCard.swift in Sources */,
-				78EA3482236AB91F00798B3B /* TabBarController.swift in Sources */,
 				78EA346C236AB90500798B3B /* CardBehavior.swift in Sources */,
 				78EA347A236AB91500798B3B /* GameButton.swift in Sources */,
 			);
