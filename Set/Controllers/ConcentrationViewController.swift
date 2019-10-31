@@ -26,7 +26,7 @@ class ConcentrationViewController: UIViewController, UISplitViewControllerDelega
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var newGameButton: UIButton!
-    
+    @IBOutlet weak var stackView: UIStackView!
     lazy var game = Concentration(numberOfPairsOfCards: cardButtons.count/2)
     var theme: (emoji:String,backgroundColor:UIColor,cardColor:UIColor)!
     var themeName = String()
@@ -38,7 +38,6 @@ class ConcentrationViewController: UIViewController, UISplitViewControllerDelega
     private var lastChosenIndexOfCard: Int?
     @IBOutlet private weak var leadingConstraint: NSLayoutConstraint!
     @IBOutlet private weak var trailingConstraint: NSLayoutConstraint!
-
     
     // MARK: - ViewController lifecycle
 
@@ -50,7 +49,7 @@ class ConcentrationViewController: UIViewController, UISplitViewControllerDelega
         super.viewDidLoad()
         createNewGame()
         navigationItem.title = themeName
-        print(cardButtons.count)
+        print("cardButtonsCount = \(cardButtons.count)")
     }
 
     override func viewWillLayoutSubviews() {
@@ -141,23 +140,25 @@ class ConcentrationViewController: UIViewController, UISplitViewControllerDelega
     }
 
     private func updateLabelsAndButton() {
-        flipCountLabel.text = traitCollection.verticalSizeClass == .compact ? "Flips\n\(game.flipCount)" : "Flips: \(game.flipCount)"
-        scoreLabel.text = traitCollection.verticalSizeClass == .compact ? "Scores\n\(Concentration.scores)" : "Score: \(Concentration.scores)"
-        newGameButton.setTitle(traitCollection.verticalSizeClass == .compact ? "New\ngame" : "New game", for: .normal)
+        flipCountLabel.text = isLandscapeOrientation ? "Flips\n\(game.flipCount)" : "Flips: \(game.flipCount)"
+        scoreLabel.text = isLandscapeOrientation ? "Scores\n\(Concentration.scores)" : "Score: \(Concentration.scores)"
+        newGameButton.setTitle(isLandscapeOrientation ? "New\ngame" : "New game", for: .normal)
+        print("device orientation is landscape? \(isLandscapeOrientation)")
     }
-
+    
+    
     private func updateConstraints() {
-//        if traitCollection.verticalSizeClass == .regular && traitCollection.horizontalSizeClass == .regular {
-//            var value: CGFloat = 150.0
-//            if isPotraitOrientation {
-//                value = 150.0
-//            }
-//            if isLandscapeOrientation {
-//                value = 200.0
-//            }
-//            trailingConstraint.constant = value
-//            leadingConstraint.constant = value
-//        }
+        if traitCollection.verticalSizeClass == .regular && traitCollection.horizontalSizeClass == .regular {
+            print("it's ipad")
+            if isPotraitOrientation {
+                leadingConstraint.constant = Constants.leadingConstraintInPortrait
+                trailingConstraint.constant = leadingConstraint.constant
+            }
+            if isLandscapeOrientation {
+                leadingConstraint.constant = 210.0
+                trailingConstraint.constant = leadingConstraint.constant
+            }
+        }
 
     }
 
@@ -173,6 +174,7 @@ class ConcentrationViewController: UIViewController, UISplitViewControllerDelega
 
 fileprivate struct Constants {
     static let durationForFlippingCard = 0.4
+    static let leadingConstraintInPortrait:CGFloat = 20.0
 
 }
 
