@@ -15,13 +15,13 @@ class ConcentrationViewController: UIViewController {
     @IBOutlet weak var newGameButton: UIButton!
     @IBOutlet private weak var leadingConstraint: NSLayoutConstraint!
     @IBOutlet private weak var trailingConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var stackView: UIStackView!
     
     // MARK: - ViewController lifecycle
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         createNewGame()
-        print("cardButtonsCount = \(cardButtons.count)")
     }
 
     override func viewWillLayoutSubviews() {
@@ -42,8 +42,7 @@ class ConcentrationViewController: UIViewController {
                     enableUI(false)
                 }
                 game.chooseCard(at: cardIndex)
-//                cardButtons[cardIndex].text = String(emoji(for: game.cards[cardIndex]))
-                cardButtons[cardIndex].setTitle(String(emoji(for: game.cards[cardIndex])), for: .normal)
+                cardButtons[cardIndex].setTitle(String(emoji(for: game.cards[cardIndex])),                                  for: .normal)
                 UIView.transition(with: cardButtons[cardIndex],
                                   duration: Constants.durationForFlippingCard,
                                   options: .transitionFlipFromLeft,
@@ -116,20 +115,31 @@ class ConcentrationViewController: UIViewController {
         flipCountLabel.text = isLandscapeOrientation ? "Flips\n\(game.flipCount)" : "Flips: \(game.flipCount)"
         scoreLabel.text = isLandscapeOrientation ? "Scores\n\(Concentration.scores)" : "Score: \(Concentration.scores)"
         newGameButton.setTitle(isLandscapeOrientation ? "New\ngame" : "New game", for: .normal)
-        print("device orientation is landscape? \(isLandscapeOrientation)")
     }
     
     
     private func updateConstraints() {
+        print(newGameButton.frame)
         if traitCollection.verticalSizeClass == .regular && traitCollection.horizontalSizeClass == .regular {
-            print("it's ipad")
             if isPotraitOrientation {
+                stackView.axis = .vertical
+                for subView in stackView.subviews {
+                    if let subStackView = subView as? UIStackView {
+                        subStackView.axis = .horizontal
+                    }
+                }
                 leadingConstraint.constant = Constants.leadingConstraintInPortrait
                 trailingConstraint.constant = leadingConstraint.constant
             }
             if isLandscapeOrientation {
-                leadingConstraint.constant = 190.0
+                leadingConstraint.constant = 160.0
                 trailingConstraint.constant = leadingConstraint.constant
+                stackView.axis = .horizontal
+                for subView in stackView.subviews {
+                    if let subStackView = subView as? UIStackView {
+                        subStackView.axis = .vertical
+                    }
+                }
             }
         }
 
@@ -176,7 +186,7 @@ class ConcentrationViewController: UIViewController {
 
 fileprivate struct Constants {
     static let durationForFlippingCard = 0.4
-    static let leadingConstraintInPortrait:CGFloat = 20.0
+    static let leadingConstraintInPortrait:CGFloat = 60.0
     static let timeInterval =  0.15
 }
 

@@ -58,6 +58,7 @@ class SetGameViewController: UIViewController, GameDelegate {
         cardView.filling = game.visibleCards[index].filling.rawValue
         cardView.color = colors[game.visibleCards[index].color] ?? UIColor.black
         cardView.state = .background
+        cardView.contentMode = .redraw
         cardView.backgroundColor = .clear
         cardViews.append(cardView)
         deckView.addSubview(cardView)

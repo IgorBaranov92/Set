@@ -93,7 +93,7 @@
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Halloween" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="fh5-Wl-1IQ">
-                                <rect key="frame" x="305.5" y="73" width="157" height="40.5"/>
+                                <rect key="frame" x="261" y="62" width="246.5" height="63.5"/>
                                 <fontDescription key="fontDescription" name="Cochin" family="Cochin" pointSize="25"/>
                                 <color key="textColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -101,7 +101,7 @@
                                     <fontDescription key="fontDescription" name="Cochin" family="Cochin" pointSize="30"/>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=regular">
-                                    <fontDescription key="fontDescription" name="Cochin" family="Cochin" pointSize="35"/>
+                                    <fontDescription key="fontDescription" name="Cochin" family="Cochin" pointSize="55"/>
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scores" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="SSR-4E-IMq">
@@ -117,90 +117,108 @@
                                 </variation>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="say-bp-F3E">
-                                <rect key="frame" x="50" y="121.5" width="668" height="781"/>
+                                <rect key="frame" x="60" y="133.5" width="648" height="757"/>
                                 <subviews>
                                     <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="LJc-sa-8ke">
-                                        <rect key="frame" x="0.0" y="0.0" width="668" height="105"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="648" height="101"/>
                                         <subviews>
                                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uR1-9b-e4L" customClass="GameButton" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="104.5" height="105"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="101.5" height="101"/>
                                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <bool key="isElement" value="NO"/>
+                                                </accessibility>
                                                 <fontDescription key="fontDescription" type="system" pointSize="60"/>
                                                 <variation key="heightClass=regular-widthClass=compact">
                                                     <fontDescription key="fontDescription" type="system" pointSize="70"/>
                                                 </variation>
                                                 <variation key="heightClass=regular-widthClass=regular" hidden="NO">
-                                                    <fontDescription key="fontDescription" type="system" pointSize="90"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="75"/>
                                                 </variation>
                                                 <connections>
                                                     <action selector="touchCard:" destination="Aa1-LD-LyE" eventType="touchUpInside" id="tPo-fj-Bha"/>
                                                 </connections>
                                             </button>
                                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="heS-te-cna" customClass="GameButton" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="112.5" y="0.0" width="105" height="105"/>
+                                                <rect key="frame" x="109.5" y="0.0" width="101" height="101"/>
                                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <bool key="isElement" value="NO"/>
+                                                </accessibility>
                                                 <fontDescription key="fontDescription" type="system" pointSize="60"/>
                                                 <variation key="heightClass=regular-widthClass=compact">
                                                     <fontDescription key="fontDescription" type="system" pointSize="70"/>
                                                 </variation>
                                                 <variation key="heightClass=regular-widthClass=regular" hidden="NO">
-                                                    <fontDescription key="fontDescription" type="system" pointSize="90"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="75"/>
                                                 </variation>
                                                 <connections>
                                                     <action selector="touchCard:" destination="Aa1-LD-LyE" eventType="touchUpInside" id="Ohi-0G-1rR"/>
                                                 </connections>
                                             </button>
                                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xb8-eG-6ED" customClass="GameButton" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="225.5" y="0.0" width="104.5" height="105"/>
+                                                <rect key="frame" x="218.5" y="0.0" width="101.5" height="101"/>
                                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <bool key="isElement" value="NO"/>
+                                                </accessibility>
                                                 <fontDescription key="fontDescription" type="system" pointSize="60"/>
                                                 <variation key="heightClass=regular-widthClass=compact">
                                                     <fontDescription key="fontDescription" type="system" pointSize="70"/>
                                                 </variation>
                                                 <variation key="heightClass=regular-widthClass=regular" hidden="NO">
-                                                    <fontDescription key="fontDescription" type="system" pointSize="90"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="75"/>
                                                 </variation>
                                                 <connections>
                                                     <action selector="touchCard:" destination="Aa1-LD-LyE" eventType="touchUpInside" id="Hcf-qd-Hez"/>
                                                 </connections>
                                             </button>
                                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bfA-iy-N40" customClass="GameButton" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="338" y="0.0" width="104.5" height="105"/>
+                                                <rect key="frame" x="328" y="0.0" width="101.5" height="101"/>
                                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <bool key="isElement" value="NO"/>
+                                                </accessibility>
                                                 <fontDescription key="fontDescription" type="system" pointSize="60"/>
                                                 <variation key="heightClass=regular-widthClass=compact">
                                                     <fontDescription key="fontDescription" type="system" pointSize="70"/>
                                                 </variation>
                                                 <variation key="heightClass=regular-widthClass=regular" hidden="NO">
-                                                    <fontDescription key="fontDescription" type="system" pointSize="90"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="75"/>
                                                 </variation>
                                                 <connections>
                                                     <action selector="touchCard:" destination="Aa1-LD-LyE" eventType="touchUpInside" id="iWt-qM-hB0"/>
                                                 </connections>
                                             </button>
                                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6uA-f2-qNh" customClass="GameButton" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="450.5" y="0.0" width="105" height="105"/>
+                                                <rect key="frame" x="437.5" y="0.0" width="101" height="101"/>
                                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <bool key="isElement" value="NO"/>
+                                                </accessibility>
                                                 <fontDescription key="fontDescription" type="system" pointSize="60"/>
                                                 <variation key="heightClass=regular-widthClass=compact">
                                                     <fontDescription key="fontDescription" type="system" pointSize="70"/>
                                                 </variation>
                                                 <variation key="heightClass=regular-widthClass=regular" hidden="NO">
-                                                    <fontDescription key="fontDescription" type="system" pointSize="90"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="75"/>
                                                 </variation>
                                                 <connections>
                                                     <action selector="touchCard:" destination="Aa1-LD-LyE" eventType="touchUpInside" id="8tQ-h1-2Ac"/>
                                                 </connections>
                                             </button>
                                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eLM-a6-wRr" customClass="GameButton" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="563.5" y="0.0" width="104.5" height="105"/>
+                                                <rect key="frame" x="546.5" y="0.0" width="101.5" height="101"/>
                                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <bool key="isElement" value="NO"/>
+                                                </accessibility>
                                                 <fontDescription key="fontDescription" type="system" pointSize="60"/>
                                                 <variation key="heightClass=regular-widthClass=compact">
                                                     <fontDescription key="fontDescription" type="system" pointSize="70"/>
                                                 </variation>
                                                 <variation key="heightClass=regular-widthClass=regular" hidden="NO">
-                                                    <fontDescription key="fontDescription" type="system" pointSize="90"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="75"/>
                                                 </variation>
                                                 <connections>
                                                     <action selector="touchCard:" destination="Aa1-LD-LyE" eventType="touchUpInside" id="2ju-c8-4SA"/>
@@ -211,87 +229,105 @@
                                         <variation key="heightClass=regular-widthClass=regular" hidden="NO"/>
                                     </stackView>
                                     <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="wd1-1N-szW">
-                                        <rect key="frame" x="0.0" y="113" width="668" height="104.5"/>
+                                        <rect key="frame" x="0.0" y="109" width="648" height="101.5"/>
                                         <subviews>
                                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YMI-F9-YOC" customClass="GameButton" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="104.5" height="104.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="101.5" height="101.5"/>
                                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <bool key="isElement" value="NO"/>
+                                                </accessibility>
                                                 <fontDescription key="fontDescription" type="system" pointSize="60"/>
                                                 <variation key="heightClass=regular-widthClass=compact">
                                                     <fontDescription key="fontDescription" type="system" pointSize="70"/>
                                                 </variation>
                                                 <variation key="heightClass=regular-widthClass=regular" hidden="NO">
-                                                    <fontDescription key="fontDescription" type="system" pointSize="90"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="75"/>
                                                 </variation>
                                                 <connections>
                                                     <action selector="touchCard:" destination="Aa1-LD-LyE" eventType="touchUpInside" id="5ND-yl-tP9"/>
                                                 </connections>
                                             </button>
                                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A08-9n-Zhd" customClass="GameButton" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="112.5" y="0.0" width="105" height="104.5"/>
+                                                <rect key="frame" x="109.5" y="0.0" width="101" height="101.5"/>
                                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <bool key="isElement" value="NO"/>
+                                                </accessibility>
                                                 <fontDescription key="fontDescription" type="system" pointSize="60"/>
                                                 <variation key="heightClass=regular-widthClass=compact">
                                                     <fontDescription key="fontDescription" type="system" pointSize="70"/>
                                                 </variation>
                                                 <variation key="heightClass=regular-widthClass=regular" hidden="NO">
-                                                    <fontDescription key="fontDescription" type="system" pointSize="90"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="75"/>
                                                 </variation>
                                                 <connections>
                                                     <action selector="touchCard:" destination="Aa1-LD-LyE" eventType="touchUpInside" id="fg1-kW-NEj"/>
                                                 </connections>
                                             </button>
                                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5be-fk-eHN" customClass="GameButton" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="225.5" y="0.0" width="104.5" height="104.5"/>
+                                                <rect key="frame" x="218.5" y="0.0" width="101.5" height="101.5"/>
                                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <bool key="isElement" value="NO"/>
+                                                </accessibility>
                                                 <fontDescription key="fontDescription" type="system" pointSize="60"/>
                                                 <variation key="heightClass=regular-widthClass=compact">
                                                     <fontDescription key="fontDescription" type="system" pointSize="70"/>
                                                 </variation>
                                                 <variation key="heightClass=regular-widthClass=regular" hidden="NO">
-                                                    <fontDescription key="fontDescription" type="system" pointSize="90"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="75"/>
                                                 </variation>
                                                 <connections>
                                                     <action selector="touchCard:" destination="Aa1-LD-LyE" eventType="touchUpInside" id="SXH-vn-O6X"/>
                                                 </connections>
                                             </button>
                                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1AB-fM-OL0" customClass="GameButton" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="338" y="0.0" width="104.5" height="104.5"/>
+                                                <rect key="frame" x="328" y="0.0" width="101.5" height="101.5"/>
                                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <bool key="isElement" value="NO"/>
+                                                </accessibility>
                                                 <fontDescription key="fontDescription" type="system" pointSize="60"/>
                                                 <variation key="heightClass=regular-widthClass=compact">
                                                     <fontDescription key="fontDescription" type="system" pointSize="70"/>
                                                 </variation>
                                                 <variation key="heightClass=regular-widthClass=regular" hidden="NO">
-                                                    <fontDescription key="fontDescription" type="system" pointSize="90"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="75"/>
                                                 </variation>
                                                 <connections>
                                                     <action selector="touchCard:" destination="Aa1-LD-LyE" eventType="touchUpInside" id="e8s-1h-zxT"/>
                                                 </connections>
                                             </button>
                                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7x2-L7-Chj" customClass="GameButton" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="450.5" y="0.0" width="105" height="104.5"/>
+                                                <rect key="frame" x="437.5" y="0.0" width="101" height="101.5"/>
                                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <bool key="isElement" value="NO"/>
+                                                </accessibility>
                                                 <fontDescription key="fontDescription" type="system" pointSize="60"/>
                                                 <variation key="heightClass=regular-widthClass=compact">
                                                     <fontDescription key="fontDescription" type="system" pointSize="70"/>
                                                 </variation>
                                                 <variation key="heightClass=regular-widthClass=regular" hidden="NO">
-                                                    <fontDescription key="fontDescription" type="system" pointSize="90"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="75"/>
                                                 </variation>
                                                 <connections>
                                                     <action selector="touchCard:" destination="Aa1-LD-LyE" eventType="touchUpInside" id="YRY-hA-Z4z"/>
                                                 </connections>
                                             </button>
                                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GPL-aO-J53" customClass="GameButton" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="563.5" y="0.0" width="104.5" height="104.5"/>
+                                                <rect key="frame" x="546.5" y="0.0" width="101.5" height="101.5"/>
                                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <bool key="isElement" value="NO"/>
+                                                </accessibility>
                                                 <fontDescription key="fontDescription" type="system" pointSize="60"/>
                                                 <variation key="heightClass=regular-widthClass=compact">
                                                     <fontDescription key="fontDescription" type="system" pointSize="70"/>
                                                 </variation>
                                                 <variation key="heightClass=regular-widthClass=regular" hidden="NO">
-                                                    <fontDescription key="fontDescription" type="system" pointSize="90"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="75"/>
                                                 </variation>
                                                 <connections>
                                                     <action selector="touchCard:" destination="Aa1-LD-LyE" eventType="touchUpInside" id="727-D6-cvI"/>
@@ -302,87 +338,105 @@
                                         <variation key="heightClass=regular-widthClass=regular" hidden="NO"/>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="R5P-0G-z71">
-                                        <rect key="frame" x="0.0" y="225.5" width="668" height="104.5"/>
+                                        <rect key="frame" x="0.0" y="218.5" width="648" height="101.5"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XBc-fC-oA2" customClass="GameButton" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="104.5" height="104.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="101.5" height="101.5"/>
                                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <bool key="isElement" value="NO"/>
+                                                </accessibility>
                                                 <fontDescription key="fontDescription" type="system" pointSize="60"/>
                                                 <variation key="heightClass=regular-widthClass=compact">
                                                     <fontDescription key="fontDescription" type="system" pointSize="70"/>
                                                 </variation>
                                                 <variation key="heightClass=regular-widthClass=regular">
-                                                    <fontDescription key="fontDescription" type="system" pointSize="90"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="75"/>
                                                 </variation>
                                                 <connections>
                                                     <action selector="touchCard:" destination="Aa1-LD-LyE" eventType="touchUpInside" id="cK3-a5-pHK"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OeN-Ok-lSl" customClass="GameButton" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="112.5" y="0.0" width="105" height="104.5"/>
+                                                <rect key="frame" x="109.5" y="0.0" width="101" height="101.5"/>
                                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <bool key="isElement" value="NO"/>
+                                                </accessibility>
                                                 <fontDescription key="fontDescription" type="system" pointSize="60"/>
                                                 <variation key="heightClass=regular-widthClass=compact">
                                                     <fontDescription key="fontDescription" type="system" pointSize="70"/>
                                                 </variation>
                                                 <variation key="heightClass=regular-widthClass=regular">
-                                                    <fontDescription key="fontDescription" type="system" pointSize="90"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="75"/>
                                                 </variation>
                                                 <connections>
                                                     <action selector="touchCard:" destination="Aa1-LD-LyE" eventType="touchUpInside" id="7Ke-Cn-wf2"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2uC-x2-dnN" customClass="GameButton" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="225.5" y="0.0" width="104.5" height="104.5"/>
+                                                <rect key="frame" x="218.5" y="0.0" width="101.5" height="101.5"/>
                                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <bool key="isElement" value="NO"/>
+                                                </accessibility>
                                                 <fontDescription key="fontDescription" type="system" pointSize="60"/>
                                                 <variation key="heightClass=regular-widthClass=compact">
                                                     <fontDescription key="fontDescription" type="system" pointSize="70"/>
                                                 </variation>
                                                 <variation key="heightClass=regular-widthClass=regular">
-                                                    <fontDescription key="fontDescription" type="system" pointSize="90"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="75"/>
                                                 </variation>
                                                 <connections>
                                                     <action selector="touchCard:" destination="Aa1-LD-LyE" eventType="touchUpInside" id="RTg-vL-mFa"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hfz-VC-LBk" customClass="GameButton" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="338" y="0.0" width="104.5" height="104.5"/>
+                                                <rect key="frame" x="328" y="0.0" width="101.5" height="101.5"/>
                                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <bool key="isElement" value="NO"/>
+                                                </accessibility>
                                                 <fontDescription key="fontDescription" type="system" pointSize="60"/>
                                                 <variation key="heightClass=regular-widthClass=compact">
                                                     <fontDescription key="fontDescription" type="system" pointSize="70"/>
                                                 </variation>
                                                 <variation key="heightClass=regular-widthClass=regular">
-                                                    <fontDescription key="fontDescription" type="system" pointSize="90"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="75"/>
                                                 </variation>
                                                 <connections>
                                                     <action selector="touchCard:" destination="Aa1-LD-LyE" eventType="touchUpInside" id="0UX-ye-blj"/>
                                                 </connections>
                                             </button>
                                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z7v-MT-4wi" customClass="GameButton" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="450.5" y="0.0" width="105" height="104.5"/>
+                                                <rect key="frame" x="437.5" y="0.0" width="101" height="101.5"/>
                                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <bool key="isElement" value="NO"/>
+                                                </accessibility>
                                                 <fontDescription key="fontDescription" type="system" pointSize="60"/>
                                                 <variation key="heightClass=regular-widthClass=compact">
                                                     <fontDescription key="fontDescription" type="system" pointSize="70"/>
                                                 </variation>
                                                 <variation key="heightClass=regular-widthClass=regular" hidden="NO">
-                                                    <fontDescription key="fontDescription" type="system" pointSize="90"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="75"/>
                                                 </variation>
                                                 <connections>
                                                     <action selector="touchCard:" destination="Aa1-LD-LyE" eventType="touchUpInside" id="1rq-T9-GKJ"/>
                                                 </connections>
                                             </button>
                                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Ns-md-DTI" customClass="GameButton" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="563.5" y="0.0" width="104.5" height="104.5"/>
+                                                <rect key="frame" x="546.5" y="0.0" width="101.5" height="101.5"/>
                                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <bool key="isElement" value="NO"/>
+                                                </accessibility>
                                                 <fontDescription key="fontDescription" type="system" pointSize="60"/>
                                                 <variation key="heightClass=regular-widthClass=compact">
                                                     <fontDescription key="fontDescription" type="system" pointSize="70"/>
                                                 </variation>
                                                 <variation key="heightClass=regular-widthClass=regular" hidden="NO">
-                                                    <fontDescription key="fontDescription" type="system" pointSize="90"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="75"/>
                                                 </variation>
                                                 <connections>
                                                     <action selector="touchCard:" destination="Aa1-LD-LyE" eventType="touchUpInside" id="LFv-Wk-oew"/>
@@ -392,25 +446,31 @@
                                         <variation key="heightClass=compact" axis="vertical"/>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ucj-My-yU1">
-                                        <rect key="frame" x="0.0" y="338" width="668" height="105"/>
+                                        <rect key="frame" x="0.0" y="328" width="648" height="101"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1rm-yw-mht" customClass="GameButton" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="104.5" height="105"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="101.5" height="101"/>
                                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <bool key="isElement" value="NO"/>
+                                                </accessibility>
                                                 <fontDescription key="fontDescription" type="system" pointSize="60"/>
                                                 <variation key="heightClass=regular-widthClass=compact">
                                                     <fontDescription key="fontDescription" type="system" pointSize="70"/>
                                                 </variation>
                                                 <variation key="heightClass=regular-widthClass=regular">
-                                                    <fontDescription key="fontDescription" type="system" pointSize="90"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="75"/>
                                                 </variation>
                                                 <connections>
                                                     <action selector="touchCard:" destination="Aa1-LD-LyE" eventType="touchUpInside" id="hsZ-k3-Fj8"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xnj-UR-N8a" customClass="GameButton" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="112.5" y="0.0" width="105" height="105"/>
+                                                <rect key="frame" x="109.5" y="0.0" width="101" height="101"/>
                                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <bool key="isElement" value="NO"/>
+                                                </accessibility>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="Xnj-UR-N8a" secondAttribute="height" multiplier="1:1" id="baa-jf-J1k"/>
                                                 </constraints>
@@ -419,63 +479,75 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="70"/>
                                                 </variation>
                                                 <variation key="heightClass=regular-widthClass=regular">
-                                                    <fontDescription key="fontDescription" type="system" pointSize="90"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="75"/>
                                                 </variation>
                                                 <connections>
                                                     <action selector="touchCard:" destination="Aa1-LD-LyE" eventType="touchUpInside" id="Kf7-9R-kfh"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IHT-4g-EzF" customClass="GameButton" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="225.5" y="0.0" width="104.5" height="105"/>
+                                                <rect key="frame" x="218.5" y="0.0" width="101.5" height="101"/>
                                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <bool key="isElement" value="NO"/>
+                                                </accessibility>
                                                 <fontDescription key="fontDescription" type="system" pointSize="60"/>
                                                 <variation key="heightClass=regular-widthClass=compact">
                                                     <fontDescription key="fontDescription" type="system" pointSize="70"/>
                                                 </variation>
                                                 <variation key="heightClass=regular-widthClass=regular">
-                                                    <fontDescription key="fontDescription" type="system" pointSize="90"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="75"/>
                                                 </variation>
                                                 <connections>
                                                     <action selector="touchCard:" destination="Aa1-LD-LyE" eventType="touchUpInside" id="R1e-dv-aKy"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uRM-bz-ZfA" customClass="GameButton" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="338" y="0.0" width="104.5" height="105"/>
+                                                <rect key="frame" x="328" y="0.0" width="101.5" height="101"/>
                                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <bool key="isElement" value="NO"/>
+                                                </accessibility>
                                                 <fontDescription key="fontDescription" type="system" pointSize="60"/>
                                                 <variation key="heightClass=regular-widthClass=compact">
                                                     <fontDescription key="fontDescription" type="system" pointSize="70"/>
                                                 </variation>
                                                 <variation key="heightClass=regular-widthClass=regular">
-                                                    <fontDescription key="fontDescription" type="system" pointSize="90"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="75"/>
                                                 </variation>
                                                 <connections>
                                                     <action selector="touchCard:" destination="Aa1-LD-LyE" eventType="touchUpInside" id="7Fy-37-c5X"/>
                                                 </connections>
                                             </button>
                                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4xQ-rR-mB0" customClass="GameButton" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="450.5" y="0.0" width="105" height="105"/>
+                                                <rect key="frame" x="437.5" y="0.0" width="101" height="101"/>
                                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <bool key="isElement" value="NO"/>
+                                                </accessibility>
                                                 <fontDescription key="fontDescription" type="system" pointSize="60"/>
                                                 <variation key="heightClass=regular-widthClass=compact">
                                                     <fontDescription key="fontDescription" type="system" pointSize="70"/>
                                                 </variation>
                                                 <variation key="heightClass=regular-widthClass=regular" hidden="NO">
-                                                    <fontDescription key="fontDescription" type="system" pointSize="90"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="75"/>
                                                 </variation>
                                                 <connections>
                                                     <action selector="touchCard:" destination="Aa1-LD-LyE" eventType="touchUpInside" id="jnT-vr-Sfi"/>
                                                 </connections>
                                             </button>
                                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mcd-C7-O2E" customClass="GameButton" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="563.5" y="0.0" width="104.5" height="105"/>
+                                                <rect key="frame" x="546.5" y="0.0" width="101.5" height="101"/>
                                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <bool key="isElement" value="NO"/>
+                                                </accessibility>
                                                 <fontDescription key="fontDescription" type="system" pointSize="60"/>
                                                 <variation key="heightClass=regular-widthClass=compact">
                                                     <fontDescription key="fontDescription" type="system" pointSize="70"/>
                                                 </variation>
                                                 <variation key="heightClass=regular-widthClass=regular" hidden="NO">
-                                                    <fontDescription key="fontDescription" type="system" pointSize="90"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="75"/>
                                                 </variation>
                                                 <connections>
                                                     <action selector="touchCard:" destination="Aa1-LD-LyE" eventType="touchUpInside" id="5U5-Wd-36Y"/>
@@ -485,87 +557,105 @@
                                         <variation key="heightClass=compact" axis="vertical"/>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="t40-k1-WAr">
-                                        <rect key="frame" x="0.0" y="451" width="668" height="104.5"/>
+                                        <rect key="frame" x="0.0" y="437" width="648" height="101.5"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iww-mM-eia" customClass="GameButton" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="104.5" height="104.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="101.5" height="101.5"/>
                                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <bool key="isElement" value="NO"/>
+                                                </accessibility>
                                                 <fontDescription key="fontDescription" type="system" pointSize="60"/>
                                                 <variation key="heightClass=regular-widthClass=compact">
                                                     <fontDescription key="fontDescription" type="system" pointSize="70"/>
                                                 </variation>
                                                 <variation key="heightClass=regular-widthClass=regular">
-                                                    <fontDescription key="fontDescription" type="system" pointSize="90"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="75"/>
                                                 </variation>
                                                 <connections>
                                                     <action selector="touchCard:" destination="Aa1-LD-LyE" eventType="touchUpInside" id="xIg-yF-MhV"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zwq-5J-nLt" customClass="GameButton" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="112.5" y="0.0" width="105" height="104.5"/>
+                                                <rect key="frame" x="109.5" y="0.0" width="101" height="101.5"/>
                                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <bool key="isElement" value="NO"/>
+                                                </accessibility>
                                                 <fontDescription key="fontDescription" type="system" pointSize="60"/>
                                                 <variation key="heightClass=regular-widthClass=compact">
                                                     <fontDescription key="fontDescription" type="system" pointSize="70"/>
                                                 </variation>
                                                 <variation key="heightClass=regular-widthClass=regular">
-                                                    <fontDescription key="fontDescription" type="system" pointSize="90"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="75"/>
                                                 </variation>
                                                 <connections>
                                                     <action selector="touchCard:" destination="Aa1-LD-LyE" eventType="touchUpInside" id="bLk-Ot-1ru"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9rj-no-f8n" customClass="GameButton" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="225.5" y="0.0" width="104.5" height="104.5"/>
+                                                <rect key="frame" x="218.5" y="0.0" width="101.5" height="101.5"/>
                                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <bool key="isElement" value="NO"/>
+                                                </accessibility>
                                                 <fontDescription key="fontDescription" type="system" pointSize="60"/>
                                                 <variation key="heightClass=regular-widthClass=compact">
                                                     <fontDescription key="fontDescription" type="system" pointSize="70"/>
                                                 </variation>
                                                 <variation key="heightClass=regular-widthClass=regular">
-                                                    <fontDescription key="fontDescription" type="system" pointSize="90"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="75"/>
                                                 </variation>
                                                 <connections>
                                                     <action selector="touchCard:" destination="Aa1-LD-LyE" eventType="touchUpInside" id="Vmt-Ey-AcB"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LVa-nm-XcL" customClass="GameButton" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="338" y="0.0" width="104.5" height="104.5"/>
+                                                <rect key="frame" x="328" y="0.0" width="101.5" height="101.5"/>
                                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <bool key="isElement" value="NO"/>
+                                                </accessibility>
                                                 <fontDescription key="fontDescription" type="system" pointSize="60"/>
                                                 <variation key="heightClass=regular-widthClass=compact">
                                                     <fontDescription key="fontDescription" type="system" pointSize="70"/>
                                                 </variation>
                                                 <variation key="heightClass=regular-widthClass=regular">
-                                                    <fontDescription key="fontDescription" type="system" pointSize="90"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="75"/>
                                                 </variation>
                                                 <connections>
                                                     <action selector="touchCard:" destination="Aa1-LD-LyE" eventType="touchUpInside" id="l4H-My-elz"/>
                                                 </connections>
                                             </button>
                                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ede-fh-4ZA" customClass="GameButton" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="450.5" y="0.0" width="105" height="104.5"/>
+                                                <rect key="frame" x="437.5" y="0.0" width="101" height="101.5"/>
                                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <bool key="isElement" value="NO"/>
+                                                </accessibility>
                                                 <fontDescription key="fontDescription" type="system" pointSize="60"/>
                                                 <variation key="heightClass=regular-widthClass=compact">
                                                     <fontDescription key="fontDescription" type="system" pointSize="70"/>
                                                 </variation>
                                                 <variation key="heightClass=regular-widthClass=regular" hidden="NO">
-                                                    <fontDescription key="fontDescription" type="system" pointSize="90"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="75"/>
                                                 </variation>
                                                 <connections>
                                                     <action selector="touchCard:" destination="Aa1-LD-LyE" eventType="touchUpInside" id="zep-dm-oGp"/>
                                                 </connections>
                                             </button>
                                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Z8-5m-Bv2" customClass="GameButton" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="563.5" y="0.0" width="104.5" height="104.5"/>
+                                                <rect key="frame" x="546.5" y="0.0" width="101.5" height="101.5"/>
                                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <bool key="isElement" value="NO"/>
+                                                </accessibility>
                                                 <fontDescription key="fontDescription" type="system" pointSize="60"/>
                                                 <variation key="heightClass=regular-widthClass=compact">
                                                     <fontDescription key="fontDescription" type="system" pointSize="70"/>
                                                 </variation>
                                                 <variation key="heightClass=regular-widthClass=regular" hidden="NO">
-                                                    <fontDescription key="fontDescription" type="system" pointSize="90"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="75"/>
                                                 </variation>
                                                 <connections>
                                                     <action selector="touchCard:" destination="Aa1-LD-LyE" eventType="touchUpInside" id="2R9-tG-grh"/>
@@ -575,87 +665,105 @@
                                         <variation key="heightClass=compact" axis="vertical"/>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="kWF-2B-krM">
-                                        <rect key="frame" x="0.0" y="563.5" width="668" height="104.5"/>
+                                        <rect key="frame" x="0.0" y="546.5" width="648" height="101.5"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GDh-XQ-XqJ" customClass="GameButton" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="104.5" height="104.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="101.5" height="101.5"/>
                                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <bool key="isElement" value="NO"/>
+                                                </accessibility>
                                                 <fontDescription key="fontDescription" type="system" pointSize="60"/>
                                                 <variation key="heightClass=regular-widthClass=compact">
                                                     <fontDescription key="fontDescription" type="system" pointSize="70"/>
                                                 </variation>
                                                 <variation key="heightClass=regular-widthClass=regular">
-                                                    <fontDescription key="fontDescription" type="system" pointSize="90"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="75"/>
                                                 </variation>
                                                 <connections>
                                                     <action selector="touchCard:" destination="Aa1-LD-LyE" eventType="touchUpInside" id="Xa1-wG-Leu"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Jw-8I-DbS" customClass="GameButton" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="112.5" y="0.0" width="105" height="104.5"/>
+                                                <rect key="frame" x="109.5" y="0.0" width="101" height="101.5"/>
                                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <bool key="isElement" value="NO"/>
+                                                </accessibility>
                                                 <fontDescription key="fontDescription" type="system" pointSize="60"/>
                                                 <variation key="heightClass=regular-widthClass=compact">
                                                     <fontDescription key="fontDescription" type="system" pointSize="70"/>
                                                 </variation>
                                                 <variation key="heightClass=regular-widthClass=regular">
-                                                    <fontDescription key="fontDescription" type="system" pointSize="90"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="75"/>
                                                 </variation>
                                                 <connections>
                                                     <action selector="touchCard:" destination="Aa1-LD-LyE" eventType="touchUpInside" id="FDb-Qe-Ug4"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WkB-2w-hLz" customClass="GameButton" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="225.5" y="0.0" width="104.5" height="104.5"/>
+                                                <rect key="frame" x="218.5" y="0.0" width="101.5" height="101.5"/>
                                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <bool key="isElement" value="NO"/>
+                                                </accessibility>
                                                 <fontDescription key="fontDescription" type="system" pointSize="60"/>
                                                 <variation key="heightClass=regular-widthClass=compact">
                                                     <fontDescription key="fontDescription" type="system" pointSize="70"/>
                                                 </variation>
                                                 <variation key="heightClass=regular-widthClass=regular">
-                                                    <fontDescription key="fontDescription" type="system" pointSize="90"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="75"/>
                                                 </variation>
                                                 <connections>
                                                     <action selector="touchCard:" destination="Aa1-LD-LyE" eventType="touchUpInside" id="CgD-dL-lAD"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U1C-Y5-3Lh" customClass="GameButton" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="338" y="0.0" width="104.5" height="104.5"/>
+                                                <rect key="frame" x="328" y="0.0" width="101.5" height="101.5"/>
                                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <bool key="isElement" value="NO"/>
+                                                </accessibility>
                                                 <fontDescription key="fontDescription" type="system" pointSize="60"/>
                                                 <variation key="heightClass=regular-widthClass=compact">
                                                     <fontDescription key="fontDescription" type="system" pointSize="70"/>
                                                 </variation>
                                                 <variation key="heightClass=regular-widthClass=regular">
-                                                    <fontDescription key="fontDescription" type="system" pointSize="90"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="75"/>
                                                 </variation>
                                                 <connections>
                                                     <action selector="touchCard:" destination="Aa1-LD-LyE" eventType="touchUpInside" id="XtJ-WW-mL0"/>
                                                 </connections>
                                             </button>
                                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qeI-bk-uyT" customClass="GameButton" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="450.5" y="0.0" width="105" height="104.5"/>
+                                                <rect key="frame" x="437.5" y="0.0" width="101" height="101.5"/>
                                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <bool key="isElement" value="NO"/>
+                                                </accessibility>
                                                 <fontDescription key="fontDescription" type="system" pointSize="60"/>
                                                 <variation key="heightClass=regular-widthClass=compact">
                                                     <fontDescription key="fontDescription" type="system" pointSize="70"/>
                                                 </variation>
                                                 <variation key="heightClass=regular-widthClass=regular" hidden="NO">
-                                                    <fontDescription key="fontDescription" type="system" pointSize="90"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="75"/>
                                                 </variation>
                                                 <connections>
                                                     <action selector="touchCard:" destination="Aa1-LD-LyE" eventType="touchUpInside" id="FdG-Mz-0Du"/>
                                                 </connections>
                                             </button>
                                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IMm-Zc-xT3" customClass="GameButton" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="563.5" y="0.0" width="104.5" height="104.5"/>
+                                                <rect key="frame" x="546.5" y="0.0" width="101.5" height="101.5"/>
                                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <bool key="isElement" value="NO"/>
+                                                </accessibility>
                                                 <fontDescription key="fontDescription" type="system" pointSize="60"/>
                                                 <variation key="heightClass=regular-widthClass=compact">
                                                     <fontDescription key="fontDescription" type="system" pointSize="70"/>
                                                 </variation>
                                                 <variation key="heightClass=regular-widthClass=regular" hidden="NO">
-                                                    <fontDescription key="fontDescription" type="system" pointSize="90"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="75"/>
                                                 </variation>
                                                 <connections>
                                                     <action selector="touchCard:" destination="Aa1-LD-LyE" eventType="touchUpInside" id="XPr-UL-aSP"/>
@@ -665,87 +773,105 @@
                                         <variation key="heightClass=compact" axis="vertical"/>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="WDF-4g-me4">
-                                        <rect key="frame" x="0.0" y="676" width="668" height="105"/>
+                                        <rect key="frame" x="0.0" y="656" width="648" height="101"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2yU-Sz-UOn" customClass="GameButton" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="104.5" height="105"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="101.5" height="101"/>
                                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <bool key="isElement" value="NO"/>
+                                                </accessibility>
                                                 <fontDescription key="fontDescription" type="system" pointSize="60"/>
                                                 <variation key="heightClass=regular-widthClass=compact">
                                                     <fontDescription key="fontDescription" type="system" pointSize="70"/>
                                                 </variation>
                                                 <variation key="heightClass=regular-widthClass=regular">
-                                                    <fontDescription key="fontDescription" type="system" pointSize="90"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="75"/>
                                                 </variation>
                                                 <connections>
                                                     <action selector="touchCard:" destination="Aa1-LD-LyE" eventType="touchUpInside" id="uxD-rJ-pbc"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W52-2r-bQY" customClass="GameButton" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="112.5" y="0.0" width="105" height="105"/>
+                                                <rect key="frame" x="109.5" y="0.0" width="101" height="101"/>
                                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <bool key="isElement" value="NO"/>
+                                                </accessibility>
                                                 <fontDescription key="fontDescription" type="system" pointSize="60"/>
                                                 <variation key="heightClass=regular-widthClass=compact">
                                                     <fontDescription key="fontDescription" type="system" pointSize="70"/>
                                                 </variation>
                                                 <variation key="heightClass=regular-widthClass=regular">
-                                                    <fontDescription key="fontDescription" type="system" pointSize="90"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="75"/>
                                                 </variation>
                                                 <connections>
                                                     <action selector="touchCard:" destination="Aa1-LD-LyE" eventType="touchUpInside" id="mCg-5n-5XU"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nwv-nB-1ws" customClass="GameButton" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="225.5" y="0.0" width="104.5" height="105"/>
+                                                <rect key="frame" x="218.5" y="0.0" width="101.5" height="101"/>
                                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <bool key="isElement" value="NO"/>
+                                                </accessibility>
                                                 <fontDescription key="fontDescription" type="system" pointSize="60"/>
                                                 <variation key="heightClass=regular-widthClass=compact">
                                                     <fontDescription key="fontDescription" type="system" pointSize="70"/>
                                                 </variation>
                                                 <variation key="heightClass=regular-widthClass=regular">
-                                                    <fontDescription key="fontDescription" type="system" pointSize="90"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="75"/>
                                                 </variation>
                                                 <connections>
                                                     <action selector="touchCard:" destination="Aa1-LD-LyE" eventType="touchUpInside" id="aS2-VG-UWr"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="laD-GS-PmO" customClass="GameButton" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="338" y="0.0" width="104.5" height="105"/>
+                                                <rect key="frame" x="328" y="0.0" width="101.5" height="101"/>
                                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <bool key="isElement" value="NO"/>
+                                                </accessibility>
                                                 <fontDescription key="fontDescription" type="system" pointSize="60"/>
                                                 <variation key="heightClass=regular-widthClass=compact">
                                                     <fontDescription key="fontDescription" type="system" pointSize="70"/>
                                                 </variation>
                                                 <variation key="heightClass=regular-widthClass=regular">
-                                                    <fontDescription key="fontDescription" type="system" pointSize="90"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="75"/>
                                                 </variation>
                                                 <connections>
                                                     <action selector="touchCard:" destination="Aa1-LD-LyE" eventType="touchUpInside" id="CRT-gU-y9u"/>
                                                 </connections>
                                             </button>
                                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Dq-Az-4Ms" customClass="GameButton" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="450.5" y="0.0" width="105" height="105"/>
+                                                <rect key="frame" x="437.5" y="0.0" width="101" height="101"/>
                                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <bool key="isElement" value="NO"/>
+                                                </accessibility>
                                                 <fontDescription key="fontDescription" type="system" pointSize="60"/>
                                                 <variation key="heightClass=regular-widthClass=compact">
                                                     <fontDescription key="fontDescription" type="system" pointSize="70"/>
                                                 </variation>
                                                 <variation key="heightClass=regular-widthClass=regular" hidden="NO">
-                                                    <fontDescription key="fontDescription" type="system" pointSize="90"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="75"/>
                                                 </variation>
                                                 <connections>
                                                     <action selector="touchCard:" destination="Aa1-LD-LyE" eventType="touchUpInside" id="3SP-zO-am1"/>
                                                 </connections>
                                             </button>
                                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UKt-u0-RJ6" customClass="GameButton" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="563.5" y="0.0" width="104.5" height="105"/>
+                                                <rect key="frame" x="546.5" y="0.0" width="101.5" height="101"/>
                                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <bool key="isElement" value="NO"/>
+                                                </accessibility>
                                                 <fontDescription key="fontDescription" type="system" pointSize="60"/>
                                                 <variation key="heightClass=regular-widthClass=compact">
                                                     <fontDescription key="fontDescription" type="system" pointSize="70"/>
                                                 </variation>
                                                 <variation key="heightClass=regular-widthClass=regular" hidden="NO">
-                                                    <fontDescription key="fontDescription" type="system" pointSize="90"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="75"/>
                                                 </variation>
                                                 <connections>
                                                     <action selector="touchCard:" destination="Aa1-LD-LyE" eventType="touchUpInside" id="uo7-VZ-TOW"/>
@@ -758,7 +884,7 @@
                                 <variation key="heightClass=compact" axis="horizontal"/>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="uMx-JU-DWl">
-                                <rect key="frame" x="273" y="905" width="222" height="70"/>
+                                <rect key="frame" x="538" y="896" width="222" height="70"/>
                                 <fontDescription key="fontDescription" name="Cochin" family="Cochin" pointSize="40"/>
                                 <state key="normal" title="New game">
                                     <color key="titleColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -780,29 +906,29 @@
                             <constraint firstItem="PEZ-jD-G6n" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="BHk-MK-xtS" secondAttribute="trailing" priority="250" constant="147" id="Krw-0D-JFf"/>
                             <constraint firstItem="say-bp-F3E" firstAttribute="centerX" secondItem="hgs-dV-64k" secondAttribute="centerX" id="Lte-zx-gQT"/>
                             <constraint firstItem="BHk-MK-xtS" firstAttribute="leading" secondItem="say-bp-F3E" secondAttribute="trailing" constant="8" symbolic="YES" id="Mcm-Va-a5L"/>
+                            <constraint firstItem="PEZ-jD-G6n" firstAttribute="bottom" secondItem="uMx-JU-DWl" secondAttribute="bottom" constant="8" id="Mql-yI-4aK"/>
                             <constraint firstItem="SSR-4E-IMq" firstAttribute="leading" secondItem="say-bp-F3E" secondAttribute="trailing" constant="8" symbolic="YES" id="S2s-Un-fnp"/>
                             <constraint firstItem="say-bp-F3E" firstAttribute="top" secondItem="fh5-Wl-1IQ" secondAttribute="bottom" constant="8" symbolic="YES" id="Tp0-oJ-wj4"/>
                             <constraint firstItem="BHk-MK-xtS" firstAttribute="leading" secondItem="PEZ-jD-G6n" secondAttribute="leading" constant="8" id="UI8-Sg-AFe"/>
-                            <constraint firstItem="uMx-JU-DWl" firstAttribute="trailing" secondItem="PEZ-jD-G6n" secondAttribute="trailing" id="Xpx-AX-rSi"/>
                             <constraint firstItem="SSR-4E-IMq" firstAttribute="leading" secondItem="BHk-MK-xtS" secondAttribute="trailing" priority="250" constant="100" id="YWm-oN-ZTK"/>
+                            <constraint firstItem="PEZ-jD-G6n" firstAttribute="trailing" secondItem="uMx-JU-DWl" secondAttribute="trailing" constant="8" id="Yfl-4p-KWw"/>
                             <constraint firstItem="PEZ-jD-G6n" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="say-bp-F3E" secondAttribute="bottom" priority="250" constant="40" id="aVI-Ej-IxJ"/>
                             <constraint firstItem="say-bp-F3E" firstAttribute="top" secondItem="PEZ-jD-G6n" secondAttribute="top" id="fW8-fY-MAP"/>
                             <constraint firstItem="fh5-Wl-1IQ" firstAttribute="centerX" secondItem="hgs-dV-64k" secondAttribute="centerX" id="fk0-cT-IA2"/>
                             <constraint firstItem="BHk-MK-xtS" firstAttribute="top" secondItem="PEZ-jD-G6n" secondAttribute="top" id="gVx-Hc-r3x"/>
                             <constraint firstItem="BHk-MK-xtS" firstAttribute="top" secondItem="PEZ-jD-G6n" secondAttribute="top" id="ibh-mt-G9M"/>
                             <constraint firstItem="PEZ-jD-G6n" firstAttribute="trailing" secondItem="BHk-MK-xtS" secondAttribute="trailing" id="ida-ms-Ynm"/>
-                            <constraint firstItem="uMx-JU-DWl" firstAttribute="centerX" secondItem="hgs-dV-64k" secondAttribute="centerX" id="lyD-Pj-61E"/>
-                            <constraint firstItem="uMx-JU-DWl" firstAttribute="bottom" secondItem="PEZ-jD-G6n" secondAttribute="bottom" id="ngk-S2-uVI"/>
-                            <constraint firstItem="say-bp-F3E" firstAttribute="leading" secondItem="PEZ-jD-G6n" secondAttribute="leading" constant="50" id="pbW-gj-MaY">
+                            <constraint firstItem="say-bp-F3E" firstAttribute="leading" secondItem="PEZ-jD-G6n" secondAttribute="leading" constant="60" id="pbW-gj-MaY">
                                 <variation key="heightClass=regular-widthClass=compact" constant="10"/>
+                                <variation key="heightClass=regular-widthClass=regular" constant="60"/>
                             </constraint>
                             <constraint firstItem="BHk-MK-xtS" firstAttribute="width" secondItem="SSR-4E-IMq" secondAttribute="width" id="qAL-AL-Lqh"/>
                             <constraint firstItem="SSR-4E-IMq" firstAttribute="top" secondItem="PEZ-jD-G6n" secondAttribute="top" id="ub0-qC-YgB"/>
-                            <constraint firstItem="PEZ-jD-G6n" firstAttribute="trailing" secondItem="say-bp-F3E" secondAttribute="trailing" constant="50" id="uue-s5-4GY">
+                            <constraint firstItem="PEZ-jD-G6n" firstAttribute="trailing" secondItem="say-bp-F3E" secondAttribute="trailing" constant="60" id="uue-s5-4GY">
                                 <variation key="heightClass=regular-widthClass=compact" constant="10"/>
+                                <variation key="heightClass=regular-widthClass=regular" constant="60"/>
                             </constraint>
                             <constraint firstItem="PEZ-jD-G6n" firstAttribute="trailing" secondItem="SSR-4E-IMq" secondAttribute="trailing" constant="8" id="v5e-K4-wTz"/>
-                            <constraint firstItem="PEZ-jD-G6n" firstAttribute="bottom" secondItem="uMx-JU-DWl" secondAttribute="bottom" constant="-1" id="vfu-Dj-wM4"/>
                             <constraint firstItem="SSR-4E-IMq" firstAttribute="leading" secondItem="uRM-bz-ZfA" secondAttribute="trailing" constant="164.5" id="wfV-k1-ENg"/>
                             <constraint firstItem="PEZ-jD-G6n" firstAttribute="leading" secondItem="SSR-4E-IMq" secondAttribute="leading" id="xrA-Jh-S3I"/>
                             <constraint firstItem="say-bp-F3E" firstAttribute="centerY" secondItem="hgs-dV-64k" secondAttribute="centerY" id="yWd-ye-Jpe"/>
@@ -824,8 +950,6 @@
                                 <exclude reference="yue-bt-pnz"/>
                                 <exclude reference="S2s-Un-fnp"/>
                                 <exclude reference="wfV-k1-ENg"/>
-                                <exclude reference="Xpx-AX-rSi"/>
-                                <exclude reference="ngk-S2-uVI"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact">
@@ -835,7 +959,6 @@
                                 <include reference="ida-ms-Ynm"/>
                                 <exclude reference="uue-s5-4GY"/>
                                 <exclude reference="v5e-K4-wTz"/>
-                                <exclude reference="vfu-Dj-wM4"/>
                                 <include reference="xrA-Jh-S3I"/>
                                 <exclude reference="Mcm-Va-a5L"/>
                                 <exclude reference="UI8-Sg-AFe"/>
@@ -849,9 +972,6 @@
                                 <exclude reference="S2s-Un-fnp"/>
                                 <exclude reference="YWm-oN-ZTK"/>
                                 <exclude reference="wfV-k1-ENg"/>
-                                <include reference="Xpx-AX-rSi"/>
-                                <exclude reference="lyD-Pj-61E"/>
-                                <include reference="ngk-S2-uVI"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=regular">
@@ -868,6 +988,7 @@
                         <outlet property="leadingConstraint" destination="pbW-gj-MaY" id="Ooa-5h-M30"/>
                         <outlet property="newGameButton" destination="uMx-JU-DWl" id="Gr6-un-qNJ"/>
                         <outlet property="scoreLabel" destination="SSR-4E-IMq" id="zBo-fL-046"/>
+                        <outlet property="stackView" destination="say-bp-F3E" id="bTf-R8-neo"/>
                         <outlet property="themeNameLabel" destination="fh5-Wl-1IQ" id="czb-Sd-hCH"/>
                         <outlet property="trailingConstraint" destination="uue-s5-4GY" id="MCo-kD-acT"/>
                     </connections>
