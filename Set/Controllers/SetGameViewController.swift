@@ -8,17 +8,25 @@ class SetGameViewController: UIViewController, GameDelegate {
 
     private var grid = Grid(layout: .aspectRatio(8.0/5.0))
     private var game = SetGame()
-    private var selectedCards: [SetCardView] { deckView.setCardViews.filter {$0.state == .selected } }
+    private var selectedCards: [SetCardView] { deckView.cardViews.filter {$0.state == .selected } }
         
     // MARK: - ViewController lifecycle
 
+    private var gameCreated = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(drawThreeNewCards))
         view.addGestureRecognizer(tapGesture)
-        newGame()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if !gameCreated {
+            newGame()
+            gameCreated = true
+        }
+    }
     
     // MARK: - Game process
     
@@ -28,19 +36,20 @@ class SetGameViewController: UIViewController, GameDelegate {
          for index in game.visibleCards.indices {
              addCardAt(index)
          }
+        enableUI(false)
+        deckView.throwCardsOnDeck(completionHandler: {self.enableUI(true)} )
      }
     
      
     private func addCardAt(_ index: Int) {
-        let cardView = SetCardView()
+        let cardView = SetCardView(frame: CGRect(x: deckView.bounds.width, y: deckView.bounds.height, width: 0, height: 0))
         cardView.amount = game.visibleCards[index].amount.rawValue
         cardView.shape = game.visibleCards[index].shape.rawValue
         cardView.filling = game.visibleCards[index].filling.rawValue
         cardView.color = game.visibleCards[index].color.rawValue
         cardView.state = .isFaceDown
-        cardView.contentMode = .redraw
         cardView.backgroundColor = .clear
-        deckView.setCardViews.append(cardView)
+        deckView.cardViews.append(cardView)
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapTheCard(_:)))
         cardView.addGestureRecognizer(tapGestureRecognizer)
     }
@@ -48,15 +57,19 @@ class SetGameViewController: UIViewController, GameDelegate {
     
        
     @objc private func drawThreeNewCards() {
-    game.draw()
+        if game.visibleCards.count > 0 {
+            game.draw()
+            for index in game.visibleCards.count - 3 ... game.visibleCards.count - 1 {
+                addCardAt(index)
+            }
+        }
     }
 
     
     @objc func tapTheCard(_ gesture: UITapGestureRecognizer) {
            if gesture.state == .ended {
             if let cardView = gesture.view as? SetCardView {
-                let index = deckView.setCardViews.firstIndex(of: cardView)!
-                cardView.frame = grid[index] ?? CGRect.zero
+                let index = deckView.cardViews.firstIndex(of: cardView)!
                 cardView.state = (cardView.state == .selected) ? .unselected : .selected
                 game.chooseCard(at: index)
             }
@@ -97,6 +110,11 @@ class SetGameViewController: UIViewController, GameDelegate {
 
 extension SetGameViewController {
     
+    private func enableUI(_ isUserInteractionEnabled: Bool) {
+        deckView.cardViews.forEach { $0.isUserInteractionEnabled = isUserInteractionEnabled }
+        view.isUserInteractionEnabled = isUserInteractionEnabled
+    }
+    
     private func shakeSelectedCards() {
         selectedCards.forEach { cardView in
             let origin = cardView.frame.origin
@@ -105,7 +123,7 @@ extension SetGameViewController {
           delay: 0.0,
           options: .curveLinear ,
           animations: {
-           cardView.frame.origin.x -= 10
+            cardView.frame.origin.x -= Constants.xOffset
       })
       { (position) in
           if position == .end {
@@ -114,7 +132,7 @@ extension SetGameViewController {
                   delay: 0.0,
                   options: .curveLinear,
                   animations:
-               {   cardView.frame.origin.x += 20
+               {   cardView.frame.origin.x += Constants.xOffset * 2
 
               })
               { (position) in
@@ -144,12 +162,8 @@ extension SetGameViewController {
 fileprivate struct Constants {
     static let durationForFlippingCard = 0.5
     static let durationForFlyingCard = 1.5
-    static let durationForShakingCard = 0.15
-    static let durationForRearrangingCards = 0.5
-    static let durationForResizingCard = 1.5
-    static let durationForDisappiaringCard = 1.0
-    static let durationForAppiaringCard = 1.0
-
+    static let durationForShakingCard = 0.1
+    static let xOffset: CGFloat = 15.0
 }
 
 

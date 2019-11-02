@@ -57,11 +57,11 @@ class SetGame {
     
     
     private func checkIfThreeSelectedCardsAreSet() {
-//        let colors = Set(selectedCards.map{$0.color}).count
-//        let amount = Set(selectedCards.map{$0.amount}).count
-//        let filling = Set(selectedCards.map{$0.filling}).count
-//        let shape = Set(selectedCards.map{$0.shape}).count
-        if 2 > 1 { // three cards are set
+        let colors = Set(selectedCards.map{$0.color}).count
+        let amount = Set(selectedCards.map{$0.amount}).count
+        let filling = Set(selectedCards.map{$0.filling}).count
+        let shape = Set(selectedCards.map{$0.shape}).count
+        if colors != 2 && amount != 2 && filling != 2 && shape != 2 { // three cards are set
             SetGame.scores += 5
             matchesFound += 1
             if deck.count > 0 {
@@ -75,10 +75,9 @@ class SetGame {
                 delegate?.gameFinished()
             }
         } else { // three cards are not set
-//            SetGame.scores -= 3
-//            delegate?.setNotFound()
+            SetGame.scores -= 3
+            delegate?.setNotFound()
         }
-        print(deck.count)
         foundIndexes.removeAll()
         selectedCards.removeAll()
     }
