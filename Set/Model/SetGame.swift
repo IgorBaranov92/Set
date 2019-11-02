@@ -81,7 +81,6 @@ class SetGame {
         foundIndexes.removeAll()
         selectedCards.removeAll()
     }
-
     
 }
 

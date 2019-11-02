@@ -11,10 +11,10 @@ class ConcentrationViewController: UIViewController {
 
     @IBOutlet weak var flipCountLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet private weak var themeNameLabel:UILabel!
     @IBOutlet weak var newGameButton: UIButton!
     @IBOutlet private weak var leadingConstraint: NSLayoutConstraint!
     @IBOutlet private weak var trailingConstraint: NSLayoutConstraint!
-      
     
     // MARK: - ViewController lifecycle
 
@@ -42,6 +42,7 @@ class ConcentrationViewController: UIViewController {
                     enableUI(false)
                 }
                 game.chooseCard(at: cardIndex)
+//                cardButtons[cardIndex].text = String(emoji(for: game.cards[cardIndex]))
                 cardButtons[cardIndex].setTitle(String(emoji(for: game.cards[cardIndex])), for: .normal)
                 UIView.transition(with: cardButtons[cardIndex],
                                   duration: Constants.durationForFlippingCard,
@@ -95,6 +96,8 @@ class ConcentrationViewController: UIViewController {
         view.backgroundColor = theme.backgroundColor
         flipCountLabel.text = "Flips" + String(game.flipCount)
         scoreLabel.text = "Scores" + String(Concentration.scores)
+        themeNameLabel.text = Array(themes.keys)[randomIndex]
+        themeNameLabel.textColor = theme.cardColor
         scoreLabel.textColor = theme.cardColor
         flipCountLabel.textColor = theme.cardColor
         newGameButton.setTitleColor(theme.cardColor, for: .normal)

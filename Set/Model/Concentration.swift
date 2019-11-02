@@ -73,7 +73,7 @@ class Concentration {
             let card = ConcentrationCard()
             cards += [card,card]
         }
-//        cards = cards.shuffled()
+        cards = cards.shuffled()
         flipCount = 0
         lastChosenIndex = nil
         cardsAreMatched = false

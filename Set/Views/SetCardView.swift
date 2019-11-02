@@ -7,7 +7,6 @@ class SetCardView: UIView {
     var color = UIColor.red { didSet { setNeedsDisplay() }}
     var shape = "diamond" { didSet { setNeedsDisplay() }}
     var filling = "empty" { didSet { setNeedsDisplay() }}
-    
     var state = State.unselected { didSet { setNeedsDisplay() }}
     
     
