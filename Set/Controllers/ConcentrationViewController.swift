@@ -33,7 +33,7 @@ class ConcentrationViewController: UIViewController {
     // MARK: - IBAction
 
 
-    @IBAction func touchCard(_ sender: GameButton) {
+    @IBAction func touchCard(_ sender: UIButton) {
         if let cardIndex = cardButtons.firstIndex(of: sender) {
             if !game.cards[cardIndex].isMatched && cardButtons[cardIndex].currentTitle == "" {
                 if game.lastChosenIndex == nil { cardButtons[cardIndex].isUserInteractionEnabled = false
@@ -164,14 +164,14 @@ class ConcentrationViewController: UIViewController {
             : ("🔧⚒⛏🔩⚙🧲⚖💎💰📡⏰☎🔑🗝🧪🧬💊🧸📦✏🔗📐🔒📍✂",#colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1),#colorLiteral(red: 0.9678710938, green: 0.9678710938, blue: 0.9678710938, alpha: 1))
     ]
     
-    private lazy var cardButtons: [GameButton] = {
-        var buttons = [GameButton]()
+    private lazy var cardButtons: [UIButton] = {
+        var buttons = [UIButton]()
         for subview in view.subviews {
             if let stackView = subview as? UIStackView {
                 for stackViewSubview in stackView.subviews {
                     if let subStackView = stackViewSubview as? UIStackView {
                         for button in subStackView.subviews {
-                            if let gameButton = button as? GameButton {
+                            if let gameButton = button as? UIButton {
                                 buttons.append(gameButton)
                             }
                         }

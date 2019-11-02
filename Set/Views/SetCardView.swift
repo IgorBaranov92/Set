@@ -3,22 +3,34 @@ import UIKit
 
 class SetCardView: UIView {
 
-    var amount = 3 { didSet { setNeedsDisplay() }}
-    var color = UIColor.red { didSet { setNeedsDisplay() }}
-    var shape = "diamond" { didSet { setNeedsDisplay() }}
-    var filling = "empty" { didSet { setNeedsDisplay() }}
-    var state = State.unselected { didSet { setNeedsDisplay() }}
+    var amount = 1 { didSet { setNeedsDisplay() }}
+    var color = 1 { didSet { setNeedsDisplay() }}
+    var shape = 1 { didSet {
+        switch shape {
+            case 1: shapeType = .diamond
+            case 2: shapeType = .oval
+            case 3: shapeType = .wave
+        default:break
+        }
+        }}
+    var filling = 1 { didSet {
+        switch shape {
+            case 1: fillingType = .full
+            case 2: fillingType = .empty
+            case 3: fillingType = .striped
+        default:break
+        }
+        }}
     
+    private var shapeType:Shape = .oval { didSet { setNeedsDisplay() }}
+    private var fillingType:Filling = .empty { didSet { setNeedsDisplay() }}
+    var state:State = .isFaceDown { didSet { setNeedsDisplay() }}
+
     
-    enum State {
-        case selected
-        case unselected
-        case hinted
-        case background
-    }
     
     override func draw(_ rect: CGRect) {
         let rectPath = UIBezierPath(roundedRect: rect,cornerRadius: Constants.cardCornerRadius)
+        let cardColor = colors[color - 1]
         UIColor.white.setFill()
         rectPath.fill()
         layer.borderWidth = 1.0
@@ -36,14 +48,14 @@ class SetCardView: UIView {
             if let centers = centers[amount] {
                 for i in centers.indices {
                     let center = centers[i]
-                    switch shape {
-                    case "diamond":
+                    switch shapeType {
+                    case .diamond:
                         shapePath.move(to: CGPoint(x: center - 0.12*bounds.width, y: bounds.midY))
                         shapePath.addLine(to: CGPoint(x: center, y: 0.1*bounds.height))
                         shapePath.addLine(to: CGPoint(x: center + 0.12*bounds.width, y: bounds.midY))
                         shapePath.addLine(to: CGPoint(x: center, y: 0.9*bounds.height))
                         shapePath.close()
-                    case "oval":
+                    case .oval:
                         shapePath.move(to: CGPoint(x: center + 0.2*bounds.height, y: 0.25*bounds.height))
                         shapePath.addArc(withCenter: CGPoint(x: center, y: 0.25*bounds.height),
                                          radius: 0.2*bounds.height,
@@ -57,7 +69,7 @@ class SetCardView: UIView {
                                          endAngle: 0,
                                          clockwise: false)
                         shapePath.addLine(to: CGPoint(x: center + 0.2*bounds.height, y: 0.25*bounds.height))
-                    case "wave":
+                    case .wave:
                         shapePath.move(to: CGPoint(x: center - 0.1*bounds.width, y: 0.1*bounds.height))
                         shapePath.addLine(to: CGPoint(x: center + 0.1*bounds.width, y: 0.1*bounds.height))
                         shapePath.addCurve(to: CGPoint(x: center + 0.1*bounds.width, y: 0.9*bounds.height),
@@ -67,41 +79,39 @@ class SetCardView: UIView {
                         shapePath.addCurve(to: CGPoint(x: center - 0.1*bounds.width, y: 0.1*bounds.height),
                                            controlPoint1: CGPoint(x: center - 0.2*bounds.width, y: 0.6*bounds.height),
                                            controlPoint2: CGPoint(x: center, y: 0.5*bounds.height))
-                    default:break
                     }
                     
                 }
             }
-            switch filling {
-            case "full":
-                color.setFill()
+            switch fillingType {
+            case .full:
+                cardColor.setFill()
                 shapePath.fill()
-            case "strip":
+            case .striped:
                 shapePath.addClip()
                 for dx in stride(from: 0.0, to: bounds.width, by: bounds.width/30) {
                     let verticalLinePath = UIBezierPath()
                     verticalLinePath.move(to: CGPoint(x: dx, y: 0))
                     verticalLinePath.addLine(to: CGPoint(x: dx, y: bounds.height))
                     verticalLinePath.lineWidth = Constants.lineWidthForVerticalLines
-                    color.setStroke()
+                    cardColor.setStroke()
                     verticalLinePath.stroke()
                 }
                 fallthrough
-            case "empty":
-                color.setStroke()
+            case .empty:
+                cardColor.setStroke()
                 shapePath.stroke()
-            default:break
             }
+        case .isFaceDown:
+        if let cardBackground = UIImage(named: "SetBackground") {
+            cardBackground.draw(in: rect)
+        }
         case .hinted:
             let path = UIBezierPath(rect: rect)
             #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1).setFill()
             path.fill()
             layer.borderWidth = 5.0
             layer.borderColor = UIColor.blue.cgColor
-        case .background:
-            if let cardBackground = UIImage(named: "SetBackground") {
-                cardBackground.draw(in: rect)
-            }
         }
         
     }
@@ -113,7 +123,29 @@ class SetCardView: UIView {
     ]
     }
     
-    struct Constants {
+    private var colors: [UIColor] {
+        [.purple,.red,.green]
+    }
+    
+    enum State {
+       case selected
+       case unselected
+       case isFaceDown
+       case hinted
+    }
+    
+    enum Shape {
+        case diamond
+        case oval
+        case wave
+    }
+    enum Filling {
+        case full
+        case empty
+        case striped
+    }
+    
+    private struct Constants {
         static let lineWidthForShape: CGFloat = 2.0
         static let lineWidthForVerticalLines: CGFloat = 0.5
         static let cardCornerRadius: CGFloat = 16.0

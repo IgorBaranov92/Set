@@ -11,15 +11,16 @@ class SetGame {
     private var foundIndexes = [Int]()
     private var selectedCards = [SetCard]()
 
+    
     init() {
         selectedCards.removeAll()
         foundIndexes.removeAll()
         matchesFound = 0
         visibleCards.removeAll()
-        for color in SetCard.Color.allCases {
-            for filling in SetCard.Filling.allCases {
-                for shape in SetCard.Shape.allCases {
-                    for amount in SetCard.Amount.allCases {
+        for color in SetCard.Option.allCases {
+            for filling in SetCard.Option.allCases {
+                for shape in SetCard.Option.allCases {
+                    for amount in SetCard.Option.allCases {
                         let card = SetCard(color: color, filling: filling, amount: amount, shape: shape)
                         deck.append(card)
                     }

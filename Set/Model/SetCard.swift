@@ -1,40 +1,21 @@
 import Foundation
 
 
-struct SetCard: CustomStringConvertible {
-    
-    var description: String {
-        return "\(amount.rawValue) \(color.rawValue) \(filling.rawValue) \(shape.rawValue)"
-    }
+struct SetCard {
 
-    private(set) var color: Color
-    private(set) var filling: Filling
-    private(set) var amount: Amount
-    private(set) var shape : Shape
-        
-    enum Color: String, CaseIterable {
-        case purple
-        case red
-        case green
-    }
+    private(set) var color: Option
+    private(set) var filling: Option
+    private(set) var amount: Option
+    private(set) var shape : Option
+    var numberOfMismatchedInvolved = 0
     
-    enum Filling: String, CaseIterable {
-        case full = "full"
-        case empty = "empty"
-        case strip = "strip"
-    }
-    
-    enum Amount: Int, CaseIterable {
+    enum Option: Int,CaseIterable {
         case one = 1
-        case two = 2
-        case three = 3
+        case two
+        case three
     }
     
-    enum Shape: String, CaseIterable {
-        case diamond = "diamond"
-        case wave = "wave"
-        case oval = "oval"
-    }
+   
     
 }
 
