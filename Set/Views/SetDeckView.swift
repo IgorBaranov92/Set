@@ -2,6 +2,8 @@ import UIKit
 
 class SetDeckView: UIView {
 
+    var deckCreated = false
+    
     var cardViews = [SetCardView]() { didSet {
         cardViews.forEach { addSubview($0);$0.contentMode = .redraw }
         setNeedsLayout()
@@ -20,7 +22,18 @@ class SetDeckView: UIView {
                 delay: 0.0,
                 options: .curveLinear,
                 animations: {
-                    self.cardViews[index].frame = self.grid[index] ?? CGRect.zero } )
+                    self.cardViews[index].frame = self.grid[index] ?? CGRect.zero },completion: { position in
+                        if position == .end && self.cardViews[index].state == .isFaceDown && self.deckCreated {
+                            UIView.transition(with: self.cardViews[index],
+                                              duration: 0.5,
+                                              options: .transitionFlipFromLeft,
+                                              animations: {
+                                                self.cardViews[index].state = .unselected
+                            }) { completed  in
+                                
+                            }
+                        }
+            } )
         }
     }
     
@@ -29,7 +42,7 @@ class SetDeckView: UIView {
         for index in cardViews.indices {
             UIViewPropertyAnimator.runningPropertyAnimator(
                 withDuration: 1.0,
-                delay: Double(index+1)*0.3,
+                delay: Double(index+1)*0.2,
                 options: .curveLinear,
                 animations: {self.cardViews[index].frame = self.grid[index] ?? CGRect.zero},completion:{ position in
                     if position == .end {

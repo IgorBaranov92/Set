@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7824EC4723700425005EC516 /* AnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7824EC4623700425005EC516 /* AnimationViewController.swift */; };
+		784F4AC423700AA0008B19BE /* Behavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784F4AC323700AA0008B19BE /* Behavior.swift */; };
 		789FAEEE236AD8B3004B883E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78EA3486236ABE7600798B3B /* Main.storyboard */; };
 		78B6243B236DA32D0012AF0E /* SetDeckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B6243A236DA32D0012AF0E /* SetDeckView.swift */; };
 		78EA344A236AB87200798B3B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78EA3449236AB87200798B3B /* AppDelegate.swift */; };
@@ -26,6 +28,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7824EC4623700425005EC516 /* AnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationViewController.swift; sourceTree = "<group>"; };
+		784F4AC323700AA0008B19BE /* Behavior.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Behavior.swift; sourceTree = "<group>"; };
 		78B6243A236DA32D0012AF0E /* SetDeckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetDeckView.swift; sourceTree = "<group>"; };
 		78EA3446236AB87200798B3B /* Set.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Set.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78EA3449236AB87200798B3B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				78EA3486236ABE7600798B3B /* Main.storyboard */,
+				7824EC4623700425005EC516 /* AnimationViewController.swift */,
 				78EA3466236AB8E900798B3B /* Animation */,
 				78EA3467236AB8F000798B3B /* Model */,
 				78EA3465236AB8D800798B3B /* Views */,
@@ -101,6 +106,7 @@
 			children = (
 				78EA346A236AB90500798B3B /* CardBehavior.swift */,
 				78EA3469236AB90500798B3B /* WackyCardBehavior.swift */,
+				784F4AC323700AA0008B19BE /* Behavior.swift */,
 			);
 			path = Animation;
 			sourceTree = "<group>";
@@ -214,9 +220,11 @@
 				78EA346B236AB90500798B3B /* WackyCardBehavior.swift in Sources */,
 				78EA3478236AB91500798B3B /* Grid.swift in Sources */,
 				78EA3479236AB91500798B3B /* SetCardView.swift in Sources */,
+				784F4AC423700AA0008B19BE /* Behavior.swift in Sources */,
 				78EA3472236AB90D00798B3B /* SetGame.swift in Sources */,
 				78EA347F236AB91F00798B3B /* SetGameViewController.swift in Sources */,
 				78EA3473236AB90D00798B3B /* ConcentrationCard.swift in Sources */,
+				7824EC4723700425005EC516 /* AnimationViewController.swift in Sources */,
 				78EA3485236AB94C00798B3B /* Extensions.swift in Sources */,
 				78B6243B236DA32D0012AF0E /* SetDeckView.swift in Sources */,
 				78EA3471236AB90D00798B3B /* SetCard.swift in Sources */,

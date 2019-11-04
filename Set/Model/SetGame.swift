@@ -8,13 +8,9 @@ class SetGame {
     private(set) var deck = [SetCard]()
     private(set) var visibleCards = [SetCard]()
     private(set) var matchesFound = 0
-    private var foundIndexes = [Int]()
-    private var selectedCards = [SetCard]()
-
+    private var selectedCards:[SetCard] { visibleCards.filter { $0.isSelected } }
     
     init() {
-        selectedCards.removeAll()
-        foundIndexes.removeAll()
         matchesFound = 0
         visibleCards.removeAll()
         for color in SetCard.Option.allCases {
@@ -40,48 +36,66 @@ class SetGame {
     }
     
     func chooseCard(at index:Int) {
-        if foundIndexes.contains(index) {
-            if foundIndexes.count == 1 { foundIndexes.removeFirst();selectedCards.removeFirst() }
-            if foundIndexes.count == 2 {
-                if index == foundIndexes.first! { foundIndexes.removeFirst();selectedCards.removeFirst()}
-                if index == foundIndexes.last! { foundIndexes.removeLast();selectedCards.removeLast() }
-            }
-            SetGame.scores -= 1
+        if visibleCards[index].isSelected {
+            visibleCards[index].isSelected = false
+            SetGame.scores -= Points.penaltyForDeselection
             delegate?.deselectCard()
         } else {
-            selectedCards.append(visibleCards[index])
-            foundIndexes.append(index)
+            visibleCards[index].isSelected = true
             if selectedCards.count == 3 { checkIfThreeSelectedCardsAreSet() }
         }
     }
     
     
     private func checkIfThreeSelectedCardsAreSet() {
-        let colors = Set(selectedCards.map{$0.color}).count
-        let amount = Set(selectedCards.map{$0.amount}).count
-        let filling = Set(selectedCards.map{$0.filling}).count
-        let shape = Set(selectedCards.map{$0.shape}).count
-        if colors != 2 && amount != 2 && filling != 2 && shape != 2 { // three cards are set
-            SetGame.scores += 5
+        if isSet {
+            let penalty = selectedCards.map { Int($0.numberOfMismatchedInvolved) }
+                                       .reduce(0) { x,y in x + y}
+            SetGame.scores += Points.setWasFound - penalty
             matchesFound += 1
             if deck.count > 0 {
                 for i in 0...2 {
-                    let indexToReplace = foundIndexes[i]
+                    let indexToReplace = visibleCards.firstIndex(of: selectedCards[i])!
                     visibleCards.remove(at: indexToReplace)
-                    visibleCards.insert(deck.removeRandomElement(), at: indexToReplace)
+                    
                 }
                 delegate?.setWasFound()
             } else {
                 delegate?.gameFinished()
             }
-        } else { // three cards are not set
-            SetGame.scores -= 3
+        } else { 
+            SetGame.scores -= Points.setWasNotFound
             delegate?.setNotFound()
         }
-        foundIndexes.removeAll()
-        selectedCards.removeAll()
+        for index in visibleCards.indices {
+            visibleCards[index].isSelected = false
+            visibleCards[index].numberOfMismatchedInvolved += 1
+        }
+    }
+    
+    private var isSet: Bool {
+        let colors = Set(selectedCards.map{$0.color}).count
+        let amount = Set(selectedCards.map{$0.amount}).count
+        let filling = Set(selectedCards.map{$0.filling}).count
+        let shape = Set(selectedCards.map{$0.shape}).count
+        return (colors != 2 && amount != 2 && filling != 2 && shape != 2)
+    }
+    
+    private func findThreeSetCardsIfPossible() {
+        SetGame.scores -= Points.penaltyForHint
+        
+    }
+    
+    
+    private struct Points {
+        static let penaltyForHint = 10
+        static let penaltyForDeselection = 1
+        static let setWasFound = 5
+        static let setWasNotFound = 3
+        
     }
     
 }
+
 
 

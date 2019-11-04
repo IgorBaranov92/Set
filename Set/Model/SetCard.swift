@@ -8,11 +8,13 @@ struct SetCard {
     private(set) var amount: Option
     private(set) var shape : Option
     var numberOfMismatchedInvolved = 0
+    var isSelected = false
+    
     
     enum Option: Int,CaseIterable {
         case one = 1
-        case two
-        case three
+        case two = 2
+        case three = 3
     }
     
    

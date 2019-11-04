@@ -14,7 +14,7 @@ class SetCardView: UIView {
         }
         }}
     var filling = 1 { didSet {
-        switch shape {
+        switch filling {
             case 1: fillingType = .full
             case 2: fillingType = .empty
             case 3: fillingType = .striped
@@ -39,7 +39,7 @@ class SetCardView: UIView {
         switch state {
         case .selected:
             let path = UIBezierPath(roundedRect: rect,cornerRadius: Constants.cardCornerRadius)
-            #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1).setFill()
+            #colorLiteral(red: 0.9524742046, green: 0.9764705896, blue: 0.5681928202, alpha: 1).setFill()
             path.fill()
             fallthrough
         case .unselected:

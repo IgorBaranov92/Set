@@ -6,25 +6,21 @@ class SetGameViewController: UIViewController, GameDelegate {
     @IBOutlet private weak var matchesLabel: UILabel!
     @IBOutlet private weak var deckView: SetDeckView!
 
-    private var grid = Grid(layout: .aspectRatio(8.0/5.0))
     private var game = SetGame()
     private var selectedCards: [SetCardView] { deckView.cardViews.filter {$0.state == .selected } }
         
     // MARK: - ViewController lifecycle
 
-    private var gameCreated = false
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(drawThreeNewCards))
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dealThreeCards(_:)))
         view.addGestureRecognizer(tapGesture)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if !gameCreated {
+        if !deckView.deckCreated {
             newGame()
-            gameCreated = true
         }
     }
     
@@ -37,7 +33,10 @@ class SetGameViewController: UIViewController, GameDelegate {
              addCardAt(index)
          }
         enableUI(false)
-        deckView.throwCardsOnDeck(completionHandler: {self.enableUI(true)} )
+        deckView.throwCardsOnDeck(completionHandler: {
+            self.enableUI(true)
+            self.deckView.deckCreated = true}
+        )
      }
     
      
@@ -56,28 +55,27 @@ class SetGameViewController: UIViewController, GameDelegate {
     
     
        
-    @objc private func drawThreeNewCards() {
-        if game.visibleCards.count > 0 {
+    @objc private func dealThreeCards(_ recognizer:UITapGestureRecognizer) {
+        if recognizer.state == .ended && game.deck.count > 0 {
+            enableUI(false)
             game.draw()
             for index in game.visibleCards.count - 3 ... game.visibleCards.count - 1 {
                 addCardAt(index)
             }
         }
-    }
+   }
 
     
     @objc func tapTheCard(_ gesture: UITapGestureRecognizer) {
-           if gesture.state == .ended {
-            if let cardView = gesture.view as? SetCardView {
+           if gesture.state == .ended, let cardView = gesture.view as? SetCardView {
                 let index = deckView.cardViews.firstIndex(of: cardView)!
                 cardView.state = (cardView.state == .selected) ? .unselected : .selected
                 game.chooseCard(at: index)
-            }
            }
        }
     
     
-    // MARK: - Helper functions
+    // MARK: - Helper function
     
     private func updateLabels() {
         scoreLabel.text = "Scores: \(SetGame.scores)"
@@ -88,7 +86,6 @@ class SetGameViewController: UIViewController, GameDelegate {
     // MARK: - Protocol conformance
     
     func setWasFound() {
-        print("setWasFound")
         updateLabels()
 //        replaceFoundCards()
     }
@@ -116,44 +113,47 @@ extension SetGameViewController {
     }
     
     private func shakeSelectedCards() {
+        enableUI(false)
         selectedCards.forEach { cardView in
-            let origin = cardView.frame.origin
-      UIViewPropertyAnimator.runningPropertyAnimator(
-          withDuration: Constants.durationForShakingCard,
-          delay: 0.0,
-          options: .curveLinear ,
-          animations: {
-            cardView.frame.origin.x -= Constants.xOffset
-      })
-      { (position) in
-          if position == .end {
-              UIViewPropertyAnimator.runningPropertyAnimator(
-                  withDuration: Constants.durationForShakingCard,
-                  delay: 0.0,
-                  options: .curveLinear,
-                  animations:
-               {   cardView.frame.origin.x += Constants.xOffset * 2
+        let origin = cardView.frame.origin
+          UIViewPropertyAnimator.runningPropertyAnimator(
+              withDuration: Constants.durationForShakingCard,
+              delay: 0.0,
+              options: .curveLinear ,
+              animations: {
+                cardView.frame.origin.x -= Constants.xOffset
+          })
+          { (position) in
+              if position == .end {
+                  UIViewPropertyAnimator.runningPropertyAnimator(
+                      withDuration: Constants.durationForShakingCard,
+                      delay: 0.0,
+                      options: .curveLinear,
+                      animations:
+                   {   cardView.frame.origin.x += Constants.xOffset * 2
 
-              })
-              { (position) in
-                      if position == .end {
-                          UIViewPropertyAnimator.runningPropertyAnimator(
-                              withDuration: Constants.durationForShakingCard,
-                              delay: 0.0,
-                              options: .curveLinear,
-                              animations: {
-                               cardView.frame.origin = origin
-                          })
-                          { (position) in
-                                  if position == .end {cardView.state = .unselected }
-                          }
-                      }
+                  })
+                  { (position) in
+                          if position == .end {
+                              UIViewPropertyAnimator.runningPropertyAnimator(
+                                  withDuration: Constants.durationForShakingCard,
+                                  delay: 0.0,
+                                  options: .curveLinear,
+                                  animations: {
+                                   cardView.frame.origin = origin
+                              })
+                              { (position) in
+                                      if position == .end {
+                                        cardView.state = .unselected
+                                        self.enableUI(true)
+                                }
+                              }
+                        }
+                  }
               }
           }
-      }
-               }
-
-          }
+        }
+    }
 
 }
 
@@ -161,7 +161,7 @@ extension SetGameViewController {
 
 fileprivate struct Constants {
     static let durationForFlippingCard = 0.5
-    static let durationForFlyingCard = 1.5
+    static let durationForFlyingCard = 0.5
     static let durationForShakingCard = 0.1
     static let xOffset: CGFloat = 15.0
 }
