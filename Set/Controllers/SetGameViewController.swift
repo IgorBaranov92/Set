@@ -57,7 +57,7 @@ class SetGameViewController: UIViewController, GameDelegate {
        
     @objc private func dealThreeCards(_ recognizer:UITapGestureRecognizer) {
         if recognizer.state == .ended && game.deck.count > 0 {
-            enableUI(false)
+//            enableUI(false)
             game.draw()
             for index in game.visibleCards.count - 3 ... game.visibleCards.count - 1 {
                 addCardAt(index)

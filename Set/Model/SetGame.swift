@@ -39,6 +39,7 @@ class SetGame {
         if visibleCards[index].isSelected {
             visibleCards[index].isSelected = false
             SetGame.scores -= Points.penaltyForDeselection
+            visibleCards[index].numberOfMismatchedInvolved += 1
             delegate?.deselectCard()
         } else {
             visibleCards[index].isSelected = true
@@ -48,37 +49,37 @@ class SetGame {
     
     
     private func checkIfThreeSelectedCardsAreSet() {
+        let penalty = selectedCards.map { Int($0.numberOfMismatchedInvolved) }
+                                   .reduce(0) { $0 + $1 }
         if isSet {
-            let penalty = selectedCards.map { Int($0.numberOfMismatchedInvolved) }
-                                       .reduce(0) { x,y in x + y}
             SetGame.scores += Points.setWasFound - penalty
             matchesFound += 1
             if deck.count > 0 {
-                for i in 0...2 {
+                for i in stride(from: 2, to: -1, by: -1) {
                     let indexToReplace = visibleCards.firstIndex(of: selectedCards[i])!
                     visibleCards.remove(at: indexToReplace)
-                    
+                    visibleCards.insert(deck.removeRandomElement(), at: indexToReplace)
                 }
                 delegate?.setWasFound()
             } else {
                 delegate?.gameFinished()
             }
         } else { 
-            SetGame.scores -= Points.setWasNotFound
+            SetGame.scores -= (Points.setWasNotFound + penalty)
             delegate?.setNotFound()
         }
         for index in visibleCards.indices {
             visibleCards[index].isSelected = false
-            visibleCards[index].numberOfMismatchedInvolved += 1
         }
     }
     
     private var isSet: Bool {
-        let colors = Set(selectedCards.map{$0.color}).count
-        let amount = Set(selectedCards.map{$0.amount}).count
-        let filling = Set(selectedCards.map{$0.filling}).count
-        let shape = Set(selectedCards.map{$0.shape}).count
-        return (colors != 2 && amount != 2 && filling != 2 && shape != 2)
+//        let colors = Set(selectedCards.map{$0.color}).count
+//        let amount = Set(selectedCards.map{$0.amount}).count
+//        let filling = Set(selectedCards.map{$0.filling}).count
+//        let shape = Set(selectedCards.map{$0.shape}).count
+//        return (colors != 2 && amount != 2 && filling != 2 && shape != 2)
+        return 2 > 1
     }
     
     private func findThreeSetCardsIfPossible() {

@@ -5,8 +5,10 @@ class SetDeckView: UIView {
     var deckCreated = false
     
     var cardViews = [SetCardView]() { didSet {
-        cardViews.forEach { addSubview($0);$0.contentMode = .redraw }
-        setNeedsLayout()
+        cardViews.forEach {
+            addSubview($0)
+            $0.contentMode = .redraw
+        }
     }}
 
     private lazy var grid = Grid(layout: .aspectRatio(Constants.setCardViewAspectRatio),                                 frame: bounds)
@@ -22,18 +24,7 @@ class SetDeckView: UIView {
                 delay: 0.0,
                 options: .curveLinear,
                 animations: {
-                    self.cardViews[index].frame = self.grid[index] ?? CGRect.zero },completion: { position in
-                        if position == .end && self.cardViews[index].state == .isFaceDown && self.deckCreated {
-                            UIView.transition(with: self.cardViews[index],
-                                              duration: 0.5,
-                                              options: .transitionFlipFromLeft,
-                                              animations: {
-                                                self.cardViews[index].state = .unselected
-                            }) { completed  in
-                                
-                            }
-                        }
-            } )
+                    self.cardViews[index].frame = self.grid[index] ?? CGRect.zero })
         }
     }
     
