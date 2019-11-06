@@ -1,6 +1,6 @@
 import Foundation
 
-struct ConcentrationCard {
+struct ConcentrationCard: CustomStringConvertible {
     
     var isFaceUp = false
     var isMatched = false
@@ -10,6 +10,7 @@ struct ConcentrationCard {
     
     private(set) var identifier: Int
     static private var id = 1
+    var description: String { String(identifier) }
     
     init() {
         identifier = ConcentrationCard.id

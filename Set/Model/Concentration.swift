@@ -51,8 +51,8 @@ class Concentration {
     }
     
     private enum Speed: Int {
-        case superfast = 6
-        case fast = 4
+        case superfast = 4
+        case fast = 3
         case regular = 2
     }
     
@@ -69,12 +69,16 @@ class Concentration {
     init(numberOfPairsOfCards: Int) {
         for _ in 1...numberOfPairsOfCards {
             let card = ConcentrationCard()
-            cards += [card,card]
+            cards += [card]
         }
-        cards = cards.shuffled()
+        cards.shuffle()
+        let newCards = cards.shuffled()
+        cards += newCards
         flipCount = 0
         lastChosenIndex = nil
         cardsAreMatched = false
     }
+    
+    
     
 }

@@ -39,41 +39,40 @@ class ConcentrationViewController: UIViewController {
                 if game.lastChosenIndex == nil { cardButtons[cardIndex].isUserInteractionEnabled = false
                     lastIndex = cardIndex
                 } else {
-//                    enableUI(false)
+                    enableUI(false)
                 }
                 game.chooseCard(at: cardIndex)
                 cardButtons[cardIndex].setTitle(String(emoji(for: game.cards[cardIndex])),                                  for: .normal)
-//                UIView.transition(with: cardButtons[cardIndex],
-//                                  duration: Constants.durationForFlippingCard,
-//                                  options: .transitionFlipFromLeft,
-//                                  animations: {
-//                                    self.cardButtons[cardIndex].backgroundColor = .clear
-//                }){ completed in
-//                    if self.lastIndex != nil,self.lastIndex! != cardIndex {
-//                        DispatchQueue.main.asyncAfter(deadline: .now() + Constants.timeInterval) {}
-//                        [self.lastIndex!,cardIndex].forEach { index in
-//                            if !self.game.cardsAreMatched {
-//                                UIView.transition(with: self.cardButtons[index],
-//                                  duration: Constants.durationForFlippingCard,
-//                                  options: .transitionFlipFromLeft,
-//                                  animations: {
-//                                self.cardButtons[index].setTitle("", for: .normal)
-//                                self.cardButtons[index].backgroundColor = self.theme.cardColor
-//                                }) { completed in self.enableUI(true) }
-//                            } else {
-//                                if self.game.gameCompleted {
-//                                    DispatchQueue.main.asyncAfter(deadline: .now() + Constants.timeInterval) {
-//                                        self.createNewGame()
-//                                        self.enableUI(true)
-//                                    }
-//                                } else {
-//                                    self.cardButtons[index].setTitle("", for: .normal)
-//                                    self.enableUI(true)
-//                                }
-//                            }
-//                        }
-//                    }
-//                }
+                UIView.transition(with: cardButtons[cardIndex],
+                                  duration: Constants.durationForFlippingCard,
+                                  options: .transitionFlipFromLeft,
+                                  animations: {
+                                    self.cardButtons[cardIndex].backgroundColor = .clear
+                }){ completed in
+                    if self.lastIndex != nil,self.lastIndex! != cardIndex {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + Constants.timeInterval) {}
+                        [self.lastIndex!,cardIndex].forEach { index in
+                            self.cardButtons[index].setTitle("", for: .normal)
+                            if !self.game.cardsAreMatched {
+                                UIView.transition(with: self.cardButtons[index],
+                                  duration: Constants.durationForFlippingCard,
+                                  options: .transitionFlipFromLeft,
+                                  animations: {
+                                self.cardButtons[index].backgroundColor = self.theme.cardColor
+                                }) { completed in self.enableUI(true) }
+                            } else {
+                                if self.game.gameCompleted {
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + Constants.timeIntervalForCreatingNewGame) {
+                                        self.createNewGame()
+                                        self.enableUI(true)
+                                    }
+                                } else {
+                                    self.enableUI(true)
+                                }
+                            }
+                        }
+                    }
+                }
                 updateLabelsAndButton()
             }
         }
@@ -188,5 +187,6 @@ fileprivate struct Constants {
     static let durationForFlippingCard = 0.4
     static let leadingConstraintInPortrait:CGFloat = 60.0
     static let timeInterval =  0.15
+    static let timeIntervalForCreatingNewGame = 1.5
 }
 
