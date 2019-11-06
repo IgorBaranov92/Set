@@ -87,6 +87,14 @@ class SetGame {
         
     }
     
+    private func foundSetCardFor(_ firstCard:SetCard,_ secondCard:SetCard) -> SetCard {
+        var thirdSetCard = SetCard(color: .one, filling: .one, amount: .one, shape: .one)
+        if firstCard.amount == secondCard.amount {
+            
+        }
+        return thirdSetCard
+    }
+    
     
     private struct Points {
         static let penaltyForHint = 10

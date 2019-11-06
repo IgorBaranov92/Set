@@ -1,7 +1,8 @@
 import UIKit
 
-
 class SetCardView: UIView {
+
+    var state:State = .isFaceDown { didSet { setNeedsDisplay() }}
 
     var amount = 1 { didSet { setNeedsDisplay() }}
     var color = 1 { didSet { setNeedsDisplay() }}
@@ -22,20 +23,20 @@ class SetCardView: UIView {
         }
         }}
     
+    
     private var shapeType:Shape = .oval { didSet { setNeedsDisplay() }}
     private var fillingType:Filling = .empty { didSet { setNeedsDisplay() }}
-    var state:State = .isFaceDown { didSet { setNeedsDisplay() }}
 
-    
     
     override func draw(_ rect: CGRect) {
         let rectPath = UIBezierPath(roundedRect: rect,cornerRadius: Constants.cardCornerRadius)
         let cardColor = colors[color - 1]
         UIColor.white.setFill()
         rectPath.fill()
-        layer.borderWidth = 1.0
+        layer.borderWidth = Constants.borderWidth
         layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         layer.cornerRadius = Constants.cardCornerRadius
+        rectPath.addClip()
         switch state {
         case .selected:
             let path = UIBezierPath(roundedRect: rect,cornerRadius: Constants.cardCornerRadius)
@@ -103,7 +104,7 @@ class SetCardView: UIView {
                 shapePath.stroke()
             }
         case .isFaceDown:
-        if let cardBackground = UIImage(named: "SetBackground") {
+            if let cardBackground = UIImage(named: "SetBackground") {
             cardBackground.draw(in: rect)
         }
         case .hinted:
@@ -149,6 +150,7 @@ class SetCardView: UIView {
         static let lineWidthForShape: CGFloat = 2.0
         static let lineWidthForVerticalLines: CGFloat = 0.5
         static let cardCornerRadius: CGFloat = 16.0
+        static let borderWidth: CGFloat = 1.0
     }
     
 }

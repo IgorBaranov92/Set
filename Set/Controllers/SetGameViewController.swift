@@ -6,8 +6,13 @@ class SetGameViewController: UIViewController, GameDelegate {
     @IBOutlet private weak var matchesLabel: UILabel!
     @IBOutlet private weak var deckView: SetDeckView!
 
+    private lazy var animator = UIDynamicAnimator(referenceView: view)
+    private lazy var cardBehavior = CardBehavior(in: animator)
+    
     private var game = SetGame()
-    private var selectedCards: [SetCardView] { deckView.cardViews.filter {$0.state == .selected } }
+    private var selectedCards: [SetCardView] {
+        deckView.cardViews.filter {$0.state == .selected && !$0.isHidden }
+    }
         
     // MARK: - ViewController lifecycle
 
@@ -19,9 +24,7 @@ class SetGameViewController: UIViewController, GameDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if !deckView.deckCreated {
-            newGame()
-        }
+        if !deckView.deckCreated { newGame() }
     }
     
     // MARK: - Game process
@@ -29,15 +32,13 @@ class SetGameViewController: UIViewController, GameDelegate {
     private func newGame() {
         game = SetGame()
         game.delegate = self
-         for index in game.visibleCards.indices {
-             addCardAt(index)
-         }
+        game.visibleCards.forEach { addCardAt(game.visibleCards.firstIndex(of: $0)!) }
         enableUI(false)
         deckView.throwCardsOnDeck(completionHandler: {
             self.enableUI(true)
-            self.deckView.deckCreated = true}
-        )
+        })
      }
+    
     
      
     private func addCardAt(_ index: Int) {
@@ -68,9 +69,11 @@ class SetGameViewController: UIViewController, GameDelegate {
     
     @objc func tapTheCard(_ gesture: UITapGestureRecognizer) {
            if gesture.state == .ended, let cardView = gesture.view as? SetCardView {
-                let index = deckView.cardViews.firstIndex(of: cardView)!
-                cardView.state = (cardView.state == .selected) ? .unselected : .selected
-                game.chooseCard(at: index)
+//                let index = deckView.cardViews.firstIndex(of: cardView)!
+//                cardView.state = (cardView.state == .selected) ? .unselected : .selected
+//            deckView.bringSubviewToFront(cardView)
+            cardBehavior.addItem(cardView)
+//                game.chooseCard(at: index)
            }
        }
     

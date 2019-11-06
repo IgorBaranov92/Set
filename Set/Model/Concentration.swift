@@ -1,16 +1,14 @@
 import Foundation
 
 class Concentration {
-    ///Shows total scores, not reset each time new game created
     static private(set) var scores = 0
 
     private(set) var cards = [ConcentrationCard]()
-    
     private(set) var flipCount = 0
-    ///Determine if two selected cards are equal
     private(set) var cardsAreMatched = false
     private var firstDate = Date()
     var lastChosenIndex: Int?
+    
     var gameCompleted: Bool { cards.filter { $0.isMatched }.count == cards.count }
     
     
