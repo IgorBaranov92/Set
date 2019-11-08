@@ -1,6 +1,6 @@
 import UIKit
 
-class SetGameViewController: UIViewController, GameDelegate {
+class SetGameViewController: UIViewController, SetGameDelegate {
     
     @IBOutlet private weak var scoreLabel: UILabel!
     @IBOutlet private weak var matchesLabel: UILabel!

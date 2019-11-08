@@ -7,8 +7,12 @@ extension Array {
     }
 }
 
+protocol ConcentrationGameDelegate: class {
+    func matchWasFound()
+    func matchWasNotFound()
+}
 
-protocol GameDelegate: class {
+protocol SetGameDelegate: class {
     func setWasFound()
     func setNotFound()
     func deselectCard()

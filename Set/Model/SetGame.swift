@@ -2,7 +2,7 @@ import Foundation
 
 class SetGame {
     
-    weak var delegate: GameDelegate?
+    weak var delegate: SetGameDelegate?
     static private(set) var scores = 0
 
     private(set) var deck = [SetCard]()

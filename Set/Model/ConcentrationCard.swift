@@ -6,7 +6,7 @@ struct ConcentrationCard: CustomStringConvertible {
     var isMatched = false
     var alreadySeen = false
     
-    var numberOfMismatchedInvolded = 0
+    var numberOfMismatchedInvolded = -1
     
     private(set) var identifier: Int
     static private var id = 1
