@@ -118,7 +118,6 @@ class ConcentrationViewController: UIViewController {
     
     
     private func updateConstraints() {
-        print(newGameButton.frame)
         if traitCollection.verticalSizeClass == .regular && traitCollection.horizontalSizeClass == .regular {
             if isPotraitOrientation {
                 stackView.axis = .vertical
