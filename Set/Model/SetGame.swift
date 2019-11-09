@@ -9,6 +9,10 @@ class SetGame {
     private(set) var visibleCards = [SetCard]()
     private(set) var matchesFound = 0
     private var selectedCards:[SetCard] { visibleCards.filter { $0.isSelected } }
+    private var penalty: Int {
+        selectedCards.map { Int($0.numberOfMismatchedInvolved) }
+                     .reduce(0) { $0 + $1 }
+    }
     
     init() {
         matchesFound = 0
@@ -49,8 +53,6 @@ class SetGame {
     
     
     private func checkIfThreeSelectedCardsAreSet() {
-        let penalty = selectedCards.map { Int($0.numberOfMismatchedInvolved) }
-                                   .reduce(0) { $0 + $1 }
         if isSet {
             SetGame.scores += Points.setWasFound - penalty
             matchesFound += 1
@@ -87,14 +89,18 @@ class SetGame {
         
     }
     
-//    private func foundSetCardFor(_ firstCard:SetCard,_ secondCard:SetCard) -> SetCard {
-//        var thirdSetCard = SetCard(color: .one, filling: .one, amount: .one, shape: .one)
-//        if firstCard.amount == secondCard.amount {
-//
-//        }
-//        return thirdSetCard
-//    }
-//
+    private func foundSetCardFor(_ firstCard:SetCard,_ secondCard:SetCard) -> SetCard {
+        let colorRawValue = firstCard.color.rawValue^secondCard.color.rawValue == 0 ? firstCard.color.rawValue : firstCard.color.rawValue^secondCard.color.rawValue
+        let shapeRawValue = firstCard.shape.rawValue^secondCard.shape.rawValue == 0 ? firstCard.shape.rawValue : firstCard.shape.rawValue^secondCard.shape.rawValue
+        let fillingRawValue = firstCard.filling.rawValue^secondCard.filling.rawValue == 0 ? firstCard.filling.rawValue : firstCard.filling.rawValue^secondCard.filling.rawValue
+        let amountRawValue = firstCard.amount.rawValue^secondCard.amount.rawValue == 0 ? firstCard.amount.rawValue : firstCard.amount.rawValue^secondCard.amount.rawValue
+        return SetCard(color: SetCard.Option(rawValue: colorRawValue)!,
+                       filling: SetCard.Option(rawValue: fillingRawValue)!,
+                       amount: SetCard.Option(rawValue: amountRawValue)!,
+                       shape: SetCard.Option(rawValue: shapeRawValue)!
+        )
+    }
+
     
     private struct Points {
         static let penaltyForHint = 10

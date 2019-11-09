@@ -8,7 +8,10 @@ class ConcentrationViewController: UIViewController, ConcentrationGameDelegate {
     private lazy var game = Concentration(numberOfPairsOfCards: cardButtons.count/3)
     private var currentEmoji = String()
     private var emoji = [ConcentrationCard:Character]()
-
+    private var selectedCards: [UIButton] {
+        cardButtons.filter { $0.currentTitle != "" && !$0.isHidden }
+    }
+    
     @IBOutlet weak var flipCountLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet private weak var themeNameLabel:UILabel!
@@ -32,11 +35,10 @@ class ConcentrationViewController: UIViewController, ConcentrationGameDelegate {
 
     // MARK: - IBAction
 
-
     @IBAction func touchCard(_ sender: UIButton) {
         if let cardIndex = cardButtons.firstIndex(of: sender) {
             if !game.cards[cardIndex].isMatched && cardButtons[cardIndex].currentTitle == "" {
-                 cardButtons[cardIndex].isUserInteractionEnabled = false
+                cardButtons[cardIndex].isUserInteractionEnabled = false
                 game.chooseCard(at: cardIndex)
                 cardButtons[cardIndex].setTitle(String(emoji(for: game.cards[cardIndex])),                                  for: .normal)
                 UIView.transition(with: cardButtons[cardIndex],
@@ -45,6 +47,9 @@ class ConcentrationViewController: UIViewController, ConcentrationGameDelegate {
                                   animations: {
                                     self.cardButtons[cardIndex].backgroundColor = .clear
                 })
+                if selectedCards.count == 3 {
+                    enableUI(false)
+                }
                 updateLabelsAndButton()
             }
         }
@@ -57,13 +62,16 @@ class ConcentrationViewController: UIViewController, ConcentrationGameDelegate {
         createNewGame()
     }
 
-    private func createNewGame() {
+    @objc private func createNewGame() {
         game = Concentration(numberOfPairsOfCards: cardButtons.count/3)
         game.delegate = self
         let randomIndex = Int.random(in: 0..<themes.count)
         theme = Array(themes.values)[randomIndex]
         currentEmoji = theme.emoji
-        cardButtons.forEach { $0.backgroundColor = theme.cardColor;$0.setTitle("", for: .normal);$0.isUserInteractionEnabled = true }
+        cardButtons.forEach { $0.backgroundColor = theme.cardColor
+                              $0.setTitle("", for: .normal)
+                              $0.isUserInteractionEnabled = true
+        }
         view.backgroundColor = theme.backgroundColor
         flipCountLabel.text = "Flips" + String(game.flipCount)
         scoreLabel.text = "Scores" + String(Concentration.scores)
@@ -72,7 +80,6 @@ class ConcentrationViewController: UIViewController, ConcentrationGameDelegate {
         scoreLabel.textColor = theme.cardColor
         flipCountLabel.textColor = theme.cardColor
         newGameButton.setTitleColor(theme.cardColor, for: .normal)
-        print(cardButtons.count)
     }
 
     private func emoji(for card:ConcentrationCard) -> Character {
@@ -137,14 +144,33 @@ class ConcentrationViewController: UIViewController, ConcentrationGameDelegate {
     ]
     
    func matchWasFound() {
-           
+        flipBackSelectedCards(matchFound: true)
     }
        
     func matchWasNotFound() {
-           
+        flipBackSelectedCards(matchFound: false)
     }
        
-    
+    private func flipBackSelectedCards(matchFound:Bool) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.selectedCards.forEach { cardButton in
+                UIView.transition(with: cardButton,
+                                  duration: Constants.durationForFlippingCard,
+                                  options: .transitionFlipFromLeft,
+                                  animations: {
+                                    cardButton.setTitle("", for: .normal)
+                                    cardButton.backgroundColor = matchFound ? self.theme.backgroundColor : self.theme.cardColor
+                                }) { completed in
+                                    self.enableUI(true)
+                                    if self.game.gameCompleted {
+                                        self.perform(#selector(self.createNewGame),
+                                                     with: nil,
+                                               afterDelay: 1.0)
+                                    }
+                                }
+            }
+        }
+    }
     
     private lazy var cardButtons: [UIButton] = {
         var buttons = [UIButton]()
@@ -168,6 +194,7 @@ class ConcentrationViewController: UIViewController, ConcentrationGameDelegate {
 
 fileprivate struct Constants {
     static let durationForFlippingCard = 0.4
+    static let durationForDisappearingCard = 0.3
     static let leadingConstraintInPortrait:CGFloat = 60.0
     static let timeInterval =  0.15
     static let timeIntervalForCreatingNewGame = 1.5

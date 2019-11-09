@@ -17,6 +17,9 @@ struct SetCard {
         case three = 3
     }
     
+    var oppositeValue: Option {
+        return .one
+    }
    
     
 }

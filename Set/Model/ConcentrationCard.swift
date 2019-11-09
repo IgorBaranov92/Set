@@ -4,13 +4,13 @@ struct ConcentrationCard: CustomStringConvertible {
     
     var isFaceUp = false
     var isMatched = false
-    var alreadySeen = false
+    
+    var description: String { String(identifier)}
     
     var numberOfMismatchedInvolded = -1
     
     private(set) var identifier: Int
     static private var id = 1
-    var description: String { String(identifier) }
     
     init() {
         identifier = ConcentrationCard.id
