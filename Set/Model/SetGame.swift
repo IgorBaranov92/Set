@@ -17,6 +17,7 @@ class SetGame {
     init() {
         matchesFound = 0
         visibleCards.removeAll()
+        deck.removeAll()
         for color in SetCard.Option.allCases {
             for filling in SetCard.Option.allCases {
                 for shape in SetCard.Option.allCases {
