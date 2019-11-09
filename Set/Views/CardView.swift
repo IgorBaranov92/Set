@@ -1,6 +1,6 @@
 import UIKit
 
-class SetCardView: UIView {
+class CardView: UIView {
 
     var state:State = .isFaceDown { didSet { setNeedsDisplay() }}
 

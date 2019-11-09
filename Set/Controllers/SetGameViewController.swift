@@ -4,13 +4,13 @@ class SetGameViewController: UIViewController, SetGameDelegate {
     
     @IBOutlet private weak var scoreLabel: UILabel!
     @IBOutlet private weak var matchesLabel: UILabel!
-    @IBOutlet private weak var deckView: SetDeckView!
+    @IBOutlet private weak var deckView: DeckView!
 
     private lazy var animator = UIDynamicAnimator(referenceView: view)
     private lazy var cardBehavior = CardBehavior(in: animator)
     
     private var game = SetGame()
-    private var selectedCards: [SetCardView] {
+    private var selectedCards: [CardView] {
         deckView.cardViews.filter {$0.state == .selected && !$0.isHidden }
     }
         
@@ -42,7 +42,7 @@ class SetGameViewController: UIViewController, SetGameDelegate {
     
      
     private func addCardAt(_ index: Int) {
-        let cardView = SetCardView(frame: CGRect(x: deckView.bounds.width, y: deckView.bounds.height, width: 0, height: 0))
+        let cardView = CardView(frame: CGRect(x: deckView.bounds.width, y: deckView.bounds.height, width: 0, height: 0))
         cardView.amount = game.visibleCards[index].amount.rawValue
         cardView.shape = game.visibleCards[index].shape.rawValue
         cardView.filling = game.visibleCards[index].filling.rawValue
@@ -68,7 +68,7 @@ class SetGameViewController: UIViewController, SetGameDelegate {
 
     
     @objc func tapTheCard(_ gesture: UITapGestureRecognizer) {
-           if gesture.state == .ended, let cardView = gesture.view as? SetCardView {
+           if gesture.state == .ended, let cardView = gesture.view as? CardView {
 //                let index = deckView.cardViews.firstIndex(of: cardView)!
 //                cardView.state = (cardView.state == .selected) ? .unselected : .selected
 //            deckView.bringSubviewToFront(cardView)

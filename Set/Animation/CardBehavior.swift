@@ -5,7 +5,7 @@ class CardBehavior: UIDynamicBehavior {
     
    private lazy var collisionBehavior: UICollisionBehavior = {
         let behavior = UICollisionBehavior()
-        behavior.translatesReferenceBoundsIntoBoundary = true
+        behavior.translatesReferenceBoundsIntoBoundary = false
         return behavior
     }()
 
@@ -22,7 +22,7 @@ class CardBehavior: UIDynamicBehavior {
     private func push(_ item:UIDynamicItem) {
         let push = UIPushBehavior(items: [item], mode: .instantaneous)
         push.angle = CGFloat.random(in: 0...CGFloat.pi*2)
-        push.magnitude = 1.0 + CGFloat.random(in: 1.0...2.0)
+        push.magnitude = 10.0
         push.action = { [unowned push,weak self] in
             self?.removeChildBehavior(push)
         }

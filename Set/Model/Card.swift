@@ -1,7 +1,7 @@
 import Foundation
 
 
-struct SetCard {
+struct Card {
 
     private(set) var color: Option
     private(set) var filling: Option
@@ -24,8 +24,8 @@ struct SetCard {
     
 }
 
-extension SetCard: Equatable {
-    static func ==(lhs:SetCard,rhs:SetCard) -> Bool {
+extension Card: Equatable {
+    static func ==(lhs:Card,rhs:Card) -> Bool {
         return (lhs.amount == rhs.amount) && (lhs.color == rhs.color) && (lhs.filling == rhs.filling) && (lhs.shape == rhs.shape)
     }
 }

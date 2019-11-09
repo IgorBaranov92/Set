@@ -5,10 +5,10 @@ class SetGame {
     weak var delegate: SetGameDelegate?
     static private(set) var scores = 0
 
-    private(set) var deck = [SetCard]()
-    private(set) var visibleCards = [SetCard]()
+    private(set) var deck = [Card]()
+    private(set) var visibleCards = [Card]()
     private(set) var matchesFound = 0
-    private var selectedCards:[SetCard] { visibleCards.filter { $0.isSelected } }
+    private var selectedCards:[Card] { visibleCards.filter { $0.isSelected } }
     private var penalty: Int {
         selectedCards.map { Int($0.numberOfMismatchedInvolved) }
                      .reduce(0) { $0 + $1 }
@@ -18,11 +18,11 @@ class SetGame {
         matchesFound = 0
         visibleCards.removeAll()
         deck.removeAll()
-        for color in SetCard.Option.allCases {
-            for filling in SetCard.Option.allCases {
-                for shape in SetCard.Option.allCases {
-                    for amount in SetCard.Option.allCases {
-                        let card = SetCard(color: color, filling: filling, amount: amount, shape: shape)
+        for color in Card.Option.allCases {
+            for filling in Card.Option.allCases {
+                for shape in Card.Option.allCases {
+                    for amount in Card.Option.allCases {
+                        let card = Card(color: color, filling: filling, amount: amount, shape: shape)
                         deck.append(card)
                     }
                 }
@@ -90,15 +90,15 @@ class SetGame {
         
     }
     
-    private func foundSetCardFor(_ firstCard:SetCard,_ secondCard:SetCard) -> SetCard {
+    private func foundSetCardFor(_ firstCard:Card,_ secondCard:Card) -> Card {
         let colorRawValue = firstCard.color.rawValue^secondCard.color.rawValue == 0 ? firstCard.color.rawValue : firstCard.color.rawValue^secondCard.color.rawValue
         let shapeRawValue = firstCard.shape.rawValue^secondCard.shape.rawValue == 0 ? firstCard.shape.rawValue : firstCard.shape.rawValue^secondCard.shape.rawValue
         let fillingRawValue = firstCard.filling.rawValue^secondCard.filling.rawValue == 0 ? firstCard.filling.rawValue : firstCard.filling.rawValue^secondCard.filling.rawValue
         let amountRawValue = firstCard.amount.rawValue^secondCard.amount.rawValue == 0 ? firstCard.amount.rawValue : firstCard.amount.rawValue^secondCard.amount.rawValue
-        return SetCard(color: SetCard.Option(rawValue: colorRawValue)!,
-                       filling: SetCard.Option(rawValue: fillingRawValue)!,
-                       amount: SetCard.Option(rawValue: amountRawValue)!,
-                       shape: SetCard.Option(rawValue: shapeRawValue)!
+        return Card(color: Card.Option(rawValue: colorRawValue)!,
+                       filling: Card.Option(rawValue: fillingRawValue)!,
+                       amount: Card.Option(rawValue: amountRawValue)!,
+                       shape: Card.Option(rawValue: shapeRawValue)!
         )
     }
 

@@ -7,11 +7,6 @@ extension Array {
     }
 }
 
-protocol ConcentrationGameDelegate: class {
-    func matchWasFound()
-    func matchWasNotFound()
-}
-
 protocol SetGameDelegate: class {
     func setWasFound()
     func setNotFound()
@@ -23,16 +18,6 @@ protocol SetGameDelegate: class {
 extension CGRect {
     var center: CGPoint {
         return CGPoint(x: midX, y: midY)
-    }
-}
-
-
-extension UIViewController {
-    var content: UIViewController {
-        if let navController = self as? UINavigationController {
-            return navController.visibleViewController ?? self
-        }
-        return self
     }
 }
 
