@@ -13,6 +13,8 @@ class SetGame {
         selectedCards.map { Int($0.numberOfMismatchedInvolved) }
                      .reduce(0) { $0 + $1 }
     }
+    var noSetOnTheBoard: Bool { hintedIndexes.isEmpty }
+    private(set) var hintedIndexes = [Int]()
     
     init() {
         matchesFound = 0
@@ -77,18 +79,36 @@ class SetGame {
     }
     
     private var isSet: Bool {
-//        let colors = Set(selectedCards.map{$0.color}).count
-//        let amount = Set(selectedCards.map{$0.amount}).count
-//        let filling = Set(selectedCards.map{$0.filling}).count
-//        let shape = Set(selectedCards.map{$0.shape}).count
-//        return (colors != 2 && amount != 2 && filling != 2 && shape != 2)
-        return 2 > 1
+        let colors = Set(selectedCards.map{$0.color}).count
+        let amount = Set(selectedCards.map{$0.amount}).count
+        let filling = Set(selectedCards.map{$0.filling}).count
+        let shape = Set(selectedCards.map{$0.shape}).count
+        return (colors != 2 && amount != 2 && filling != 2 && shape != 2)
     }
     
-    private func findThreeSetCardsIfPossible() {
+    func findThreeSetCardsIfPossible() {
+        let start = Date()
         SetGame.scores -= Points.penaltyForHint
-        
+        for i in visibleCards.indices {
+            for j in i + 1...visibleCards.count-1 {
+                let firstCard = visibleCards[i]
+                let secondCard = visibleCards[j]
+                let thirdCard = foundSetCardFor(firstCard, secondCard)
+                if visibleCards.contains(thirdCard) {
+                    hintedIndexes.append(i)
+                    hintedIndexes.append(j)
+                    hintedIndexes.append(visibleCards.firstIndex(of: thirdCard)!)
+                    break
+                }
+            }
+            break
+        }
+        let end = Date()
+        print("time = \(end.timeIntervalSince(start))")
     }
+    
+    
+    
     
     private func foundSetCardFor(_ firstCard:Card,_ secondCard:Card) -> Card {
         let colorRawValue = firstCard.color.rawValue^secondCard.color.rawValue == 0 ? firstCard.color.rawValue : firstCard.color.rawValue^secondCard.color.rawValue

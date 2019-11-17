@@ -5,7 +5,7 @@ class SetGameViewController: UIViewController, SetGameDelegate {
     @IBOutlet private weak var scoreLabel: UILabel!
     @IBOutlet private weak var matchesLabel: UILabel!
     @IBOutlet private weak var deckView: DeckView!
-
+    
     private lazy var animator = UIDynamicAnimator(referenceView: view)
     private lazy var cardBehavior = CardBehavior(in: animator)
     
@@ -39,10 +39,12 @@ class SetGameViewController: UIViewController, SetGameDelegate {
         })
      }
     
-    
+    private var cardViewOrigin: CGPoint {
+        CGPoint(x: view.bounds.midX, y: view.bounds.maxY - 150)
+    }
      
     private func addCardAt(_ index: Int) {
-        let cardView = CardView(frame: CGRect(x: deckView.bounds.width, y: deckView.bounds.height, width: 0, height: 0))
+        let cardView = CardView(frame: CGRect(origin: CGPoint(x: view.bounds.maxX, y:       view.bounds.maxY), size: CGSize.zero))
         cardView.amount = game.visibleCards[index].amount.rawValue
         cardView.shape = game.visibleCards[index].shape.rawValue
         cardView.filling = game.visibleCards[index].filling.rawValue
@@ -70,13 +72,20 @@ class SetGameViewController: UIViewController, SetGameDelegate {
     @objc func tapTheCard(_ gesture: UITapGestureRecognizer) {
            if gesture.state == .ended, let cardView = gesture.view as? CardView {
 //                let index = deckView.cardViews.firstIndex(of: cardView)!
-//                cardView.state = (cardView.state == .selected) ? .unselected : .selected
+                cardView.state = (cardView.state == .selected) ? .unselected : .selected
 //            deckView.bringSubviewToFront(cardView)
-            cardBehavior.addItem(cardView)
+//            cardBehavior.addItem(cardView)
 //                game.chooseCard(at: index)
            }
        }
     
+    @IBAction private func showHint(_ sender:UIButton) {
+        game.findThreeSetCardsIfPossible()
+        game.hintedIndexes.forEach {
+            deckView.cardViews[$0].state = .hinted
+        }
+        updateLabels()
+    }
     
     // MARK: - Helper function
     

@@ -9,18 +9,13 @@ struct Card {
     private(set) var shape : Option
     var numberOfMismatchedInvolved = 0
     var isSelected = false
-    
+    var isHinted = false
     
     enum Option: Int,CaseIterable {
         case one = 1
         case two = 2
         case three = 3
     }
-    
-    var oppositeValue: Option {
-        return .one
-    }
-   
     
 }
 

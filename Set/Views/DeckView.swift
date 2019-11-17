@@ -2,7 +2,7 @@ import UIKit
 
 class DeckView: UIView {
 
-    var deckCreated = false
+    private(set) var deckCreated = false
     
     var cardViews = [CardView]() { didSet {
         cardViews.forEach {
@@ -19,6 +19,7 @@ class DeckView: UIView {
         grid.frame = bounds
         cardViews.forEach { cardView in
             let index = self.cardViews.firstIndex(of: cardView)!
+            if cardView.state == .hinted {cardView.state = .unselected}
             UIViewPropertyAnimator.runningPropertyAnimator(
                 withDuration: Constants.durationForRearrangingCards,
                 delay: 0.0,
@@ -40,7 +41,7 @@ class DeckView: UIView {
     }
     
     func throwCardsOnDeck(completionHandler: @escaping ()->Void) {
-        cardViews.forEach { $0.frame = CGRect(x: bounds.width, y: bounds.height, width: 0, height: 0)}
+//        cardViews.forEach { $0.frame = CGRect(x: bounds.width, y: bounds.height, width: 0, height: 0)}
         for index in cardViews.indices {
             UIViewPropertyAnimator.runningPropertyAnimator(
                 withDuration: Constants.durationForFlyingCard,
