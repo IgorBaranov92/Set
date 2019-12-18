@@ -3,6 +3,7 @@ import Foundation
 class SetGame {
     
     weak var delegate: SetGameDelegate?
+    var noSetOnTheBoard: Bool { hintedIndexes.isEmpty }
     static private(set) var scores = 0
 
     private(set) var deck = [Card]()
@@ -13,7 +14,6 @@ class SetGame {
         selectedCards.map { Int($0.numberOfMismatchedInvolved) }
                      .reduce(0) { $0 + $1 }
     }
-    var noSetOnTheBoard: Bool { hintedIndexes.isEmpty }
     private(set) var hintedIndexes = [Int]()
     
     init() {
@@ -31,6 +31,7 @@ class SetGame {
             }
         }
         for _ in 0...3 { draw() }
+        findSetIfPossible()
     }
     
     
@@ -86,11 +87,10 @@ class SetGame {
         return (colors != 2 && amount != 2 && filling != 2 && shape != 2)
     }
     
-    func findThreeSetCardsIfPossible() {
-        let start = Date()
-        SetGame.scores -= Points.penaltyForHint
+    func findSetIfPossible() {
+        hintedIndexes.removeAll()
         for i in visibleCards.indices {
-            for j in i + 1...visibleCards.count-1 {
+            for j in i + 1...visibleCards.count-2 {
                 let firstCard = visibleCards[i]
                 let secondCard = visibleCards[j]
                 let thirdCard = foundSetCardFor(firstCard, secondCard)
@@ -98,13 +98,12 @@ class SetGame {
                     hintedIndexes.append(i)
                     hintedIndexes.append(j)
                     hintedIndexes.append(visibleCards.firstIndex(of: thirdCard)!)
+                    SetGame.scores -= Points.penaltyForHint
                     break
                 }
             }
             break
         }
-        let end = Date()
-        print("time = \(end.timeIntervalSince(start))")
     }
     
     

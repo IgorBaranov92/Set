@@ -2,16 +2,19 @@ import UIKit
 
 class SetGameViewController: UIViewController, SetGameDelegate {
     
+    var game = SetGame()
+
     @IBOutlet private weak var scoreLabel: UILabel!
     @IBOutlet private weak var matchesLabel: UILabel!
     @IBOutlet private weak var deckView: DeckView!
     
+    @IBOutlet private weak var circle:Circle!
+    
     private lazy var animator = UIDynamicAnimator(referenceView: view)
     private lazy var cardBehavior = CardBehavior(in: animator)
     
-    private var game = SetGame()
     private var selectedCards: [CardView] {
-        deckView.cardViews.filter {$0.state == .selected && !$0.isHidden }
+        deckView.cardViews.filter { $0.state == .selected && !$0.isHidden }
     }
         
     // MARK: - ViewController lifecycle
@@ -25,6 +28,11 @@ class SetGameViewController: UIViewController, SetGameDelegate {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if !deckView.deckCreated { newGame() }
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        cardBehavior.snapPoint = view.center
     }
     
     // MARK: - Game process
@@ -51,7 +59,7 @@ class SetGameViewController: UIViewController, SetGameDelegate {
         cardView.color = game.visibleCards[index].color.rawValue
         cardView.state = .isFaceDown
         cardView.backgroundColor = .clear
-        deckView.cardViews.append(cardView)
+    //    deckView.cardViews.append(cardView)
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapTheCard(_:)))
         cardView.addGestureRecognizer(tapGestureRecognizer)
     }
@@ -72,15 +80,15 @@ class SetGameViewController: UIViewController, SetGameDelegate {
     @objc func tapTheCard(_ gesture: UITapGestureRecognizer) {
            if gesture.state == .ended, let cardView = gesture.view as? CardView {
 //                let index = deckView.cardViews.firstIndex(of: cardView)!
-                cardView.state = (cardView.state == .selected) ? .unselected : .selected
-//            deckView.bringSubviewToFront(cardView)
-//            cardBehavior.addItem(cardView)
+            cardView.state = (cardView.state == .selected) ? .unselected : .selected
+     //       deckView.bringSubviewToFront(cardView)
+            cardBehavior.addItem(cardView)
 //                game.chooseCard(at: index)
            }
        }
     
     @IBAction private func showHint(_ sender:UIButton) {
-        game.findThreeSetCardsIfPossible()
+        game.findSetIfPossible()
         game.hintedIndexes.forEach {
             deckView.cardViews[$0].state = .hinted
         }
@@ -114,10 +122,7 @@ class SetGameViewController: UIViewController, SetGameDelegate {
     func gameFinished() {
         
     }
-}
-
-
-extension SetGameViewController {
+    
     
     private func enableUI(_ isUserInteractionEnabled: Bool) {
         deckView.cardViews.forEach { $0.isUserInteractionEnabled = isUserInteractionEnabled }
@@ -127,55 +132,17 @@ extension SetGameViewController {
     private func shakeSelectedCards() {
         enableUI(false)
         selectedCards.forEach { cardView in
-        let origin = cardView.frame.origin
-          UIViewPropertyAnimator.runningPropertyAnimator(
-              withDuration: Constants.durationForShakingCard,
-              delay: 0.0,
-              options: .curveLinear ,
-              animations: {
-                cardView.frame.origin.x -= Constants.xOffset
-          })
-          { (position) in
-              if position == .end {
-                  UIViewPropertyAnimator.runningPropertyAnimator(
-                      withDuration: Constants.durationForShakingCard,
-                      delay: 0.0,
-                      options: .curveLinear,
-                      animations:
-                   {   cardView.frame.origin.x += Constants.xOffset * 2
-
-                  })
-                  { (position) in
-                          if position == .end {
-                              UIViewPropertyAnimator.runningPropertyAnimator(
-                                  withDuration: Constants.durationForShakingCard,
-                                  delay: 0.0,
-                                  options: .curveLinear,
-                                  animations: {
-                                   cardView.frame.origin = origin
-                              })
-                              { (position) in
-                                      if position == .end {
-                                        cardView.state = .unselected
-                                        self.enableUI(true)
-                                }
-                              }
-                        }
-                  }
-              }
-          }
+            ShakeAnimation.shake(view: cardView) {
+                cardView.state = .unselected
+                self.enableUI(true)
+            }
         }
     }
-
+    
 }
 
 
 
-fileprivate struct Constants {
-    static let durationForFlippingCard = 0.5
-    static let durationForFlyingCard = 0.5
-    static let durationForShakingCard = 0.1
-    static let xOffset: CGFloat = 15.0
-}
+
 
 
