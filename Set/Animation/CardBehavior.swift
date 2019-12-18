@@ -20,7 +20,9 @@ class CardBehavior: UIDynamicBehavior {
         itemBehavior.addItem(item)
         collisionBehavior.addItem(item)
         push(item)
-//        snap(item)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) { [weak self] in
+            self?.snap(item)
+        }
     }
     
     func removeItem(_ item: UIDynamicItem) {
@@ -48,8 +50,8 @@ class CardBehavior: UIDynamicBehavior {
     private func push(_ item:UIDynamicItem) {
         let push = UIPushBehavior(items: [item], mode: .instantaneous)
         push.angle = CGFloat.random(in: .pi/2...CGFloat.pi*2)
-        push.magnitude = 30
-        print(push.angle)
+        push.magnitude = 1
+        push.setTargetOffsetFromCenter(UIOffset(horizontal: 10, vertical: 10), for: item)
         push.action = { [unowned push,weak self] in
             self?.removeChildBehavior(push)
         }
@@ -59,8 +61,7 @@ class CardBehavior: UIDynamicBehavior {
     private func snap(_ item:UIDynamicItem) {
         let snapBehavior = UISnapBehavior(item: item, snapTo: snapPoint)
         snapBehavior.damping = 1
-        print("Snap Point = \(snapPoint)")
-        snapBehavior.action = { [unowned snapBehavior,weak self] in
+        snapBehavior.action = { [weak self] in
 //            self?.removeChildBehavior(snapBehavior)
             self?.removeItem(item)
         }

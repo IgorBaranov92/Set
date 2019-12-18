@@ -10,10 +10,10 @@ struct Grid
     
     var layout: Layout { didSet { recalculate() } }
     
-    var frame: CGRect { didSet { recalculate() } }
+    var bounds: CGRect { didSet { recalculate() } }
     
     init(layout: Layout, frame: CGRect = CGRect.zero) {
-        self.frame = frame
+        self.bounds = frame
         self.layout = layout
         recalculate()
     }
@@ -54,8 +54,8 @@ struct Grid
             case .fixedCellSize(let size):
                 return size.height > 0 ? size.width / size.height : 0.0
             case .dimensions(let rowCount, let columnCount):
-                if rowCount > 0 && columnCount > 0 && frame.size.width > 0 {
-                    return (frame.size.width / CGFloat(columnCount)) / (frame.size.width / CGFloat(rowCount))
+                if rowCount > 0 && columnCount > 0 && bounds.size.width > 0 {
+                    return (bounds.size.width / CGFloat(columnCount)) / (bounds.size.width / CGFloat(rowCount))
                 } else {
                     return 0.0
                 }
@@ -72,8 +72,8 @@ struct Grid
         switch layout {
         case .fixedCellSize(let cellSize):
             if cellSize.width > 0 && cellSize.height > 0 {
-                calculatedDimensions.rowCount = Int(frame.size.height / cellSize.height)
-                calculatedDimensions.columnCount = Int(frame.size.width / cellSize.width)
+                calculatedDimensions.rowCount = Int(bounds.size.height / cellSize.height)
+                calculatedDimensions.columnCount = Int(bounds.size.width / cellSize.width)
                 updateCellFrames(to: cellSize)
             } else {
                 assert(false, "Grid: for fixedCellSize layout, cellSize height and width must be positive numbers")
@@ -84,7 +84,7 @@ struct Grid
             if columnCount > 0 && rowCount > 0 {
                 calculatedDimensions.rowCount = rowCount
                 calculatedDimensions.columnCount = columnCount
-                let cellSize = CGSize(width: frame.size.width/CGFloat(columnCount), height: frame.size.height/CGFloat(rowCount))
+                let cellSize = CGSize(width: bounds.size.width/CGFloat(columnCount), height: bounds.size.height/CGFloat(rowCount))
                 updateCellFrames(to: cellSize)
             } else {
                 assert(false, "Grid: for dimensions layout, rowCount and columnCount must be positive numbers")
@@ -95,7 +95,7 @@ struct Grid
             assert(aspectRatio > 0, "Grid: for aspectRatio layout, aspectRatio must be a positive number")
             let cellSize = largestCellSizeThatFitsAspectRatio()
             if cellSize.area > 0 {
-                calculatedDimensions.columnCount = Int(frame.size.width / cellSize.width)
+                calculatedDimensions.columnCount = Int(bounds.size.width / cellSize.width)
                 calculatedDimensions.rowCount = (cellCount + calculatedDimensions.columnCount - 1) / calculatedDimensions.columnCount
             } else {
                 calculatedDimensions = (0, 0)
@@ -113,10 +113,10 @@ struct Grid
             height: CGFloat(dimensions.rowCount) * cellSize.height
         )
         let offset = (
-            dx: (frame.size.width - boundingSize.width) / 2,
-            dy: (frame.size.height - boundingSize.height) / 2
+            dx: (bounds.size.width - boundingSize.width) / 2,
+            dy: (bounds.size.height - boundingSize.height) / 2
         )
-        var origin = frame.origin
+        var origin = bounds.origin
         origin.x += offset.dx
         origin.y += offset.dy
         
@@ -124,8 +124,8 @@ struct Grid
             for _ in 0..<cellCount {
                 cellFrames.append(CGRect(origin: origin, size: cellSize))
                 origin.x += cellSize.width
-                if round(origin.x) > round(frame.maxX - cellSize.width) {
-                    origin.x = frame.origin.x + offset.dx
+                if round(origin.x) > round(bounds.maxX - cellSize.width) {
+                    origin.x = bounds.origin.x + offset.dx
                     origin.y += cellSize.height
                 }
             }
@@ -148,14 +148,14 @@ struct Grid
     private func cellSizeAssuming(rowCount: Int? = nil, columnCount: Int? = nil, minimumAllowedSize: CGSize = CGSize.zero) -> CGSize {
         var size = CGSize.zero
         if let columnCount = columnCount {
-            size.width = frame.size.width / CGFloat(columnCount)
+            size.width = bounds.size.width / CGFloat(columnCount)
             size.height = size.width / aspectRatio
         } else if let rowCount = rowCount {
-            size.height = frame.size.height / CGFloat(rowCount)
+            size.height = bounds.size.height / CGFloat(rowCount)
             size.width = size.height * aspectRatio
         }
         if size.area > minimumAllowedSize.area {
-            if Int(frame.size.height / size.height) * Int(frame.size.width / size.width) >= cellCount {
+            if Int(bounds.size.height / size.height) * Int(bounds.size.width / size.width) >= cellCount {
                 return size
             }
         }

@@ -3,7 +3,7 @@ import Foundation
 class SetGame {
     
     weak var delegate: SetGameDelegate?
-    var noSetOnTheBoard: Bool { hintedIndexes.isEmpty }
+    private var noSetOnTheBoard: Bool { hintedIndexes.isEmpty }
     static private(set) var scores = 0
 
     private(set) var deck = [Card]()
@@ -31,7 +31,6 @@ class SetGame {
             }
         }
         for _ in 0...3 { draw() }
-        findSetIfPossible()
     }
     
     
@@ -80,11 +79,12 @@ class SetGame {
     }
     
     private var isSet: Bool {
-        let colors = Set(selectedCards.map{$0.color}).count
-        let amount = Set(selectedCards.map{$0.amount}).count
-        let filling = Set(selectedCards.map{$0.filling}).count
-        let shape = Set(selectedCards.map{$0.shape}).count
-        return (colors != 2 && amount != 2 && filling != 2 && shape != 2)
+//        let colors = Set(selectedCards.map{$0.color}).count
+//        let amount = Set(selectedCards.map{$0.amount}).count
+//        let filling = Set(selectedCards.map{$0.filling}).count
+//        let shape = Set(selectedCards.map{$0.shape}).count
+        return true
+//        return (colors != 2 && amount != 2 && filling != 2 && shape != 2)
     }
     
     func findSetIfPossible() {

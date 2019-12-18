@@ -16,7 +16,7 @@ class DeckView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         grid.cellCount = cardViews.count
-        grid.frame = bounds
+        grid.bounds = bounds
         cardViews.forEach { cardView in
             let index = self.cardViews.firstIndex(of: cardView)!
             if cardView.state == .hinted {cardView.state = .unselected}
@@ -41,7 +41,6 @@ class DeckView: UIView {
     }
     
     func throwCardsOnDeck(completionHandler: @escaping ()->Void) {
-//        cardViews.forEach { $0.frame = CGRect(x: bounds.width, y: bounds.height, width: 0, height: 0)}
         for index in cardViews.indices {
             UIViewPropertyAnimator.runningPropertyAnimator(
                 withDuration: Constants.durationForFlyingCard,
@@ -68,18 +67,11 @@ class DeckView: UIView {
     func removeSelectedCards() {
         cardViews.filter {$0.state == .selected}
                  .forEach { cardView in
-            
-            print(cardView)
         }
     }
     
     
-    private struct Constants {
-        static let setCardViewAspectRatio: CGFloat = 8.0/5.0
-        static let durationForRearrangingCards = 0.5
-        static let durationForFlippingCard = 0.5
-        static let durationForFlyingCard = 1.0
-    }
+
 
 }
 

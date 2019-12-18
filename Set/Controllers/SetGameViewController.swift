@@ -5,12 +5,12 @@ class SetGameViewController: UIViewController, SetGameDelegate {
     var game = SetGame()
 
     @IBOutlet private weak var scoreLabel: UILabel!
-    @IBOutlet private weak var matchesLabel: UILabel!
+    @IBOutlet private weak var scoreCountLabel: UILabel!
     @IBOutlet private weak var deckView: DeckView!
-    
+    @IBOutlet private weak var deck:UIImageView!
     @IBOutlet private weak var circle:Circle!
     
-    private lazy var animator = UIDynamicAnimator(referenceView: view)
+    private lazy var animator = UIDynamicAnimator(referenceView: deckView)
     private lazy var cardBehavior = CardBehavior(in: animator)
     
     private var selectedCards: [CardView] {
@@ -47,9 +47,6 @@ class SetGameViewController: UIViewController, SetGameDelegate {
         })
      }
     
-    private var cardViewOrigin: CGPoint {
-        CGPoint(x: view.bounds.midX, y: view.bounds.maxY - 150)
-    }
      
     private func addCardAt(_ index: Int) {
         let cardView = CardView(frame: CGRect(origin: CGPoint(x: view.bounds.maxX, y:       view.bounds.maxY), size: CGSize.zero))
@@ -59,7 +56,7 @@ class SetGameViewController: UIViewController, SetGameDelegate {
         cardView.color = game.visibleCards[index].color.rawValue
         cardView.state = .isFaceDown
         cardView.backgroundColor = .clear
-    //    deckView.cardViews.append(cardView)
+        deckView.cardViews.append(cardView)
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapTheCard(_:)))
         cardView.addGestureRecognizer(tapGestureRecognizer)
     }
@@ -68,7 +65,6 @@ class SetGameViewController: UIViewController, SetGameDelegate {
        
     @objc private func dealThreeCards(_ recognizer:UITapGestureRecognizer) {
         if recognizer.state == .ended && game.deck.count > 0 {
-//            enableUI(false)
             game.draw()
             for index in game.visibleCards.count - 3 ... game.visibleCards.count - 1 {
                 addCardAt(index)
@@ -79,15 +75,13 @@ class SetGameViewController: UIViewController, SetGameDelegate {
     
     @objc func tapTheCard(_ gesture: UITapGestureRecognizer) {
            if gesture.state == .ended, let cardView = gesture.view as? CardView {
-//                let index = deckView.cardViews.firstIndex(of: cardView)!
+            let index = deckView.cardViews.firstIndex(of: cardView)!
             cardView.state = (cardView.state == .selected) ? .unselected : .selected
-     //       deckView.bringSubviewToFront(cardView)
-            cardBehavior.addItem(cardView)
-//                game.chooseCard(at: index)
+            game.chooseCard(at: index)
            }
        }
     
-    @IBAction private func showHint(_ sender:UIButton) {
+    @IBAction func showHint(_ sender:UIButton) {
         game.findSetIfPossible()
         game.hintedIndexes.forEach {
             deckView.cardViews[$0].state = .hinted
@@ -95,11 +89,15 @@ class SetGameViewController: UIViewController, SetGameDelegate {
         updateLabels()
     }
     
+    @IBAction func newGame(_ sender: UIButton) {
+        
+    }
+    
     // MARK: - Helper function
     
     private func updateLabels() {
         scoreLabel.text = "Scores: \(SetGame.scores)"
-        matchesLabel.text = "Matches: \(game.matchesFound)"
+        scoreCountLabel?.text = "Matches: \(game.matchesFound)"
     }
     
     
@@ -107,7 +105,10 @@ class SetGameViewController: UIViewController, SetGameDelegate {
     
     func setWasFound() {
         updateLabels()
-//        replaceFoundCards()
+        selectedCards.forEach {
+            deckView.bringSubviewToFront($0)
+            cardBehavior.addItem($0)
+        }
     }
     
     func deselectCard() {

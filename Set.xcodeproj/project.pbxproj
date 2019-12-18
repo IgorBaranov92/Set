@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		7801D61A23A2999C00721851 /* Circle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7801D61923A2999C00721851 /* Circle.swift */; };
 		7801D61E23A2A6B100721851 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7801D62023A2A6B100721851 /* Main.storyboard */; };
-		7862B8EF23AA10BF004F4510 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7862B8EE23AA10BF004F4510 /* ViewController.swift */; };
 		7899571F2376C58E00D593C0 /* DeckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7899571E2376C58E00D593C0 /* DeckView.swift */; };
 		78E2B7E423AA1DC7001EF3D0 /* ShakeAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E2B7E323AA1DC7001EF3D0 /* ShakeAnimation.swift */; };
 		78E2B7E623AA1E7B001EF3D0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E2B7E523AA1E7B001EF3D0 /* Constants.swift */; };
@@ -35,7 +34,6 @@
 		7801D62423A2A6B900721851 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
 		7801D62623A2A6BD00721851 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
 		7801D62823A2A6BE00721851 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
-		7862B8EE23AA10BF004F4510 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7899571E2376C58E00D593C0 /* DeckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckView.swift; sourceTree = "<group>"; };
 		78E2B7E323AA1DC7001EF3D0 /* ShakeAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShakeAnimation.swift; sourceTree = "<group>"; };
 		78E2B7E523AA1E7B001EF3D0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -126,7 +124,6 @@
 			isa = PBXGroup;
 			children = (
 				78EA347B236AB91F00798B3B /* SetGameViewController.swift */,
-				7862B8EE23AA10BF004F4510 /* ViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -222,7 +219,6 @@
 				78EA3478236AB91500798B3B /* Grid.swift in Sources */,
 				78EA3479236AB91500798B3B /* CardView.swift in Sources */,
 				78EA3472236AB90D00798B3B /* SetGame.swift in Sources */,
-				7862B8EF23AA10BF004F4510 /* ViewController.swift in Sources */,
 				78EA347F236AB91F00798B3B /* SetGameViewController.swift in Sources */,
 				7801D61A23A2999C00721851 /* Circle.swift in Sources */,
 				78E2B7E623AA1E7B001EF3D0 /* Constants.swift in Sources */,
