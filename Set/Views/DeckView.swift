@@ -16,6 +16,7 @@ class DeckView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         if deckCreated {
+            print("layout")
             grid.cellCount = cardViews.count
             grid.bounds = bounds
             cardViews.forEach { cardView in
@@ -36,6 +37,10 @@ class DeckView: UIView {
                 })
             }
         }
+        
+    }
+    
+    override func layoutIfNeeded() {
         
     }
     

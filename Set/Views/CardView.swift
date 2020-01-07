@@ -14,6 +14,7 @@ class CardView: UIView {
             case 3: shapeType = .wave
         default:break
         }
+        setNeedsDisplay()
         }}
     var filling = 1 { didSet {
         switch filling {
@@ -22,6 +23,7 @@ class CardView: UIView {
             case 3: fillingType = .striped
         default:break
         }
+        setNeedsDisplay()
         }}
     
     
@@ -34,7 +36,7 @@ class CardView: UIView {
         UIColor.white.setFill()
         rectPath.fill()
         layer.borderWidth = Constants.borderWidth
-        layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        layer.borderColor = state == .isFaceDown ? UIColor.clear.cgColor : #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1) 
         layer.cornerRadius = Constants.cardCornerRadius
         rectPath.addClip()
         switch state {

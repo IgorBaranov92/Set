@@ -3,7 +3,7 @@ import Foundation
 class SetGame {
     
     weak var delegate: SetGameDelegate?
-    private var noSetOnTheBoard: Bool { hintedIndexes.isEmpty }
+    private var setOnTheBoard: Bool { !hintedIndexes.isEmpty }
     static private(set) var scores = 0
 
     private(set) var deck = [Card]()
@@ -47,10 +47,10 @@ class SetGame {
         if visibleCards[index].isSelected {
             visibleCards[index].isSelected = false
             SetGame.scores -= Points.penaltyForDeselection
-            visibleCards[index].numberOfMismatchedInvolved += 1
             delegate?.deselectCard()
         } else {
             visibleCards[index].isSelected = true
+            visibleCards[index].numberOfMismatchedInvolved += 1
             if selectedCards.count == 3 { checkIfThreeSelectedCardsAreSet() }
         }
     }
@@ -70,8 +70,8 @@ class SetGame {
             } else {
                 delegate?.gameFinished()
             }
-        } else { 
-            SetGame.scores -= (Points.setWasNotFound + penalty)
+        } else {
+            SetGame.scores -= penalty
             delegate?.setNotFound()
         }
         for index in visibleCards.indices {
@@ -80,12 +80,11 @@ class SetGame {
     }
     
     private var isSet: Bool {
-//        let colors = Set(selectedCards.map{$0.color}).count
-//        let amount = Set(selectedCards.map{$0.amount}).count
-//        let filling = Set(selectedCards.map{$0.filling}).count
-//        let shape = Set(selectedCards.map{$0.shape}).count
-        return true
-//        return (colors != 2 && amount != 2 && filling != 2 && shape != 2)
+        let colors = Set(selectedCards.map{$0.color}).count
+        let amount = Set(selectedCards.map{$0.amount}).count
+        let filling = Set(selectedCards.map{$0.filling}).count
+        let shape = Set(selectedCards.map{$0.shape}).count
+        return (colors != 2 && amount != 2 && filling != 2 && shape != 2)
     }
     
     func findSetIfPossible() {
@@ -108,17 +107,15 @@ class SetGame {
     }
     
     
-    
-    
     private func foundSetCardFor(_ firstCard:Card,_ secondCard:Card) -> Card {
         let colorRawValue = firstCard.color.rawValue^secondCard.color.rawValue == 0 ? firstCard.color.rawValue : firstCard.color.rawValue^secondCard.color.rawValue
         let shapeRawValue = firstCard.shape.rawValue^secondCard.shape.rawValue == 0 ? firstCard.shape.rawValue : firstCard.shape.rawValue^secondCard.shape.rawValue
         let fillingRawValue = firstCard.filling.rawValue^secondCard.filling.rawValue == 0 ? firstCard.filling.rawValue : firstCard.filling.rawValue^secondCard.filling.rawValue
         let amountRawValue = firstCard.amount.rawValue^secondCard.amount.rawValue == 0 ? firstCard.amount.rawValue : firstCard.amount.rawValue^secondCard.amount.rawValue
         return Card(color: Card.Option(rawValue: colorRawValue)!,
-                       filling: Card.Option(rawValue: fillingRawValue)!,
-                       amount: Card.Option(rawValue: amountRawValue)!,
-                       shape: Card.Option(rawValue: shapeRawValue)!
+                  filling: Card.Option(rawValue: fillingRawValue)!,
+                   amount: Card.Option(rawValue: amountRawValue)!,
+                    shape: Card.Option(rawValue: shapeRawValue)!
         )
     }
 
@@ -127,7 +124,6 @@ class SetGame {
         static let penaltyForHint = 10
         static let penaltyForDeselection = 1
         static let setWasFound = 5
-        static let setWasNotFound = 3
         
     }
     

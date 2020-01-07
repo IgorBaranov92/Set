@@ -10,6 +10,7 @@ class SetGameViewController: UIViewController, SetGameDelegate {
     @IBOutlet weak var circle:Circle!
     
     private weak var scoreCountLabel: UILabel!
+    @IBOutlet weak var remainingCardsCountLabel: UILabel!
     private lazy var animator = UIDynamicAnimator(referenceView: deckView)
     private lazy var cardBehavior = CardBehavior(in: animator)
     
@@ -42,6 +43,7 @@ class SetGameViewController: UIViewController, SetGameDelegate {
         game.delegate = self
         deck.isHidden = false
         deckView.deckCreated = false
+        remainingCardsCountLabel.text = "\(game.deck.count)"
         game.visibleCards.forEach { addCardAt(game.visibleCards.firstIndex(of: $0)!) }
         enableUI(false)
         deckView.throwCardsOnDeck(completionHandler: { [weak self] in
@@ -68,6 +70,7 @@ class SetGameViewController: UIViewController, SetGameDelegate {
     @objc private func dealThreeCards(_ recognizer:UITapGestureRecognizer) {
         if recognizer.state == .ended && game.deck.count > 0 {
             game.draw()
+            remainingCardsCountLabel.text = "\(game.deck.count)"
             for index in game.visibleCards.count - 3 ... game.visibleCards.count - 1 {
                 addCardAt(index)
             }
@@ -75,6 +78,11 @@ class SetGameViewController: UIViewController, SetGameDelegate {
         }
    }
 
+    private func insertNewCards() {
+        if game.deck.count > 0 {
+            
+        }
+    }
     
     @objc func tapTheCard(_ gesture: UITapGestureRecognizer) {
            if gesture.state == .ended, let cardView = gesture.view as? CardView {
@@ -110,10 +118,20 @@ class SetGameViewController: UIViewController, SetGameDelegate {
     
     func setWasFound() {
         updateLabels()
-        selectedCards.forEach {
-            view.bringSubviewToFront($0)
-            cardBehavior.addItem($0)
-            $0.state = .unselected
+        selectedCards.forEach { cardView in
+//            view.bringSubviewToFront($0)
+//            cardBehavior.addItem($0)
+//            $0.state = .unselected
+            UIViewPropertyAnimator.runningPropertyAnimator(
+                withDuration: 1.5,
+                delay: 0.0,
+                options: .curveLinear,
+                animations: {
+                    cardView.frame = CGRect(x: self.view.bounds.width - 16 - self.deck.bounds.width, y: self.deckView.bounds.height, width: self.deck.bounds.width, height: self.deck.bounds.height)
+            }) { if $0 == .end {
+                    
+                    }
+            }
         }
     }
     
