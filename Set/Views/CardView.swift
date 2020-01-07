@@ -1,7 +1,8 @@
 import UIKit
 
 class CardView: UIView {
-
+    
+    
     var state:State = .isFaceDown { didSet { setNeedsDisplay() }}
 
     var amount = 1 { didSet { setNeedsDisplay() }}

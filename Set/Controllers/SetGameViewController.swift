@@ -4,12 +4,12 @@ class SetGameViewController: UIViewController, SetGameDelegate {
     
     var game = SetGame()
 
-    @IBOutlet private weak var scoreLabel: UILabel!
-    @IBOutlet private weak var scoreCountLabel: UILabel!
-    @IBOutlet private weak var deckView: DeckView!
-    @IBOutlet private weak var deck:UIImageView!
-    @IBOutlet private weak var circle:Circle!
+    @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var deckView: DeckView!
+    @IBOutlet weak var deck: CardView!
+    @IBOutlet weak var circle:Circle!
     
+    private weak var scoreCountLabel: UILabel!
     private lazy var animator = UIDynamicAnimator(referenceView: deckView)
     private lazy var cardBehavior = CardBehavior(in: animator)
     
@@ -41,6 +41,7 @@ class SetGameViewController: UIViewController, SetGameDelegate {
         game = SetGame()
         game.delegate = self
         deck.isHidden = false
+        deckView.deckCreated = false
         game.visibleCards.forEach { addCardAt(game.visibleCards.firstIndex(of: $0)!) }
         enableUI(false)
         deckView.throwCardsOnDeck(completionHandler: { [weak self] in
@@ -58,13 +59,12 @@ class SetGameViewController: UIViewController, SetGameDelegate {
         cardView.state = .isFaceDown
         cardView.backgroundColor = .clear
         deckView.cardViews.append(cardView)
-        cardView.frame = CGRect(x: 17, y: deckView.bounds.height, width: deck.bounds.width-1, height: deck.bounds.height)
+        cardView.frame = CGRect(x: 16, y: deckView.bounds.height, width: deck.bounds.width, height: deck.bounds.height)
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapTheCard(_:)))
         cardView.addGestureRecognizer(tapGestureRecognizer)
     }
     
     
-       
     @objc private func dealThreeCards(_ recognizer:UITapGestureRecognizer) {
         if recognizer.state == .ended && game.deck.count > 0 {
             game.draw()
@@ -93,7 +93,9 @@ class SetGameViewController: UIViewController, SetGameDelegate {
     }
     
     @IBAction func newGame(_ sender: UIButton) {
-        
+        deckView.cardViews.forEach { $0.isHidden = true }
+        deckView.cardViews.removeAll()
+        newGame()
     }
     
     // MARK: - Helper function

@@ -2,7 +2,7 @@ import UIKit
 
 class DeckView: UIView {
 
-    private(set) var deckCreated = false
+    var deckCreated = false
     
     var cardViews = [CardView]() { didSet {
         cardViews.forEach {

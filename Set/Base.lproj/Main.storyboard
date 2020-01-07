@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cca-KK-Bb2">
-    <device id="retina5_9" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
@@ -13,11 +13,11 @@
             <objects>
                 <viewController id="cca-KK-Bb2" customClass="SetGameViewController" customModule="Set" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="e2u-4L-Kte">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view hidden="YES" contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Mbf-E7-chZ" customClass="Circle" customModule="Set" customModuleProvider="target">
-                                <rect key="frame" x="37.666666666666657" y="256" width="300" height="300"/>
+                                <rect key="frame" x="57" y="298" width="300" height="300"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="Yo1-X5-B0B"/>
@@ -25,38 +25,21 @@
                                 </constraints>
                             </view>
                             <view contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="qjS-x0-nP6" customClass="DeckView" customModule="Set" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="88" width="375" height="620"/>
+                                <rect key="frame" x="0.0" y="73" width="414" height="719"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Scores: 0" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="igO-5q-cgC">
-                                <rect key="frame" x="16" y="44" width="122" height="36"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <rect key="frame" x="16" y="44" width="94" height="29"/>
+                                <fontDescription key="fontDescription" name="Cochin" family="Cochin" pointSize="25"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oeJ-36-Q35">
-                                <rect key="frame" x="337" y="44" width="30" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="k2K-WW-wYA"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                <state key="normal" title="?">
-                                    <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                </state>
-                                <connections>
-                                    <action selector="showHint:" destination="cca-KK-Bb2" eventType="touchUpInside" id="UHW-lO-r7o"/>
-                                </connections>
-                            </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SetBackground" translatesAutoresizingMaskIntoConstraints="NO" id="luM-Nj-Gez">
-                                <rect key="frame" x="16" y="708" width="108" height="70"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="108" id="Mpr-gh-Oua"/>
-                                    <constraint firstAttribute="height" constant="70" id="YWb-B9-tit"/>
-                                </constraints>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lRi-jw-q5i">
-                                <rect key="frame" x="209" y="44" width="120" height="44"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <rect key="frame" x="257" y="44" width="111" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="29" id="pQN-15-LEH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Cochin" family="Cochin" pointSize="25"/>
                                 <state key="normal" title="New game">
                                     <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 </state>
@@ -64,41 +47,59 @@
                                     <action selector="newGame:" destination="cca-KK-Bb2" eventType="touchUpInside" id="dEM-8S-Mfp"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oeJ-36-Q35">
+                                <rect key="frame" x="376" y="44" width="30" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="29" id="k2K-WW-wYA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="?">
+                                    <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="showHint:" destination="cca-KK-Bb2" eventType="touchUpInside" id="UHW-lO-r7o"/>
+                                </connections>
+                            </button>
+                            <view userInteractionEnabled="NO" contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="o1h-AQ-rcD" customClass="CardView" customModule="Set" customModuleProvider="target">
+                                <rect key="frame" x="16" y="792" width="112" height="70"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="o1h-AQ-rcD" secondAttribute="height" multiplier="8:5" id="96l-GP-7O9"/>
+                                    <constraint firstAttribute="height" constant="70" id="jtY-mL-B1A"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="luM-Nj-Gez" firstAttribute="bottom" secondItem="aA3-Fq-TSv" secondAttribute="bottom" id="Att-TX-LpQ"/>
+                            <constraint firstItem="o1h-AQ-rcD" firstAttribute="bottom" secondItem="aA3-Fq-TSv" secondAttribute="bottom" id="0QT-Iu-i4U"/>
                             <constraint firstItem="qjS-x0-nP6" firstAttribute="leading" secondItem="aA3-Fq-TSv" secondAttribute="leading" id="DNT-Nf-Bjn"/>
                             <constraint firstItem="Mbf-E7-chZ" firstAttribute="centerX" secondItem="e2u-4L-Kte" secondAttribute="centerX" id="PCy-Di-dhx"/>
                             <constraint firstItem="aA3-Fq-TSv" firstAttribute="trailing" secondItem="igO-5q-cgC" secondAttribute="trailing" priority="250" constant="237" id="U0w-s0-l8h"/>
                             <constraint firstItem="qjS-x0-nP6" firstAttribute="trailing" secondItem="aA3-Fq-TSv" secondAttribute="trailing" id="UHV-Og-3zl"/>
                             <constraint firstItem="Mbf-E7-chZ" firstAttribute="centerY" secondItem="e2u-4L-Kte" secondAttribute="centerY" id="YDr-xI-aWH"/>
                             <constraint firstItem="lRi-jw-q5i" firstAttribute="top" secondItem="aA3-Fq-TSv" secondAttribute="top" id="ZNg-yO-rm0"/>
-                            <constraint firstItem="luM-Nj-Gez" firstAttribute="leading" secondItem="aA3-Fq-TSv" secondAttribute="leading" constant="16" id="ZwO-mN-xk6"/>
                             <constraint firstItem="qjS-x0-nP6" firstAttribute="top" secondItem="lRi-jw-q5i" secondAttribute="bottom" id="arl-XS-TuT"/>
                             <constraint firstItem="aA3-Fq-TSv" firstAttribute="trailing" secondItem="oeJ-36-Q35" secondAttribute="trailing" constant="8" id="asM-Tz-N4h"/>
                             <constraint firstItem="igO-5q-cgC" firstAttribute="top" secondItem="aA3-Fq-TSv" secondAttribute="top" id="cqN-5i-Vtq"/>
+                            <constraint firstItem="lRi-jw-q5i" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="igO-5q-cgC" secondAttribute="trailing" priority="250" constant="92" id="d5A-1v-d7g"/>
                             <constraint firstItem="oeJ-36-Q35" firstAttribute="leading" secondItem="lRi-jw-q5i" secondAttribute="trailing" constant="8" id="d96-BA-IlL"/>
+                            <constraint firstItem="o1h-AQ-rcD" firstAttribute="top" secondItem="qjS-x0-nP6" secondAttribute="bottom" id="dLx-4O-Nvk"/>
                             <constraint firstItem="igO-5q-cgC" firstAttribute="leading" secondItem="aA3-Fq-TSv" secondAttribute="leading" constant="16" id="e5o-XV-Nqx"/>
-                            <constraint firstItem="luM-Nj-Gez" firstAttribute="top" secondItem="qjS-x0-nP6" secondAttribute="bottom" id="gcA-vx-Fba"/>
-                            <constraint firstItem="lRi-jw-q5i" firstAttribute="leading" secondItem="aA3-Fq-TSv" secondAttribute="leading" priority="250" constant="209" id="iNa-ge-0uz"/>
+                            <constraint firstItem="o1h-AQ-rcD" firstAttribute="leading" secondItem="aA3-Fq-TSv" secondAttribute="leading" constant="16" id="mjF-D4-NDb"/>
                             <constraint firstItem="oeJ-36-Q35" firstAttribute="top" secondItem="aA3-Fq-TSv" secondAttribute="top" id="ns6-3T-F3y"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="aA3-Fq-TSv"/>
                     </view>
                     <connections>
                         <outlet property="circle" destination="Mbf-E7-chZ" id="vPg-Dd-fT8"/>
-                        <outlet property="deck" destination="luM-Nj-Gez" id="ujF-Ue-Hnw"/>
+                        <outlet property="deck" destination="o1h-AQ-rcD" id="yDE-SR-xWM"/>
                         <outlet property="deckView" destination="qjS-x0-nP6" id="li7-Mx-UFU"/>
                         <outlet property="scoreLabel" destination="igO-5q-cgC" id="jvP-na-hyY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JYd-kq-12m" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-247.19999999999999" y="101.97044334975369"/>
+            <point key="canvasLocation" x="-247.82608695652175" y="101.78571428571428"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="SetBackground" width="315" height="206"/>
-    </resources>
 </document>
