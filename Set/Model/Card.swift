@@ -7,6 +7,7 @@ struct Card {
     private(set) var filling: Option
     private(set) var amount: Option
     private(set) var shape : Option
+    
     var numberOfMismatchedInvolved = 0
     var isSelected = false
     var isHinted = false

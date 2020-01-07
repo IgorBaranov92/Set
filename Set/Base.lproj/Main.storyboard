@@ -11,7 +11,6 @@
         <!--Set Game View Controller-->
         <scene sceneID="aZy-Zn-RHH">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="JYd-kq-12m" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="cca-KK-Bb2" customClass="SetGameViewController" customModule="Set" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="e2u-4L-Kte">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
@@ -26,7 +25,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="qjS-x0-nP6" customClass="DeckView" customModule="Set" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="88" width="375" height="640"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="620"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Scores: 0" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="igO-5q-cgC">
@@ -49,10 +48,10 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SetBackground" translatesAutoresizingMaskIntoConstraints="NO" id="luM-Nj-Gez">
-                                <rect key="frame" x="8" y="728" width="75" height="50"/>
+                                <rect key="frame" x="16" y="708" width="108" height="70"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="75" id="Bje-Kx-rz6"/>
-                                    <constraint firstAttribute="height" constant="50" id="YWb-B9-tit"/>
+                                    <constraint firstAttribute="width" constant="108" id="Mpr-gh-Oua"/>
+                                    <constraint firstAttribute="height" constant="70" id="YWb-B9-tit"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lRi-jw-q5i">
@@ -75,7 +74,7 @@
                             <constraint firstItem="qjS-x0-nP6" firstAttribute="trailing" secondItem="aA3-Fq-TSv" secondAttribute="trailing" id="UHV-Og-3zl"/>
                             <constraint firstItem="Mbf-E7-chZ" firstAttribute="centerY" secondItem="e2u-4L-Kte" secondAttribute="centerY" id="YDr-xI-aWH"/>
                             <constraint firstItem="lRi-jw-q5i" firstAttribute="top" secondItem="aA3-Fq-TSv" secondAttribute="top" id="ZNg-yO-rm0"/>
-                            <constraint firstItem="luM-Nj-Gez" firstAttribute="leading" secondItem="aA3-Fq-TSv" secondAttribute="leading" constant="8" id="ZwO-mN-xk6"/>
+                            <constraint firstItem="luM-Nj-Gez" firstAttribute="leading" secondItem="aA3-Fq-TSv" secondAttribute="leading" constant="16" id="ZwO-mN-xk6"/>
                             <constraint firstItem="qjS-x0-nP6" firstAttribute="top" secondItem="lRi-jw-q5i" secondAttribute="bottom" id="arl-XS-TuT"/>
                             <constraint firstItem="aA3-Fq-TSv" firstAttribute="trailing" secondItem="oeJ-36-Q35" secondAttribute="trailing" constant="8" id="asM-Tz-N4h"/>
                             <constraint firstItem="igO-5q-cgC" firstAttribute="top" secondItem="aA3-Fq-TSv" secondAttribute="top" id="cqN-5i-Vtq"/>
@@ -94,6 +93,7 @@
                         <outlet property="scoreLabel" destination="igO-5q-cgC" id="jvP-na-hyY"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JYd-kq-12m" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-247.19999999999999" y="101.97044334975369"/>
         </scene>

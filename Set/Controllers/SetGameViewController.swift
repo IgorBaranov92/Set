@@ -40,16 +40,17 @@ class SetGameViewController: UIViewController, SetGameDelegate {
     private func newGame() {
         game = SetGame()
         game.delegate = self
+        deck.isHidden = false
         game.visibleCards.forEach { addCardAt(game.visibleCards.firstIndex(of: $0)!) }
         enableUI(false)
-        deckView.throwCardsOnDeck(completionHandler: {
-            self.enableUI(true)
+        deckView.throwCardsOnDeck(completionHandler: { [weak self] in
+            self?.enableUI(true)
         })
      }
     
      
     private func addCardAt(_ index: Int) {
-        let cardView = CardView(frame: CGRect(origin: CGPoint(x: view.bounds.maxX, y:       view.bounds.maxY), size: CGSize.zero))
+        let cardView = CardView()
         cardView.amount = game.visibleCards[index].amount.rawValue
         cardView.shape = game.visibleCards[index].shape.rawValue
         cardView.filling = game.visibleCards[index].filling.rawValue
@@ -57,6 +58,7 @@ class SetGameViewController: UIViewController, SetGameDelegate {
         cardView.state = .isFaceDown
         cardView.backgroundColor = .clear
         deckView.cardViews.append(cardView)
+        cardView.frame = CGRect(x: 17, y: deckView.bounds.height, width: deck.bounds.width-1, height: deck.bounds.height)
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapTheCard(_:)))
         cardView.addGestureRecognizer(tapGestureRecognizer)
     }
@@ -69,6 +71,7 @@ class SetGameViewController: UIViewController, SetGameDelegate {
             for index in game.visibleCards.count - 3 ... game.visibleCards.count - 1 {
                 addCardAt(index)
             }
+            if game.deck.isEmpty { deck.isHidden = true }
         }
    }
 
@@ -106,8 +109,9 @@ class SetGameViewController: UIViewController, SetGameDelegate {
     func setWasFound() {
         updateLabels()
         selectedCards.forEach {
-            deckView.bringSubviewToFront($0)
+            view.bringSubviewToFront($0)
             cardBehavior.addItem($0)
+            $0.state = .unselected
         }
     }
     

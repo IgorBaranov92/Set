@@ -14,6 +14,7 @@ class SetGame {
         selectedCards.map { Int($0.numberOfMismatchedInvolved) }
                      .reduce(0) { $0 + $1 }
     }
+    
     private(set) var hintedIndexes = [Int]()
     
     init() {
