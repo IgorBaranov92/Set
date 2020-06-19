@@ -5,12 +5,14 @@ class SetGameViewController: UIViewController, SetGameDelegate {
     var game = SetGame()
 
     @IBOutlet weak var scoreLabel: UILabel!
-    @IBOutlet weak var deckView: DeckView!
+    @IBOutlet weak var deckView: DeckView! { didSet {
+        deckView.addGestureRecognizer(UIRotationGestureRecognizer(target: self, action: #selector(shuffle(by:))))
+        }}
     @IBOutlet weak var deck: CardView!
     @IBOutlet weak var circle:Circle!
-    
-    private weak var scoreCountLabel: UILabel!
     @IBOutlet weak var remainingCardsCountLabel: UILabel!
+
+    private weak var scoreCountLabel: UILabel!
     private lazy var animator = UIDynamicAnimator(referenceView: deckView)
     private lazy var cardBehavior = CardBehavior(in: animator)
     
@@ -93,12 +95,23 @@ class SetGameViewController: UIViewController, SetGameDelegate {
        }
     
     @IBAction func showHint(_ sender:UIButton) {
-        game.findSetIfPossible()
-        game.hintedIndexes.forEach {
-            deckView.cardViews[$0].state = .hinted
-        }
-        updateLabels()
+        game.findSetIfPossible(success: {
+            self.game.hintedIndexes.forEach {
+                self.deckView.cardViews[$0].state = .hinted
+            }
+            self.updateLabels()
+            DispatchQueue.main.asyncAfter(deadline: .now() + Constants.hintedCardsVisibilityDuration) {
+                self.resetHintedCards()
+            }
+        })
     }
+    
+    @objc private func resetHintedCards() {
+        deckView.cardViews.forEach {
+            if $0.state == .hinted { $0.state = .unselected }
+        }
+    }
+    
     
     @IBAction func newGame(_ sender: UIButton) {
         deckView.cardViews.forEach { $0.isHidden = true }
@@ -118,7 +131,8 @@ class SetGameViewController: UIViewController, SetGameDelegate {
     
     func setWasFound() {
         updateLabels()
-        selectedCards.forEach { cardView in
+        let tmpCards = selectedCards
+        tmpCards.forEach { cardView in
 //            view.bringSubviewToFront($0)
 //            cardBehavior.addItem($0)
 //            $0.state = .unselected
@@ -149,6 +163,10 @@ class SetGameViewController: UIViewController, SetGameDelegate {
     }
     
     
+    private func updateViewFromModel() {
+        
+    }
+    
     private func enableUI(_ isUserInteractionEnabled: Bool) {
         deckView.cardViews.forEach { $0.isUserInteractionEnabled = isUserInteractionEnabled }
         view.isUserInteractionEnabled = isUserInteractionEnabled
@@ -162,6 +180,11 @@ class SetGameViewController: UIViewController, SetGameDelegate {
                 self.enableUI(true)
             }
         }
+    }
+    
+    
+    @objc private func shuffle(by recognizer: UIRotationGestureRecognizer) {
+        
     }
     
 }

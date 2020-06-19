@@ -4,12 +4,7 @@ class DeckView: UIView {
 
     var deckCreated = false
     
-    var cardViews = [CardView]() { didSet {
-        cardViews.forEach {
-            addSubview($0)
-            $0.contentMode = .redraw
-        }
-    }}
+    var cardViews = [CardView]()
 
     private lazy var grid = Grid(layout: .aspectRatio(Constants.setCardViewAspectRatio),                                 frame: bounds)
     
@@ -39,17 +34,39 @@ class DeckView: UIView {
         }
         
     }
-    
-    override func layoutIfNeeded() {
-        
+
+    func addNewCards(_ cards:[CardView]) {
+        cardViews += cards
+        cards.forEach {
+            addSubview($0)
+            $0.contentMode = .redraw
+        }
+        layoutIfNeeded()
     }
+    
+    func removeCard(_ cards:[CardView]) {
+        cards.forEach {
+            cardViews.remove(at: cardViews.firstIndex(of: $0) ?? 0)
+            $0.removeFromSuperview()
+        }
+        layoutIfNeeded()
+    }
+    
+    func removeAll() {
+        cardViews.forEach {
+            $0.removeFromSuperview()
+        }
+        cardViews.removeAll()
+        layoutIfNeeded()
+    }
+    
     
     func throwCardsOnDeck(completionHandler: @escaping ()->Void) {
         grid.cellCount = cardViews.count
         grid.bounds = bounds
         for index in cardViews.indices {
             UIViewPropertyAnimator.runningPropertyAnimator(
-            withDuration: Constants.durationForThrowingCard,
+            withDuration: Constants.durationThrowingCard,
                    delay: Double(index+1)*0.2,
                  options: .curveLinear,
               animations: {self.cardViews[index].frame = self.grid[index] ?? CGRect.zero},

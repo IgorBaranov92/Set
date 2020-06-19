@@ -3,7 +3,7 @@ import Foundation
 class SetGame {
     
     weak var delegate: SetGameDelegate?
-    private var setOnTheBoard: Bool { !hintedIndexes.isEmpty }
+    var setOnTheBoard: Bool { !hintedIndexes.isEmpty }
     static private(set) var scores = 0
 
     private(set) var deck = [Card]()
@@ -55,6 +55,9 @@ class SetGame {
         }
     }
     
+    func shuffle() {
+        visibleCards.shuffle()
+    }
     
     private func checkIfThreeSelectedCardsAreSet() {
         if isSet {
@@ -87,7 +90,7 @@ class SetGame {
         return (colors != 2 && amount != 2 && filling != 2 && shape != 2)
     }
     
-    func findSetIfPossible() {
+    func findSetIfPossible(success completion:@escaping () -> Void) {
         hintedIndexes.removeAll()
         for i in visibleCards.indices {
             for j in i + 1...visibleCards.count-2 {
@@ -99,6 +102,7 @@ class SetGame {
                     hintedIndexes.append(j)
                     hintedIndexes.append(visibleCards.firstIndex(of: thirdCard)!)
                     SetGame.scores -= Points.penaltyForHint
+                    completion()
                     break
                 }
             }
