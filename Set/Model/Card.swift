@@ -1,7 +1,7 @@
 import Foundation
 
 
-struct Card {
+struct Card: Codable {
 
     private(set) var color: Option
     private(set) var filling: Option
@@ -12,7 +12,7 @@ struct Card {
     var isSelected = false
     var isHinted = false
     
-    enum Option: Int,CaseIterable {
+    enum Option: Int,CaseIterable, Codable {
         case one = 1
         case two = 2
         case three = 3

@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 
-extension Array {
+extension Array where Element:Equatable {
     mutating func removeRandomElement() -> Element {
         return remove(at: Int.random(in: 0..<self.count))
     }

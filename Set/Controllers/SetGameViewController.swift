@@ -14,7 +14,6 @@ class SetGameViewController: UIViewController, SetGameDelegate {
 
     private weak var scoreCountLabel: UILabel!
     private lazy var animator = UIDynamicAnimator(referenceView: deckView)
-    private lazy var cardBehavior = CardBehavior(in: animator)
     
     private var selectedCards: [CardView] {
         deckView.cardViews.filter { $0.state == .selected && !$0.isHidden }
@@ -35,7 +34,6 @@ class SetGameViewController: UIViewController, SetGameDelegate {
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        cardBehavior.snapPoint = view.center
     }
     
     // MARK: - Game process
@@ -133,9 +131,6 @@ class SetGameViewController: UIViewController, SetGameDelegate {
         updateLabels()
         let tmpCards = selectedCards
         tmpCards.forEach { cardView in
-//            view.bringSubviewToFront($0)
-//            cardBehavior.addItem($0)
-//            $0.state = .unselected
             UIViewPropertyAnimator.runningPropertyAnimator(
                 withDuration: 1.5,
                 delay: 0.0,

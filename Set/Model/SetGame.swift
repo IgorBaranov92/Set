@@ -1,16 +1,17 @@
 import Foundation
 
-class SetGame {
+class SetGame: Codable {
     
     weak var delegate: SetGameDelegate?
-    var setOnTheBoard: Bool { !hintedIndexes.isEmpty }
     static private(set) var scores = 0
 
     private(set) var deck = [Card]()
     private(set) var visibleCards = [Card]()
     private(set) var matchesFound = 0
-    private var selectedCards:[Card] { visibleCards.filter { $0.isSelected } }
-    private var penalty: Int {
+    
+    var setOnTheBoard: Bool { !hintedIndexes.isEmpty }
+    var selectedCards:[Card] { visibleCards.filter { $0.isSelected } }
+    var penalty: Int {
         selectedCards.map { Int($0.numberOfMismatchedInvolved) }
                      .reduce(0) { $0 + $1 }
     }
@@ -131,6 +132,28 @@ class SetGame {
         
     }
     
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        matchesFound = try container.decode(Int.self, forKey: .matchesFound)
+        deck = try container.decode([Card].self, forKey: .deck)
+        visibleCards = try container.decode([Card].self, forKey: .visibleCards)
+        SetGame.scores = try container.decode(Int.self, forKey: .scores)
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(matchesFound, forKey: .matchesFound)
+        try container.encode(deck, forKey: .deck)
+        try container.encode(visibleCards, forKey: .visibleCards)
+        try container.encode(SetGame.scores, forKey: .scores)
+    }
+    
+    private enum CodingKeys:String,CodingKey {
+        case matchesFound = "matchesFound"
+        case deck = "deck"
+        case visibleCards = "visibleCards"
+        case scores = "scores"
+    }
 }
 
 
