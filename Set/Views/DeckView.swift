@@ -61,7 +61,7 @@ class DeckView: UIView {
     }
     
     
-    func throwCardsOnDeck(completionHandler: @escaping ()->Void) {
+    func throwCardsOnDeck(completionHandler: @escaping ()-> Void) {
         grid.cellCount = cardViews.count
         grid.bounds = bounds
         for index in cardViews.indices {

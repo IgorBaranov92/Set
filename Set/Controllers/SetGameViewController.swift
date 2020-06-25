@@ -32,9 +32,6 @@ class SetGameViewController: UIViewController, SetGameDelegate {
         if !deckView.deckCreated { newGame() }
     }
     
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-    }
     
     // MARK: - Game process
     
@@ -61,6 +58,7 @@ class SetGameViewController: UIViewController, SetGameDelegate {
         cardView.state = .isFaceDown
         cardView.backgroundColor = .clear
         deckView.cardViews.append(cardView)
+        deckView.addSubview(cardView)
         cardView.frame = CGRect(x: 16, y: deckView.bounds.height, width: deck.bounds.width, height: deck.bounds.height)
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapTheCard(_:)))
         cardView.addGestureRecognizer(tapGestureRecognizer)

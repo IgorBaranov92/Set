@@ -3,12 +3,13 @@ import Foundation
 class SetGame: Codable {
     
     weak var delegate: SetGameDelegate?
+    
     static private(set) var scores = 0
-
     private(set) var deck = [Card]()
     private(set) var visibleCards = [Card]()
     private(set) var matchesFound = 0
-    
+    private(set) var hintedIndexes = [Int]()
+
     var setOnTheBoard: Bool { !hintedIndexes.isEmpty }
     var selectedCards:[Card] { visibleCards.filter { $0.isSelected } }
     var penalty: Int {
@@ -16,7 +17,6 @@ class SetGame: Codable {
                      .reduce(0) { $0 + $1 }
     }
     
-    private(set) var hintedIndexes = [Int]()
     
     init() {
         matchesFound = 0
@@ -137,6 +137,7 @@ class SetGame: Codable {
         matchesFound = try container.decode(Int.self, forKey: .matchesFound)
         deck = try container.decode([Card].self, forKey: .deck)
         visibleCards = try container.decode([Card].self, forKey: .visibleCards)
+        hintedIndexes = try container.decode([Int].self, forKey: .hinted)
         SetGame.scores = try container.decode(Int.self, forKey: .scores)
     }
     
@@ -145,6 +146,7 @@ class SetGame: Codable {
         try container.encode(matchesFound, forKey: .matchesFound)
         try container.encode(deck, forKey: .deck)
         try container.encode(visibleCards, forKey: .visibleCards)
+        try container.encode(hintedIndexes, forKey: .hinted)
         try container.encode(SetGame.scores, forKey: .scores)
     }
     
@@ -153,6 +155,7 @@ class SetGame: Codable {
         case deck = "deck"
         case visibleCards = "visibleCards"
         case scores = "scores"
+        case hinted = "hinted"
     }
 }
 
