@@ -1,10 +1,10 @@
 import UIKit
 
-class SetDeckView: UIView {
+class DeckView: UIView {
 
     var deckCreated = false
     
-    var cardViews = [SetCardView]() { didSet {
+    var cardViews = [CardView]() { didSet {
         cardViews.forEach {
             addSubview($0)
             $0.contentMode = .redraw
